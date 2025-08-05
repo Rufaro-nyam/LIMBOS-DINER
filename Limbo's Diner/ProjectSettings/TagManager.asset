@@ -8,6 +8,9 @@ TagManager:
   - Plate
   - Cooked_meat
   - Pan
+  - Chopping_board
+  - Bread
+  - Cut_bread
   layers:
   - Default
   - TransparentFX

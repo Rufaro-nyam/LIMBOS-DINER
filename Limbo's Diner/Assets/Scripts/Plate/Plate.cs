@@ -8,6 +8,7 @@ public class Plate : MonoBehaviour
 
     //SINGLES
     public GameObject cooked_meat;
+    public GameObject cut_bread;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +29,21 @@ public class Plate : MonoBehaviour
             if (slotpos[i].activeSelf == true) 
             {
                 cooked_meat.transform.position = slotpos[i].transform.position;
+                slotpos[i].SetActive(false);
+                print(slotpos[i]);
+                break;
+            }
+        }
+    }
+
+    public void add_chopped_bread()
+    {
+        cut_bread.SetActive(true);
+        for (int i = 0; i < slotpos.Length; i++)
+        {
+            if (slotpos[i].activeSelf == true)
+            {
+                cut_bread.transform.position = slotpos[i].transform.position;
                 slotpos[i].SetActive(false);
                 print(slotpos[i]);
                 break;
