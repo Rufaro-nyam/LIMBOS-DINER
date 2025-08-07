@@ -98,7 +98,7 @@ public class Hands : MonoBehaviour
                     occupied = true;
                     lettuce_active = true;
                 }
-                if (hit.transform.tag == "Cut_lettuce")
+                if (hit.transform.tag == "Cut_letuce")
                 {
                     disable_rest();
                     occupied = true;

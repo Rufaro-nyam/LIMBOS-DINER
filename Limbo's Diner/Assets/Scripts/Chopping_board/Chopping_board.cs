@@ -88,7 +88,7 @@ public class Chopping_board : MonoBehaviour
         current_prog = 0.0f;
 
         //lettuce
-        cut_lettuce_gfx.SetActive(true);
+        cut_lettuce_gfx.SetActive(false);
         current_prog = 0.0f;
         cutting_lettuce = false;
         current_prog = 0.0f;
