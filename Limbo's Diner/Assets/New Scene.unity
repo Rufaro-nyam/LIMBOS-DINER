@@ -5514,7 +5514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &503780823
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17443,6 +17443,7 @@ MonoBehaviour:
   cutting_bread: 0
   bread_gfx: {fileID: 300126168}
   cut_bread_gfx: {fileID: 25360177}
+  cut_lettuce: {fileID: 0}
   occupied: 0
 --- !u!1 &1917856780
 GameObject:

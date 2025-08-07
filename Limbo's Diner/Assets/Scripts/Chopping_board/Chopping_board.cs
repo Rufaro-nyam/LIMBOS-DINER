@@ -7,15 +7,21 @@ public class Chopping_board : MonoBehaviour
     [SerializeField] private Image progressbar;
     [SerializeField] private float max_prog = 10f;
 
+
     private float current_prog;
 
 
     //COOKING CONDITIONS
     public bool cutting_bread;
+    public bool cutting_lettuce;
 
-    //GFX
+    //GFX FOOD
     public GameObject bread_gfx;
+    public GameObject lettuce_gfx;
+
+    //GFX PROCESSED FOOD
     public GameObject cut_bread_gfx;
+    public GameObject cut_lettuce_gfx;
 
     //OCCUPATION
     public bool occupied = false;
@@ -41,6 +47,20 @@ public class Chopping_board : MonoBehaviour
                 cut_bread_gfx.SetActive(true);
             }
         }
+
+        //CUTTING LETTUCE
+        if (cutting_lettuce)
+        {
+            current_prog += 0.5f * Time.deltaTime;
+            progressbar.fillAmount = current_prog / max_prog;
+            if (current_prog >= max_prog)
+            {
+                cutting_lettuce = false;
+                current_prog = 0f;
+                lettuce_gfx.SetActive(false);
+                cut_lettuce_gfx.SetActive(true);
+            }
+        }
     }
 
 
@@ -52,11 +72,25 @@ public class Chopping_board : MonoBehaviour
         occupied = false;
     }
 
+    public void cut_lettuce()
+    {
+        lettuce_gfx.SetActive(true);
+        cutting_lettuce = true;
+        occupied = false;
+    }
+
     public void food_collect()
     {
+        //bread
         cut_bread_gfx.SetActive(false);
         current_prog = 0.0f;
         cutting_bread = false;
+        current_prog = 0.0f;
+
+        //lettuce
+        cut_lettuce_gfx.SetActive(true);
+        current_prog = 0.0f;
+        cutting_lettuce = false;
         current_prog = 0.0f;
     }
 }
