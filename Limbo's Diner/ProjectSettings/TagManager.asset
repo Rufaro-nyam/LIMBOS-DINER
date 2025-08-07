@@ -11,6 +11,8 @@ TagManager:
   - Chopping_board
   - Bread
   - Cut_bread
+  - Lettuce
+  - Cut_letuce
   layers:
   - Default
   - TransparentFX

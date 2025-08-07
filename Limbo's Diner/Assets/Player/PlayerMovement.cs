@@ -36,10 +36,10 @@ public class PlayerMovement : MonoBehaviour
     {
         //is_grounded = Physics.CheckSphere(transform.position, -2.0f, groundlayer);
         
-        if (is_grounded) 
+        if (controller.isGrounded) 
         {
             VerticalVelocity.y = 0;
-            print("grounded");
+            //print("grounded");
         }
 
         Vector3 Horizontalvelocity = (transform.right * horizontalinput.x + transform.forward * horizontalinput.y) * speed;
@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (jump) 
         {
-            if (is_grounded) 
+            if (controller.isGrounded) 
             {
                 VerticalVelocity.y = Mathf.Sqrt(-2f * jumpheight * gravity);
             }
