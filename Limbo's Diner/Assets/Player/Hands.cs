@@ -73,6 +73,7 @@ public class Hands : MonoBehaviour
                     cooked_meat_gfx.SetActive(true);
                     occupied = true;
                     pan.food_collect();
+                    cooked_meat_active = true;
                 }
                 if (hit.transform.tag == "Bread")
                 {
@@ -175,6 +176,7 @@ public class Hands : MonoBehaviour
                         disable_rest();
                         cut_lettuce_active = false;
                         occupied = false;
+                        plate.add_cut_lettuce();
                         //cut_bread_gfx.SetActive(false);
                         //plate.add_chopped_bread();
                     }
