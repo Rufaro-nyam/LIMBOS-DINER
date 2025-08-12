@@ -19920,6 +19920,7 @@ MonoBehaviour:
   pan: {fileID: 718006076}
   plate: {fileID: 1439878689}
   chopping_board: {fileID: 1895174334}
+  npc: {fileID: 2022993952}
   range: 50
   food_pos: {fileID: 357045090}
   foods:
@@ -28479,9 +28480,10 @@ GameObject:
   - component: {fileID: 2022993950}
   - component: {fileID: 2022993949}
   - component: {fileID: 2022993948}
+  - component: {fileID: 2022993952}
   m_Layer: 0
   m_Name: NPC
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28583,6 +28585,20 @@ Transform:
   - {fileID: 1790922328}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2022993952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022993947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9631e90459f1743ae0ab3e3ba84962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text1: {fileID: 1731666390}
+  text2: {fileID: 1790922327}
 --- !u!1 &2031734873
 GameObject:
   m_ObjectHideFlags: 0

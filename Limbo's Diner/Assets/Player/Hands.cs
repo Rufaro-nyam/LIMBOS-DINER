@@ -6,6 +6,7 @@ public class Hands : MonoBehaviour
     public Pan pan;
     public Plate plate;
     public Chopping_board chopping_board;
+    public TestNpc npc;
 
     Transform cam;
     [SerializeField] float range = 50f;
@@ -197,6 +198,18 @@ public class Hands : MonoBehaviour
                         //cut_bread_gfx.SetActive(false);
                         //plate.add_chopped_bread();
                     }
+
+                    
+
+                }
+                //NPC
+                if(hit.transform.tag == "NPC") 
+                {
+                    if (Burger_active) 
+                    {
+                        npc.win();
+                        disable_rest();
+                    }
                 }
             }
         }
@@ -211,6 +224,7 @@ public class Hands : MonoBehaviour
         if (occupied) 
         {
             disable_rest();
+            occupied = false;
             
         }
 
@@ -219,6 +233,12 @@ public class Hands : MonoBehaviour
     {
         foreach (GameObject f in foods) { f.SetActive(false); }
         foreach (GameObject p in processed_foods) { p.SetActive(false); }
+        bread_active = false;
+        cut_bread_active = false;
+        meat_active = false;
+        cooked_meat_active = false;
+        lettuce_active = false;
+        cut_lettuce_active = false;
     }
 
 
