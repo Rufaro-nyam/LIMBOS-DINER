@@ -27,6 +27,9 @@ public class Hands : MonoBehaviour
     public GameObject cut_bread_gfx;
     public GameObject cut_lettuce_gfx;
 
+    //COMPLETE DISH GFX
+    public GameObject burger_gfx;
+
     //Hand occupation
     private bool occupied = false;
 
@@ -39,6 +42,9 @@ public class Hands : MonoBehaviour
     private bool cooked_meat_active = false;
     private bool cut_bread_active = false;
     private bool cut_lettuce_active = false;
+
+    // complete dish occupation
+    private bool Burger_active = false;
 
     private void Awake()
     {
@@ -107,6 +113,16 @@ public class Hands : MonoBehaviour
                     cut_lettuce_active = true;
                     cut_lettuce_gfx.SetActive(true);
                     chopping_board.food_collect();
+                }
+                //COMPLETE DISHES
+                if (hit.transform.tag == "Burger")
+                {
+                    disable_rest();
+                    occupied = true;
+                    bread_active = false;
+                    Burger_active = true;
+                    burger_gfx.SetActive(true);
+                    plate.food_collect();
                 }
 
             }

@@ -98,4 +98,13 @@ public class Plate : MonoBehaviour
             Burger.SetActive(true);
         }
     }
+
+    public void food_collect() 
+    {
+        foreach (GameObject s in singles)
+        {
+            s.gameObject.SetActive(false);
+        }
+        Burger.SetActive(false);
+    }
 }
