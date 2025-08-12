@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Hands : MonoBehaviour
 {
@@ -210,8 +211,7 @@ public class Hands : MonoBehaviour
         if (occupied) 
         {
             disable_rest();
-            bread_gfx.SetActive(false);
-            print("drop");
+            
         }
 
     }

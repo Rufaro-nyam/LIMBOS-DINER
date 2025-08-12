@@ -28,7 +28,7 @@ public class InputManager : MonoBehaviour
 
         //hands
         groundmovement.Interact.performed += _ => hands.shoot();
-        groundmovement.Interact.performed += _ => hands.drop();
+        groundmovement.Drop.performed += _ => hands.drop();
 
     }
 
