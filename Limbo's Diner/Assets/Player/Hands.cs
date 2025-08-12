@@ -204,6 +204,17 @@ public class Hands : MonoBehaviour
 
     }
 
+    public void drop() 
+    {
+        
+        if (occupied) 
+        {
+            disable_rest();
+            bread_gfx.SetActive(false);
+            print("drop");
+        }
+
+    }
     public void disable_rest() 
     {
         foreach (GameObject f in foods) { f.SetActive(false); }
