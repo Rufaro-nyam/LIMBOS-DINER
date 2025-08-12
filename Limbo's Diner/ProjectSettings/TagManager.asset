@@ -13,6 +13,7 @@ TagManager:
   - Cut_bread
   - Lettuce
   - Cut_letuce
+  - Burger
   layers:
   - Default
   - TransparentFX

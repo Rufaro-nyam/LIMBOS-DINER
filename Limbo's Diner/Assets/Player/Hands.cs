@@ -56,7 +56,7 @@ public class Hands : MonoBehaviour
         //PICKING UP
         if(occupied == false) 
         {
-            print("unocupied");
+            //print("unocupied");
             if (Physics.Raycast(cam.position, cam.forward, out hit, range) )
             {
                 print(hit.collider.name);
@@ -115,10 +115,10 @@ public class Hands : MonoBehaviour
         
         else if (occupied == true) 
         {
-            print("ocupied");
+            //print("ocupied");
             if (Physics.Raycast(cam.position, cam.forward, out hit, range) )
             {
-                print(hit.collider.name);
+                //print(hit.collider.name);
                 //PUTING DOWN - PAN
                 if (hit.transform.tag == "Pan" && pan.occupied == false)
                 {

@@ -6,10 +6,19 @@ public class Plate : MonoBehaviour
     public GameObject[] slotpos;
     //FOOD COLLECTIONS
 
+    //SINGLES LIST
+    public GameObject[] singles;
+
     //SINGLES
     public GameObject cooked_meat;
     public GameObject cut_bread;
     public GameObject cut_lettuce;
+
+    //COMBOS
+    public GameObject Burger;
+
+    //CHECKING FOOD 
+    private int ing_put = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,6 +41,7 @@ public class Plate : MonoBehaviour
                 cooked_meat.transform.position = slotpos[i].transform.position;
                 slotpos[i].SetActive(false);
                 print(slotpos[i]);
+                check_food();
                 break;
             }
         }
@@ -47,6 +57,7 @@ public class Plate : MonoBehaviour
                 cut_bread.transform.position = slotpos[i].transform.position;
                 slotpos[i].SetActive(false);
                 print(slotpos[i]);
+                check_food();
                 break;
             }
         }
@@ -62,8 +73,29 @@ public class Plate : MonoBehaviour
                 cut_lettuce.transform.position = slotpos[i].transform.position;
                 slotpos[i].SetActive(false);
                 print(slotpos[i]);
+                check_food();
                 break;
             }
+        }
+    }
+
+    public void deactivate() 
+    {
+        foreach(GameObject s in singles) 
+        {
+            s.SetActive(false);
+        }
+    }
+
+    public void check_food() 
+    {
+
+        ing_put += 1;
+        print(ing_put);
+        if(ing_put == 3) 
+        {
+            deactivate();
+            Burger.SetActive(true);
         }
     }
 }
