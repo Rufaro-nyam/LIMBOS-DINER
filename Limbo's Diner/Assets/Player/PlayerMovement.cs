@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float jumpheight = 3.5f;
     bool jump;
+    bool can_jump;
 
     //FOR MOUSE
     [SerializeField] float sensetivityx = 8f;
@@ -28,19 +29,21 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false; 
+        Cursor.visible = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         //is_grounded = Physics.CheckSphere(transform.position, -2.0f, groundlayer);
-        
-        if (controller.isGrounded) 
+        can_jump = Physics.CheckSphere(transform.position, 10.0f, groundlayer);
+
+        if (controller.isGrounded)
         {
             VerticalVelocity.y = 0;
-            //print("grounded");
         }
+
 
         Vector3 Horizontalvelocity = (transform.right * horizontalinput.x + transform.forward * horizontalinput.y) * speed;
         controller.Move(Horizontalvelocity * Time.deltaTime);
@@ -48,14 +51,19 @@ public class PlayerMovement : MonoBehaviour
         VerticalVelocity.y += gravity * Time.deltaTime;
         controller.Move(VerticalVelocity * Time.deltaTime);
 
-        if (jump) 
+        if (jump && can_jump) 
         {
-            if (controller.isGrounded) 
-            {
-                VerticalVelocity.y = Mathf.Sqrt(-2f * jumpheight * gravity);
-            }
-            jump = false;
+            
+
+            VerticalVelocity.y = Mathf.Sqrt(-2f * jumpheight * gravity);
+            
+            
+            
         }
+        jump = false;
+
+        if (jump) { print("jump pressed"); }
+        if (can_jump) {  }
 
         //MOUSE
         transform.Rotate(Vector3.up, mousex * Time.deltaTime);
@@ -67,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
         playerCamera.eulerAngles = targetRotation;
         
     }
+
 
     public void recieveInput(Vector2 _horizontalinput) 
     {
@@ -81,20 +90,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        is_grounded = true;
-        print("grounded");
+       
     }
 
     private void OnTriggerExit(Collider other)
     {
-        is_grounded = false;
-        print("not grounded");
+
     }
 
     private void OnTriggerStay(Collider other)
     {
-        is_grounded = true;
-        print("grounded");
+
     }
     public void recieveMouseInput(Vector2 mouseInput) 
     {

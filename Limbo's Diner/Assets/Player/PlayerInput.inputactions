@@ -71,7 +71,7 @@
             ],
             "bindings": [
                 {
-                    "name": "WASD Movement",
+                    "name": "Movement",
                     "id": "3bed5a12-3a54-4a87-8f88-a6fdcb0b52a6",
                     "path": "2DVector",
                     "interactions": "",
@@ -138,6 +138,17 @@
                 },
                 {
                     "name": "",
+                    "id": "f3917d08-56ec-40bc-b7ad-2d5e0ddb7202",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9a1ddce4-e4ba-4074-8a90-67ffcfbad7f1",
                     "path": "<Mouse>/delta/x",
                     "interactions": "",
@@ -171,11 +182,33 @@
                 },
                 {
                     "name": "",
+                    "id": "8e86fe8d-ed36-48bd-81eb-2f346a477128",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "377a219a-a177-43ca-9002-4458e0692fdf",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
+                    "action": "Drop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2a94d328-41f0-4497-a076-cb8771da2d48",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Drop",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -194,5 +227,16 @@
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
+            "devices": []
+        },
+        {
+            "name": "KeyBoard",
+            "bindingGroup": "KeyBoard",
+            "devices": []
+        }
+    ]
 }

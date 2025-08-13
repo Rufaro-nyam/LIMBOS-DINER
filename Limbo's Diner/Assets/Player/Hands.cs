@@ -30,6 +30,8 @@ public class Hands : MonoBehaviour
     public GameObject cut_lettuce_gfx;
 
     //COMPLETE DISH GFX
+    public GameObject[] complete_dishes;
+
     public GameObject burger_gfx;
 
     //Hand occupation
@@ -209,6 +211,7 @@ public class Hands : MonoBehaviour
                     {
                         npc.win();
                         disable_rest();
+                        occupied = false;
                     }
                 }
             }
@@ -233,6 +236,7 @@ public class Hands : MonoBehaviour
     {
         foreach (GameObject f in foods) { f.SetActive(false); }
         foreach (GameObject p in processed_foods) { p.SetActive(false); }
+        foreach (GameObject c in complete_dishes) { c.SetActive(false); }
         bread_active = false;
         cut_bread_active = false;
         meat_active = false;
