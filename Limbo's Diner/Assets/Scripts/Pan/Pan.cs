@@ -15,6 +15,9 @@ public class Pan : MonoBehaviour
     public GameObject[] overcook_progress_sprites;
     private float current_overcook_prog;
     bool overcooking;
+    [SerializeField] private GameObject overcooked_label;
+    float show_time = 0;
+    bool can_show = false;
 
 
 
@@ -41,6 +44,22 @@ public class Pan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        
+        if (can_show) 
+        {
+            overcooked_label.SetActive(true);
+            
+            show_time += Time.deltaTime;
+            if(show_time > 3) 
+            {
+                can_show = false;
+                show_time = 0;
+                overcooked_label.SetActive(false);
+            }
+
+
+        }
         if (cooking_meat) 
         {
             current_prog += 0.5f * Time.deltaTime;
@@ -63,10 +82,19 @@ public class Pan : MonoBehaviour
                 activate_overcook_progress_sprites();
                 current_overcook_prog += 0.5f * Time.deltaTime;
                 OVERCOOK_progressbar.fillAmount = current_overcook_prog / max_prog;
-                print("overcook prog is " + current_overcook_prog);
+                //print("overcook prog is " + current_overcook_prog);
                 if (current_overcook_prog >= max_overcook_prog)
                 {
                     print("overcooked");
+                    cooking_meat = false;
+                    occupied = false;
+                    cooked_meat_gfx.SetActive(false);
+                    can_show = true;
+                    overcooking = false;
+                    current_prog = 0.0f;
+                    current_overcook_prog = 0.0f;
+                    
+                    deactivate_overcook_progress_sprites();
                 }
             }
         }
@@ -79,7 +107,7 @@ public class Pan : MonoBehaviour
         activate_progress();
         meat_gfx.SetActive(true);
         cooking_meat = true;
-        occupied = false;
+        occupied = true;
     }
 
     public void food_collect() 
@@ -88,6 +116,10 @@ public class Pan : MonoBehaviour
         current_prog = 0.0f;
         cooking_meat = false;
         current_prog = 0.0f;
+        current_overcook_prog = 0.0f;
+        overcooking = false;
+        deactivate_overcook_progress_sprites();
+        occupied = false;
     }
 
     public void activate_progress() 
