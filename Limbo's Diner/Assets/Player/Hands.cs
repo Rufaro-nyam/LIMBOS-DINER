@@ -59,6 +59,11 @@ public class Hands : MonoBehaviour
         
     }
 
+     void Update()
+    {
+
+    }
+
     // Update is called once per frame
     public void shoot() 
     {
@@ -69,7 +74,7 @@ public class Hands : MonoBehaviour
             //print("unocupied");
             if (Physics.Raycast(cam.position, cam.forward, out hit, range) )
             {
-                print(hit.collider.name);
+                //print(hit.collider.name);
                 if (hit.transform.tag == "Meat")
                 {
                     disable_rest();
@@ -138,7 +143,7 @@ public class Hands : MonoBehaviour
             //print("ocupied");
             if (Physics.Raycast(cam.position, cam.forward, out hit, range) )
             {
-                //print(hit.collider.name);
+                print(hit.collider.name);
                 //PUTING DOWN - PAN
                 if (hit.transform.tag == "Pan" && pan.occupied == false)
                 {
