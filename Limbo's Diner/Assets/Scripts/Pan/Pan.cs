@@ -36,6 +36,7 @@ public class Pan : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        occupied = false;
         current_prog = 0f;
         deactivate_progress();
         deactivate_overcook_progress_sprites();

@@ -36,8 +36,7 @@ public class Plate : MonoBehaviour
 
     public void add_cooked_meat() 
     {
-        if(meat_put == false) 
-        {
+
             cooked_meat.SetActive(true);
             for (int i = 0; i < slotpos.Length; i++)
             {
@@ -51,14 +50,13 @@ public class Plate : MonoBehaviour
                     break;
                 }
             }
-        }
+        
 
     }
 
     public void add_chopped_bread()
     {
-        if(bread_put == false) 
-        {
+
             cut_bread.SetActive(true);
             for (int i = 0; i < slotpos.Length; i++)
             {
@@ -72,14 +70,13 @@ public class Plate : MonoBehaviour
                     break;
                 }
             }
-        }
+        
 
     }
 
     public void add_cut_lettuce()
     {
-        if(lettuce_put == false) 
-        {
+
             cut_lettuce.SetActive(true);
             for (int i = 0; i < slotpos.Length; i++)
             {
@@ -93,7 +90,7 @@ public class Plate : MonoBehaviour
                     break;
                 }
             }
-        }
+        
 
     }
 
@@ -110,7 +107,8 @@ public class Plate : MonoBehaviour
 
         
         print(ing_put);
-        if(bread_put && meat_put && lettuce_put) 
+        ing_put += 1;
+        if(ing_put == 3) 
         {
             deactivate();
             Burger.SetActive(true);

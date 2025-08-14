@@ -133,7 +133,7 @@ public class Hands : MonoBehaviour
         }
 
         
-        else if (occupied == true) 
+        if (occupied == true) 
         {
             //print("ocupied");
             if (Physics.Raycast(cam.position, cam.forward, out hit, range) )
