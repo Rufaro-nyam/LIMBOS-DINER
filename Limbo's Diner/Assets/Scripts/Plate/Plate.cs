@@ -19,6 +19,9 @@ public class Plate : MonoBehaviour
 
     //CHECKING FOOD 
     private int ing_put = 0;
+    private bool lettuce_put = false;
+    private bool meat_put = false;
+    private bool bread_put = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,50 +36,65 @@ public class Plate : MonoBehaviour
 
     public void add_cooked_meat() 
     {
-        cooked_meat.SetActive(true);
-        for (int i = 0; i < slotpos.Length; i ++)
+        if(meat_put == false) 
         {
-            if (slotpos[i].activeSelf == true) 
+            cooked_meat.SetActive(true);
+            for (int i = 0; i < slotpos.Length; i++)
             {
-                cooked_meat.transform.position = slotpos[i].transform.position;
-                slotpos[i].SetActive(false);
-                print(slotpos[i]);
-                check_food();
-                break;
+                if (slotpos[i].activeSelf == true)
+                {
+                    cooked_meat.transform.position = slotpos[i].transform.position;
+                    slotpos[i].SetActive(false);
+                    print(slotpos[i]);
+                    check_food();
+                    meat_put = true;
+                    break;
+                }
             }
         }
+
     }
 
     public void add_chopped_bread()
     {
-        cut_bread.SetActive(true);
-        for (int i = 0; i < slotpos.Length; i++)
+        if(bread_put == false) 
         {
-            if (slotpos[i].activeSelf == true)
+            cut_bread.SetActive(true);
+            for (int i = 0; i < slotpos.Length; i++)
             {
-                cut_bread.transform.position = slotpos[i].transform.position;
-                slotpos[i].SetActive(false);
-                print(slotpos[i]);
-                check_food();
-                break;
+                if (slotpos[i].activeSelf == true)
+                {
+                    cut_bread.transform.position = slotpos[i].transform.position;
+                    slotpos[i].SetActive(false);
+                    print(slotpos[i]);
+                    check_food();
+                    bread_put = true;
+                    break;
+                }
             }
         }
+
     }
 
     public void add_cut_lettuce()
     {
-        cut_lettuce.SetActive(true);
-        for (int i = 0; i < slotpos.Length; i++)
+        if(lettuce_put == false) 
         {
-            if (slotpos[i].activeSelf == true)
+            cut_lettuce.SetActive(true);
+            for (int i = 0; i < slotpos.Length; i++)
             {
-                cut_lettuce.transform.position = slotpos[i].transform.position;
-                slotpos[i].SetActive(false);
-                print(slotpos[i]);
-                check_food();
-                break;
+                if (slotpos[i].activeSelf == true)
+                {
+                    cut_lettuce.transform.position = slotpos[i].transform.position;
+                    slotpos[i].SetActive(false);
+                    print(slotpos[i]);
+                    check_food();
+                    lettuce_put = true;
+                    break;
+                }
             }
         }
+
     }
 
     public void deactivate() 
@@ -90,9 +108,9 @@ public class Plate : MonoBehaviour
     public void check_food() 
     {
 
-        ing_put += 1;
+        
         print(ing_put);
-        if(ing_put == 3) 
+        if(bread_put && meat_put && lettuce_put) 
         {
             deactivate();
             Burger.SetActive(true);
