@@ -77,7 +77,7 @@ public class Pan : MonoBehaviour
 
                 
             }
-            if (overcooking) 
+            /*if (overcooking) 
             {
                 //overcooking]
                 activate_overcook_progress_sprites();
@@ -97,7 +97,7 @@ public class Pan : MonoBehaviour
                     
                     deactivate_overcook_progress_sprites();
                 }
-            }
+            }*/
         }
     }
 

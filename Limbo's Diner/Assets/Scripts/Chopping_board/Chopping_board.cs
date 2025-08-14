@@ -35,6 +35,7 @@ public class Chopping_board : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (cutting_bread)
         {
             current_prog += 0.5f * Time.deltaTime;

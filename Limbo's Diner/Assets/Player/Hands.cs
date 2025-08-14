@@ -143,12 +143,13 @@ public class Hands : MonoBehaviour
             //print("ocupied");
             if (Physics.Raycast(cam.position, cam.forward, out hit, range) )
             {
-                print(hit.collider.name);
+                //print(hit.collider.name);
                 //PUTING DOWN - PAN
                 if (hit.transform.tag == "Pan" && pan.occupied == false)
                 {
                     if (meat_active) 
                     {
+                        disable_rest();
                         meat_gfx.SetActive(false);
                         occupied = false;
                         pan.cook_meat();
