@@ -22,6 +22,10 @@ public class Plate : MonoBehaviour
     private bool lettuce_put = false;
     private bool meat_put = false;
     private bool bread_put = false;
+
+    //INGREDIENT PRESENT WARNING
+    public GameObject present_warning;
+    private float present_time = 0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,11 +35,22 @@ public class Plate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(present_warning.activeSelf == true) 
+        {
+            present_time += Time.deltaTime;
+            if(present_time > 3) 
+            {
+                present_warning.SetActive(false);
+                present_time = 0;
+            }
+        }
         
     }
 
     public void add_cooked_meat() 
     {
+        if (!meat_put)
+        {
 
             cooked_meat.SetActive(true);
             for (int i = 0; i < slotpos.Length; i++)
@@ -50,13 +65,19 @@ public class Plate : MonoBehaviour
                     break;
                 }
             }
+        }
+        else 
+        {
+            present_warning.SetActive(true);
+        }
         
 
     }
 
     public void add_chopped_bread()
     {
-
+        if (!bread_put)
+        {
             cut_bread.SetActive(true);
             for (int i = 0; i < slotpos.Length; i++)
             {
@@ -70,13 +91,19 @@ public class Plate : MonoBehaviour
                     break;
                 }
             }
-        
+        }
+        else
+        {
+            present_warning.SetActive(true);
+        }
+
 
     }
 
     public void add_cut_lettuce()
     {
-
+        if (!lettuce_put)
+        {
             cut_lettuce.SetActive(true);
             for (int i = 0; i < slotpos.Length; i++)
             {
@@ -90,7 +117,12 @@ public class Plate : MonoBehaviour
                     break;
                 }
             }
-        
+        }
+        else
+        {
+            present_warning.SetActive(true);
+        }
+
 
     }
 

@@ -107,4 +107,10 @@ public class PlayerMovement : MonoBehaviour
         mousex = mouseInput.x * sensetivityx;
         mousey = mouseInput.y * sensetivityy;
     }
+
+    public void Quit() 
+    {
+        print("quiting");
+        Application.Quit();
+    }
 }

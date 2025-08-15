@@ -6,6 +6,7 @@ public class Chopping_board : MonoBehaviour
     //PROGRESS BAR STUFF
     [SerializeField] private Image progressbar;
     [SerializeField] private float max_prog = 10f;
+    public GameObject[] progress_sprites;
 
 
     private float current_prog;
@@ -93,5 +94,17 @@ public class Chopping_board : MonoBehaviour
         current_prog = 0.0f;
         cutting_lettuce = false;
         current_prog = 0.0f;
+
+        deactivate_progress();
+    }
+
+    public void activate_progress()
+    {
+        foreach (GameObject p in progress_sprites) { p.SetActive(true); }
+    }
+
+    public void deactivate_progress()
+    {
+        foreach (GameObject p in progress_sprites) { p.SetActive(false); }
     }
 }

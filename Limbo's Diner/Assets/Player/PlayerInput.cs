@@ -153,6 +153,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QUIT"",
+                    ""type"": ""Button"",
+                    ""id"": ""73986860-c0a1-402b-9248-6f27baab9285"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -309,6 +318,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Drop2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3909cc87-14f3-4992-89f4-c0cae0c26756"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyBoard"",
+                    ""action"": ""QUIT"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -335,6 +355,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Movement_Interact = m_Movement.FindAction("Interact", throwIfNotFound: true);
         m_Movement_Drop = m_Movement.FindAction("Drop", throwIfNotFound: true);
         m_Movement_Drop2 = m_Movement.FindAction("Drop2", throwIfNotFound: true);
+        m_Movement_QUIT = m_Movement.FindAction("QUIT", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
@@ -422,6 +443,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Interact;
     private readonly InputAction m_Movement_Drop;
     private readonly InputAction m_Movement_Drop2;
+    private readonly InputAction m_Movement_QUIT;
     /// <summary>
     /// Provides access to input actions defined in input action map "Movement".
     /// </summary>
@@ -461,6 +483,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Movement/Drop2".
         /// </summary>
         public InputAction @Drop2 => m_Wrapper.m_Movement_Drop2;
+        /// <summary>
+        /// Provides access to the underlying input action "Movement/QUIT".
+        /// </summary>
+        public InputAction @QUIT => m_Wrapper.m_Movement_QUIT;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -508,6 +534,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Drop2.started += instance.OnDrop2;
             @Drop2.performed += instance.OnDrop2;
             @Drop2.canceled += instance.OnDrop2;
+            @QUIT.started += instance.OnQUIT;
+            @QUIT.performed += instance.OnQUIT;
+            @QUIT.canceled += instance.OnQUIT;
         }
 
         /// <summary>
@@ -540,6 +569,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Drop2.started -= instance.OnDrop2;
             @Drop2.performed -= instance.OnDrop2;
             @Drop2.canceled -= instance.OnDrop2;
+            @QUIT.started -= instance.OnQUIT;
+            @QUIT.performed -= instance.OnQUIT;
+            @QUIT.canceled -= instance.OnQUIT;
         }
 
         /// <summary>
@@ -655,5 +687,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDrop2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "QUIT" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnQUIT(InputAction.CallbackContext context);
     }
 }

@@ -158,7 +158,7 @@ public class Hands : MonoBehaviour
 
                 }
                 //PUTING DOWN - CHOPPING BOARD
-                if (hit.transform.tag == "Chopping_board" && pan.occupied == false)
+                if (hit.transform.tag == "Chopping_board" && chopping_board.occupied == false)
                 {
                     if (bread_active)
                     {
@@ -166,6 +166,7 @@ public class Hands : MonoBehaviour
                         //bread_gfx.SetActive(false);
                         occupied = false;
                         chopping_board.cut_bread();
+                        chopping_board.activate_progress();
                         bread_active = false;
                     }
                     if (lettuce_active)
@@ -174,12 +175,13 @@ public class Hands : MonoBehaviour
                         //bread_gfx.SetActive(false);
                         occupied = false;
                         chopping_board.cut_lettuce();
+                        chopping_board.activate_progress();
                         lettuce_active = false;
                     }
 
                 }
                 //PUTTING DOWN - PLATE
-                if (hit.transform.tag == "Plate" && pan.occupied == false)
+                if (hit.transform.tag == "Plate")
                 {
                     if (cooked_meat_active) 
                     {
