@@ -3,6 +3,7 @@ using UnityEngine.UIElements;
 
 public class TestNpc : MonoBehaviour
 {
+    
     public GameObject text1;
     public GameObject text2;
     private bool satisfied = false;

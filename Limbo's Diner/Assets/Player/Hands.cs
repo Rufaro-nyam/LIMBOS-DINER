@@ -3,18 +3,21 @@ using System.Collections;
 
 public class Hands : MonoBehaviour
 {
+    [Header("Scripts To Interact With")]
     public Pan pan;
     public Plate plate;
     public Chopping_board chopping_board;
     public TestNpc npc;
 
     Transform cam;
+    [Header("Interaction Range")]
     [SerializeField] float range = 50f;
 
     public Transform food_pos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     //FOOD GFX
+    [Header("List of unprocessed foods")]
     public GameObject[] foods;
 
     public GameObject meat_gfx;
@@ -23,6 +26,7 @@ public class Hands : MonoBehaviour
 
 
     //FOOD PROCESSED GFX
+    [Header("List of processed foods")]
     public GameObject[] processed_foods;
 
     public GameObject cooked_meat_gfx;
@@ -30,6 +34,7 @@ public class Hands : MonoBehaviour
     public GameObject cut_lettuce_gfx;
 
     //COMPLETE DISH GFX
+    [Header("List of complete dishes")]
     public GameObject[] complete_dishes;
 
     public GameObject burger_gfx;

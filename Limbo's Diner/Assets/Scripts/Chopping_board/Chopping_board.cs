@@ -4,23 +4,25 @@ using UnityEngine.UI;
 public class Chopping_board : MonoBehaviour
 {
     //PROGRESS BAR STUFF
+    [Header("Progress Bar Variables")]
     [SerializeField] private Image progressbar;
     [SerializeField] private float max_prog = 10f;
     public GameObject[] progress_sprites;
-
-
     private float current_prog;
 
 
     //COOKING CONDITIONS
+    [Header("Processing Condition Variables")]
     public bool cutting_bread;
     public bool cutting_lettuce;
 
     //GFX FOOD
+    [Header("Food Graphics Unprocessed")]
     public GameObject bread_gfx;
     public GameObject lettuce_gfx;
 
     //GFX PROCESSED FOOD
+    [Header("Food Graphics Processed")]
     public GameObject cut_bread_gfx;
     public GameObject cut_lettuce_gfx;
 
@@ -71,14 +73,14 @@ public class Chopping_board : MonoBehaviour
     {
         bread_gfx.SetActive(true);
         cutting_bread = true;
-        occupied = false;
+        occupied = true;
     }
 
     public void cut_lettuce()
     {
         lettuce_gfx.SetActive(true);
         cutting_lettuce = true;
-        occupied = false;
+        occupied = true;
     }
 
     public void food_collect()
@@ -88,6 +90,7 @@ public class Chopping_board : MonoBehaviour
         current_prog = 0.0f;
         cutting_bread = false;
         current_prog = 0.0f;
+        occupied = false;
 
         //lettuce
         cut_lettuce_gfx.SetActive(false);

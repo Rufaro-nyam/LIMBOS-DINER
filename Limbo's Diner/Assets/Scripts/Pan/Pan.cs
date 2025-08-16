@@ -4,12 +4,14 @@ using UnityEngine.UI;
 public class Pan : MonoBehaviour
 {
     //PROGRESS BAR STUFF
+    [Header("Progress Bar Variables")]
     [SerializeField] private Image progressbar;
     [SerializeField] private float max_prog = 10f;
     public  GameObject[] progress_sprites;
     private float current_prog;
 
     //OVERCOOK BAR STUFF
+    [Header("Overcooking Bar Variables")]
     [SerializeField] private Image OVERCOOK_progressbar;
     [SerializeField] private float max_overcook_prog = 10f;
     public GameObject[] overcook_progress_sprites;
@@ -24,13 +26,18 @@ public class Pan : MonoBehaviour
 
 
     //COOKING CONDITIONS
+    [Header("Food Cooking Conditions")]
     public bool cooking_meat;
 
     //GFX
+    [Header("Unprocessed food graphics")]
     public GameObject meat_gfx;
+
+    [Header("Processed food graphics")]
     public GameObject cooked_meat_gfx;
 
     //OCCUPATION
+    [Header("Slot Positions")]
     public bool occupied = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

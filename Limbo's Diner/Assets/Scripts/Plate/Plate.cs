@@ -3,10 +3,12 @@ using UnityEngine;
 public class Plate : MonoBehaviour
 {
     //SLOT POSITIONS
+    [Header("Slot Positions")]
     public GameObject[] slotpos;
     //FOOD COLLECTIONS
 
     //SINGLES LIST
+    [Header("List Of Single Ingredients")]
     public GameObject[] singles;
 
     //SINGLES
@@ -15,6 +17,7 @@ public class Plate : MonoBehaviour
     public GameObject cut_lettuce;
 
     //COMBOS
+    [Header("List of Complete Dishes")]
     public GameObject Burger;
 
     //CHECKING FOOD 
@@ -26,7 +29,7 @@ public class Plate : MonoBehaviour
     //INGREDIENT PRESENT WARNING
     public GameObject present_warning;
     private float present_time = 0f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         

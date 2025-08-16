@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //Title: FPS Controller with Unity's New Input System
+    //Author: Practical Programming
+    //Date:29 July 2025
+    //Availability: https://www.youtube.com/watch?v=tXDgSGOEatk&t=618s
     [SerializeField] CharacterController controller;
     [SerializeField] float speed = 11f;
     Vector2 horizontalinput;
@@ -37,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //is_grounded = Physics.CheckSphere(transform.position, -2.0f, groundlayer);
-        can_jump = Physics.CheckSphere(transform.position, 10.0f, groundlayer);
+        can_jump = Physics.CheckSphere(transform.position, 1.5f, groundlayer);
 
         if (controller.isGrounded)
         {
@@ -88,20 +92,7 @@ public class PlayerMovement : MonoBehaviour
         jump = true;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-       
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-
-    }
     public void recieveMouseInput(Vector2 mouseInput) 
     {
         mousex = mouseInput.x * sensetivityx;
