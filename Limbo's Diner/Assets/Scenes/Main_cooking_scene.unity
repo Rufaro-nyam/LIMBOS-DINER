@@ -10632,15 +10632,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progressbar: {fileID: 1743484493}
   max_prog: 10
-  progress_sprites:
-  - {fileID: 252658351}
-  - {fileID: 1743484491}
-  OVERCOOK_progressbar: {fileID: 1902011062}
+  progress_sprites: []
+  OVERCOOK_progressbar: {fileID: 0}
   max_overcook_prog: 10
-  overcook_progress_sprites:
-  - {fileID: 1834252120}
-  - {fileID: 1902011060}
-  overcooked_label: {fileID: 1316203831}
+  overcook_progress_sprites: []
+  overcooked_label: {fileID: 0}
   cooking_meat: 0
   meat_gfx: {fileID: 731361573}
   cooked_meat_gfx: {fileID: 139315719}
@@ -18973,15 +18969,12 @@ MonoBehaviour:
   - {fileID: 868850073}
   - {fileID: 936801328}
   - {fileID: 69793171}
-  singles:
-  - {fileID: 526333011}
-  - {fileID: 671898617}
-  - {fileID: 885213852}
+  singles: []
   cooked_meat: {fileID: 526333011}
-  cut_bread: {fileID: 671898617}
-  cut_lettuce: {fileID: 885213852}
-  Burger: {fileID: 56117890}
-  present_warning: {fileID: 415885862}
+  cut_bread: {fileID: 0}
+  cut_lettuce: {fileID: 0}
+  Burger: {fileID: 0}
+  present_warning: {fileID: 0}
 --- !u!65 &1439878690
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20083,27 +20076,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pan: {fileID: 718006076}
   plate: {fileID: 1439878689}
-  chopping_board: {fileID: 1895174334}
-  npc: {fileID: 2022993952}
+  chopping_board: {fileID: 0}
+  npc: {fileID: 0}
   range: 3.5
   food_pos: {fileID: 357045090}
-  foods:
-  - {fileID: 173471778}
-  - {fileID: 1461524393}
-  - {fileID: 2001522967}
+  foods: []
   meat_gfx: {fileID: 173471778}
-  bread_gfx: {fileID: 1461524393}
-  lettuce_gfx: {fileID: 2001522967}
-  processed_foods:
-  - {fileID: 265099607}
-  - {fileID: 852002173}
-  - {fileID: 33031411}
+  bread_gfx: {fileID: 0}
+  lettuce_gfx: {fileID: 0}
+  processed_foods: []
   cooked_meat_gfx: {fileID: 852002173}
-  cut_bread_gfx: {fileID: 265099607}
-  cut_lettuce_gfx: {fileID: 33031411}
-  complete_dishes:
-  - {fileID: 835604551}
-  burger_gfx: {fileID: 835604551}
+  cut_bread_gfx: {fileID: 0}
+  cut_lettuce_gfx: {fileID: 0}
+  complete_dishes: []
+  burger_gfx: {fileID: 0}
 --- !u!1 &1564269083
 GameObject:
   m_ObjectHideFlags: 0
