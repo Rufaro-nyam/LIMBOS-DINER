@@ -41,9 +41,12 @@ public class Plate : MonoBehaviour
     public GameObject present_warning;
     private float present_time = 0f;
 
+    //MENU LISTS
+    public Menu menu;
+
     void Start()
     {
-        
+        Burger_active = true;
     }
 
     // Update is called once per frame
@@ -170,6 +173,13 @@ public class Plate : MonoBehaviour
         foreach (GameObject c in Combos)
         {
             c.gameObject.SetActive(false);
+        }
+        if (Burger_active) 
+        {
+            FriedFish_active = true;
+            Burger_active = false;
+            menu.Burger_menu.SetActive(false);
+            menu.FriedFish_menu.SetActive(true);
         }
         
     }
