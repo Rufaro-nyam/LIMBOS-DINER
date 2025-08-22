@@ -5,7 +5,10 @@ public class Plate : MonoBehaviour
     //SLOT POSITIONS
     [Header("Slot Positions")]
     public GameObject[] slotpos;
+
     //FOOD COLLECTIONS
+    [Header("List of Complete Dishes")]
+    public GameObject[] Combos;
 
     //SINGLES LIST
     [Header("List Of Single Ingredients")]
@@ -17,8 +20,16 @@ public class Plate : MonoBehaviour
     public GameObject cut_lettuce;
 
     //COMBOS
-    [Header("List of Complete Dishes")]
+    [Header("Complete Dishes")]
     public GameObject Burger;
+    public GameObject Fish_dish;
+    public GameObject Hotdog;
+
+    //CURRENT DISHED
+    [Header("Active Dishes")]
+    public bool Burger_active;
+    public bool HotDog_active;
+    public bool FriedFish_active;
 
     //CHECKING FOOD 
     private int ing_put = 0;
@@ -52,7 +63,7 @@ public class Plate : MonoBehaviour
 
     public void add_cooked_meat() 
     {
-        if (!meat_put)
+        if (!meat_put )
         {
 
             cooked_meat.SetActive(true);
@@ -156,6 +167,10 @@ public class Plate : MonoBehaviour
         {
             s.gameObject.SetActive(false);
         }
-        Burger.SetActive(false);
+        foreach (GameObject c in Combos)
+        {
+            c.gameObject.SetActive(false);
+        }
+        
     }
 }
