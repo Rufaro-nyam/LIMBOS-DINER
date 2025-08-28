@@ -16,6 +16,7 @@ TagManager:
   - Burger
   - NPC
   - Fish
+  - Cooked_fish
   layers:
   - Default
   - TransparentFX

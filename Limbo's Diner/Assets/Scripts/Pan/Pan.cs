@@ -28,13 +28,16 @@ public class Pan : MonoBehaviour
     //COOKING CONDITIONS
     [Header("Food Cooking Conditions")]
     public bool cooking_meat;
+    public bool cooking_fish;
 
     //GFX
     [Header("Unprocessed food graphics")]
     public GameObject meat_gfx;
+    public GameObject raw_fish_gfx;
 
     [Header("Processed food graphics")]
     public GameObject cooked_meat_gfx;
+    public GameObject cooked_fish_gfx;
 
     //OCCUPATION
     [Header("Slot Positions")]
@@ -106,6 +109,44 @@ public class Pan : MonoBehaviour
                 }
             }
         }
+        if (cooking_fish)
+        {
+            current_prog += 0.5f * Time.deltaTime;
+            progressbar.fillAmount = current_prog / max_prog;
+            if (current_prog >= max_prog)
+            {
+
+                cooking_fish = true;
+                current_prog = 0f;
+                raw_fish_gfx.SetActive(false);
+                cooked_fish_gfx.SetActive(true);
+                deactivate_progress();
+                overcooking = true;
+
+
+            }
+            if (overcooking)
+            {
+                //overcooking]
+                activate_overcook_progress_sprites();
+                current_overcook_prog += 0.5f * Time.deltaTime;
+                OVERCOOK_progressbar.fillAmount = current_overcook_prog / max_prog;
+                //print("overcook prog is " + current_overcook_prog);
+                if (current_overcook_prog >= max_overcook_prog)
+                {
+                    print("overcooked");
+                    cooking_fish = false;
+                    occupied = false;
+                    cooked_fish_gfx.SetActive(false);
+                    can_show = true;
+                    overcooking = false;
+                    current_prog = 0.0f;
+                    current_overcook_prog = 0.0f;
+
+                    deactivate_overcook_progress_sprites();
+                }
+            }
+        }
     }
 
 
@@ -118,11 +159,21 @@ public class Pan : MonoBehaviour
         occupied = true;
     }
 
+    public void cook_fish()
+    {
+        activate_progress();
+        raw_fish_gfx.SetActive(true);
+        cooking_fish = true;
+        occupied = true;
+    }
+
     public void food_collect() 
     {
         cooked_meat_gfx.SetActive(false);
+        cooked_fish_gfx.SetActive(false);
         current_prog = 0.0f;
         cooking_meat = false;
+        cooking_fish = false;
         current_prog = 0.0f;
         current_overcook_prog = 0.0f;
         overcooking = false;

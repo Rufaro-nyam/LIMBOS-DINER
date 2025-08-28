@@ -23,6 +23,7 @@ public class Hands : MonoBehaviour
     public GameObject meat_gfx;
     public GameObject bread_gfx;
     public GameObject lettuce_gfx;
+    public GameObject raw_fish_gfx;
 
 
     //FOOD PROCESSED GFX
@@ -32,6 +33,7 @@ public class Hands : MonoBehaviour
     public GameObject cooked_meat_gfx;
     public GameObject cut_bread_gfx;
     public GameObject cut_lettuce_gfx;
+    public GameObject cooked_fish_gfx;
 
     //COMPLETE DISH GFX
     [Header("List of complete dishes")]
@@ -46,11 +48,13 @@ public class Hands : MonoBehaviour
     private bool meat_active = false;
     private bool bread_active = false;
     private bool lettuce_active = false;
+    private bool raw_fish_active = false;
 
     //PROCESSED FOOD ACTIVE
     private bool cooked_meat_active = false;
     private bool cut_bread_active = false;
     private bool cut_lettuce_active = false;
+    private bool cooked_fish_active = false;
 
     // complete dish occupation
     private bool Burger_active = false;
@@ -128,6 +132,21 @@ public class Hands : MonoBehaviour
                     cut_lettuce_gfx.SetActive(true);
                     chopping_board.food_collect();
                 }
+                if (hit.transform.tag == "Fish")
+                {
+                    disable_rest();
+                    occupied = true;
+                    raw_fish_gfx.SetActive(true);
+                    raw_fish_active = true;
+                }
+                if (hit.transform.tag == "Cooked_fish")
+                {
+                    disable_rest();
+                    cooked_fish_gfx.SetActive(true);
+                    occupied = true;
+                    pan.food_collect();
+                    cooked_fish_active = true;
+                }
                 //COMPLETE DISHES
                 if (hit.transform.tag == "Burger")
                 {
@@ -160,6 +179,16 @@ public class Hands : MonoBehaviour
                         pan.cook_meat();
                         meat_active = false;
                     }
+                    if (raw_fish_active)
+                    {
+                        disable_rest();
+                        raw_fish_gfx.SetActive(false);
+                        occupied = false;
+                        pan.cook_fish();
+                        raw_fish_active = false;
+                        
+                    }
+
 
                 }
                 //PUTING DOWN - CHOPPING BOARD
@@ -195,6 +224,14 @@ public class Hands : MonoBehaviour
                         occupied = false;
                         //cooked_meat_gfx.SetActive(false);
                         plate.add_cooked_meat();
+                    }
+                    if (cooked_fish_active)
+                    {
+                        disable_rest();
+                        cooked_fish_active = false;
+                        occupied = false;
+                        //cooked_meat_gfx.SetActive(false);
+                        plate.add_cooked_fish();
                     }
                     if (cut_bread_active)
                     {

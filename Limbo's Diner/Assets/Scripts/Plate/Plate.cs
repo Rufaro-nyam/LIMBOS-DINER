@@ -18,6 +18,7 @@ public class Plate : MonoBehaviour
     public GameObject cooked_meat;
     public GameObject cut_bread;
     public GameObject cut_lettuce;
+    public GameObject cooked_fish;
 
     //COMBOS
     [Header("Complete Dishes")]
@@ -36,6 +37,7 @@ public class Plate : MonoBehaviour
     private bool lettuce_put = false;
     private bool meat_put = false;
     private bool bread_put = false;
+    private bool fish_put = false;
 
     //INGREDIENT PRESENT WARNING
     public GameObject present_warning;
@@ -87,8 +89,34 @@ public class Plate : MonoBehaviour
         {
             present_warning.SetActive(true);
         }
-        
 
+
+
+    }
+
+    public void add_cooked_fish() 
+    {
+        if (!fish_put)
+        {
+
+            cooked_fish.SetActive(true);
+            for (int i = 0; i < slotpos.Length; i++)
+            {
+                if (slotpos[i].activeSelf == true)
+                {
+                    cooked_fish.transform.position = slotpos[i].transform.position;
+                    slotpos[i].SetActive(false);
+                    print(slotpos[i]);
+                    check_food();
+                    fish_put = true;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            present_warning.SetActive(true);
+        }
     }
 
     public void add_chopped_bread()
