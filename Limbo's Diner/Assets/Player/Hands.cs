@@ -24,6 +24,7 @@ public class Hands : MonoBehaviour
     public GameObject bread_gfx;
     public GameObject lettuce_gfx;
     public GameObject raw_fish_gfx;
+    public GameObject spinach_gfx;
 
 
     //FOOD PROCESSED GFX
@@ -34,6 +35,7 @@ public class Hands : MonoBehaviour
     public GameObject cut_bread_gfx;
     public GameObject cut_lettuce_gfx;
     public GameObject cooked_fish_gfx;
+    public GameObject chopped_spinach_gfx;
 
     //COMPLETE DISH GFX
     [Header("List of complete dishes")]
@@ -49,12 +51,14 @@ public class Hands : MonoBehaviour
     private bool bread_active = false;
     private bool lettuce_active = false;
     private bool raw_fish_active = false;
+    private bool spinach_active = false;
 
     //PROCESSED FOOD ACTIVE
     private bool cooked_meat_active = false;
     private bool cut_bread_active = false;
     private bool cut_lettuce_active = false;
     private bool cooked_fish_active = false;
+    private bool chopped_spinach_active = false;
 
     // complete dish occupation
     private bool Burger_active = false;
@@ -123,6 +127,13 @@ public class Hands : MonoBehaviour
                     occupied = true;
                     lettuce_active = true;
                 }
+                if (hit.transform.tag == "Spinach")
+                {
+                    disable_rest();
+                    spinach_gfx.SetActive(true);
+                    occupied = true;
+                    spinach_active = true;
+                }
                 if (hit.transform.tag == "Cut_letuce")
                 {
                     disable_rest();
@@ -130,6 +141,14 @@ public class Hands : MonoBehaviour
                     bread_active = false;
                     cut_lettuce_active = true;
                     cut_lettuce_gfx.SetActive(true);
+                    chopping_board.food_collect();
+                }
+                if (hit.transform.tag == "Chopped_spinach")
+                {
+                    disable_rest();
+                    occupied = true;
+                    chopped_spinach_active = true;
+                    chopped_spinach_gfx.SetActive(true);
                     chopping_board.food_collect();
                 }
                 if (hit.transform.tag == "Fish")
@@ -212,6 +231,15 @@ public class Hands : MonoBehaviour
                         chopping_board.activate_progress();
                         lettuce_active = false;
                     }
+                    if (spinach_active)
+                    {
+                        disable_rest();
+                        //bread_gfx.SetActive(false);
+                        occupied = false;
+                        chopping_board.cut_spinach();
+                        chopping_board.activate_progress();
+                        spinach_active = false;
+                    }
 
                 }
                 //PUTTING DOWN - PLATE
@@ -250,8 +278,17 @@ public class Hands : MonoBehaviour
                         //cut_bread_gfx.SetActive(false);
                         //plate.add_chopped_bread();
                     }
+                    if (chopped_spinach_active)
+                    {
+                        disable_rest();
+                        chopped_spinach_active = false;
+                        occupied = false;
+                        plate.add_chopped_spinach();
+                        //cut_bread_gfx.SetActive(false);
+                        //plate.add_chopped_bread();
+                    }
 
-                    
+
 
                 }
                 //NPC
@@ -293,6 +330,10 @@ public class Hands : MonoBehaviour
         cooked_meat_active = false;
         lettuce_active = false;
         cut_lettuce_active = false;
+        cooked_fish_active = false;
+        raw_fish_active = false;
+        spinach_active = false;
+        chopped_spinach_active = false;
     }
 
 

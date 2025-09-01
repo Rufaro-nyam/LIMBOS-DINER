@@ -15,16 +15,19 @@ public class Chopping_board : MonoBehaviour
     [Header("Processing Condition Variables")]
     public bool cutting_bread;
     public bool cutting_lettuce;
+    public bool cutting_spinach;
 
     //GFX FOOD
     [Header("Food Graphics Unprocessed")]
     public GameObject bread_gfx;
     public GameObject lettuce_gfx;
+    public GameObject spinach_gfx;
 
     //GFX PROCESSED FOOD
     [Header("Food Graphics Processed")]
     public GameObject cut_bread_gfx;
     public GameObject cut_lettuce_gfx;
+    public GameObject chopped_spinach_gfx;
 
     //OCCUPATION
     public bool occupied = false;
@@ -65,6 +68,19 @@ public class Chopping_board : MonoBehaviour
                 cut_lettuce_gfx.SetActive(true);
             }
         }
+
+        if (cutting_spinach)
+        {
+            current_prog += 0.5f * Time.deltaTime;
+            progressbar.fillAmount = current_prog / max_prog;
+            if (current_prog >= max_prog)
+            {
+                cutting_spinach = false;
+                current_prog = 0f;
+                spinach_gfx.SetActive(false);
+                chopped_spinach_gfx.SetActive(true);
+            }
+        }
     }
 
 
@@ -83,6 +99,13 @@ public class Chopping_board : MonoBehaviour
         occupied = true;
     }
 
+    public void cut_spinach()
+    {
+        spinach_gfx.SetActive(true);
+        cutting_spinach = true;
+        occupied = true;
+    }
+
     public void food_collect()
     {
         //bread
@@ -98,6 +121,11 @@ public class Chopping_board : MonoBehaviour
         cutting_lettuce = false;
         current_prog = 0.0f;
 
+        //spinach
+        chopped_spinach_gfx.SetActive(false);
+        current_prog = 0.0f;
+        cutting_spinach = false;
+        
         deactivate_progress();
     }
 

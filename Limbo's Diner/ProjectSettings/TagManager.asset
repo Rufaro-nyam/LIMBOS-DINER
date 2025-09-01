@@ -17,6 +17,8 @@ TagManager:
   - NPC
   - Fish
   - Cooked_fish
+  - Spinach
+  - Chopped_spinach
   layers:
   - Default
   - TransparentFX
