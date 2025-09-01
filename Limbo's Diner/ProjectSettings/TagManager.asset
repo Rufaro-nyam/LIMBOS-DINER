@@ -19,6 +19,7 @@ TagManager:
   - Cooked_fish
   - Spinach
   - Chopped_spinach
+  - Pot
   layers:
   - Default
   - TransparentFX
