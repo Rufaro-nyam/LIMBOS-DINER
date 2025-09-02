@@ -45,6 +45,7 @@ public class Plate : MonoBehaviour
 
     //INGREDIENT PRESENT WARNING
     public GameObject present_warning;
+    public GameObject not_component_warning;
     private float present_time = 0f;
 
     //MENU LISTS
@@ -58,12 +59,13 @@ public class Plate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(present_warning.activeSelf == true) 
+        if(present_warning.activeSelf == true|| not_component_warning.activeSelf == true) 
         {
             present_time += Time.deltaTime;
             if(present_time > 3) 
             {
                 present_warning.SetActive(false);
+                not_component_warning.SetActive(false);
                 present_time = 0;
             }
         }
@@ -72,22 +74,30 @@ public class Plate : MonoBehaviour
 
     public void add_cooked_meat() 
     {
-        if (!meat_put )
+        if (!meat_put  )
         {
-
-            cooked_meat.SetActive(true);
-            for (int i = 0; i < slotpos.Length; i++)
+            if (Burger_active) 
             {
-                if (slotpos[i].activeSelf == true)
+                cooked_meat.SetActive(true);
+                for (int i = 0; i < slotpos.Length; i++)
                 {
-                    cooked_meat.transform.position = slotpos[i].transform.position;
-                    slotpos[i].SetActive(false);
-                    print(slotpos[i]);
-                    check_food();
-                    meat_put = true;
-                    break;
+                    if (slotpos[i].activeSelf == true)
+                    {
+                        cooked_meat.transform.position = slotpos[i].transform.position;
+                        slotpos[i].SetActive(false);
+                        print(slotpos[i]);
+                        check_food();
+                        meat_put = true;
+                        break;
+                    }
                 }
             }
+            else 
+            {
+                
+            }
+
+
         }
         else 
         {
@@ -102,20 +112,28 @@ public class Plate : MonoBehaviour
     {
         if (!fish_put)
         {
-
-            cooked_fish.SetActive(true);
-            for (int i = 0; i < slotpos.Length; i++)
+            if (FriedFish_active) 
             {
-                if (slotpos[i].activeSelf == true)
+                cooked_fish.SetActive(true);
+                for (int i = 0; i < slotpos.Length; i++)
                 {
-                    cooked_fish.transform.position = slotpos[i].transform.position;
-                    slotpos[i].SetActive(false);
-                    print(slotpos[i]);
-                    check_food();
-                    fish_put = true;
-                    break;
+                    if (slotpos[i].activeSelf == true)
+                    {
+                        cooked_fish.transform.position = slotpos[i].transform.position;
+                        slotpos[i].SetActive(false);
+                        print(slotpos[i]);
+                        check_food();
+                        fish_put = true;
+                        break;
+                    }
                 }
             }
+            else 
+            {
+                not_component_warning.SetActive(true);
+            }
+
+
         }
         else
         {
@@ -127,19 +145,27 @@ public class Plate : MonoBehaviour
     {
         if (!bread_put)
         {
-            cut_bread.SetActive(true);
-            for (int i = 0; i < slotpos.Length; i++)
+            if (Burger_active) 
             {
-                if (slotpos[i].activeSelf == true)
+                cut_bread.SetActive(true);
+                for (int i = 0; i < slotpos.Length; i++)
                 {
-                    cut_bread.transform.position = slotpos[i].transform.position;
-                    slotpos[i].SetActive(false);
-                    print(slotpos[i]);
-                    check_food();
-                    bread_put = true;
-                    break;
+                    if (slotpos[i].activeSelf == true)
+                    {
+                        cut_bread.transform.position = slotpos[i].transform.position;
+                        slotpos[i].SetActive(false);
+                        print(slotpos[i]);
+                        check_food();
+                        bread_put = true;
+                        break;
+                    }
                 }
             }
+            else 
+            {
+               
+            }
+
         }
         else
         {
@@ -153,18 +179,25 @@ public class Plate : MonoBehaviour
     {
         if (!lettuce_put)
         {
-            cut_lettuce.SetActive(true);
-            for (int i = 0; i < slotpos.Length; i++)
+            if (Burger_active) 
             {
-                if (slotpos[i].activeSelf == true)
+                cut_lettuce.SetActive(true);
+                for (int i = 0; i < slotpos.Length; i++)
                 {
-                    cut_lettuce.transform.position = slotpos[i].transform.position;
-                    slotpos[i].SetActive(false);
-                    print(slotpos[i]);
-                    check_food();
-                    lettuce_put = true;
-                    break;
+                    if (slotpos[i].activeSelf == true)
+                    {
+                        cut_lettuce.transform.position = slotpos[i].transform.position;
+                        slotpos[i].SetActive(false);
+                        print(slotpos[i]);
+                        check_food();
+                        lettuce_put = true;
+                        break;
+                    }
                 }
+            }
+            else 
+            {
+                not_component_warning.SetActive(true);
             }
         }
         else
@@ -179,19 +212,27 @@ public class Plate : MonoBehaviour
     {
         if (!spinach_put)
         {
-            chopped_spinach.SetActive(true);
-            for (int i = 0; i < slotpos.Length; i++)
+            if (FriedFish_active) 
             {
-                if (slotpos[i].activeSelf == true)
+                chopped_spinach.SetActive(true);
+                for (int i = 0; i < slotpos.Length; i++)
                 {
-                    chopped_spinach.transform.position = slotpos[i].transform.position;
-                    slotpos[i].SetActive(false);
-                    print(slotpos[i]);
-                    check_food();
-                    spinach_put = true;
-                    break;
+                    if (slotpos[i].activeSelf == true)
+                    {
+                        chopped_spinach.transform.position = slotpos[i].transform.position;
+                        slotpos[i].SetActive(false);
+                        print(slotpos[i]);
+                        check_food();
+                        spinach_put = true;
+                        break;
+                    }
                 }
             }
+            else 
+            {
+                not_component_warning.SetActive(true);
+            }
+
         }
         else
         {
@@ -204,19 +245,27 @@ public class Plate : MonoBehaviour
     {
         if (!potatoes_put)
         {
-            cooked_potatoes.SetActive(true);
-            for (int i = 0; i < slotpos.Length; i++)
+            if (FriedFish_active) 
             {
-                if (slotpos[i].activeSelf == true)
+                cooked_potatoes.SetActive(true);
+                for (int i = 0; i < slotpos.Length; i++)
                 {
-                    cooked_potatoes.transform.position = slotpos[i].transform.position;
-                    slotpos[i].SetActive(false);
-                    print(slotpos[i]);
-                    check_food();
-                    potatoes_put = true;
-                    break;
+                    if (slotpos[i].activeSelf == true)
+                    {
+                        cooked_potatoes.transform.position = slotpos[i].transform.position;
+                        slotpos[i].SetActive(false);
+                        print(slotpos[i]);
+                        check_food();
+                        potatoes_put = true;
+                        break;
+                    }
                 }
             }
+            else 
+            {
+                not_component_warning.SetActive(true);
+            }
+
         }
         else
         {
@@ -240,10 +289,15 @@ public class Plate : MonoBehaviour
         
         print(ing_put);
         ing_put += 1;
-        if(ing_put == 3) 
+        if(ing_put == 3 && Burger_active) 
         {
             deactivate();
             Burger.SetActive(true);
+        }
+        if (ing_put == 3 && FriedFish_active)
+        {
+            deactivate();
+            Fish_dish.SetActive(true);
         }
     }
 
@@ -259,10 +313,18 @@ public class Plate : MonoBehaviour
         }
         if (Burger_active) 
         {
+            ing_put = 0;
             FriedFish_active = true;
             Burger_active = false;
             menu.Burger_menu.SetActive(false);
             menu.FriedFish_menu.SetActive(true);
+            meat_put = false;
+            bread_put = false;
+            lettuce_put = false;
+            foreach(GameObject s in slotpos) 
+            {
+                s.SetActive(true);
+            }
         }
         
     }

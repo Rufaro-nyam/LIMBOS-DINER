@@ -45,7 +45,7 @@ public class Hands : MonoBehaviour
     public GameObject[] complete_dishes;
 
     public GameObject burger_gfx;
-
+    public GameObject fishdish_gfx;
     //Hand occupation
     private bool occupied = false;
 
@@ -67,6 +67,7 @@ public class Hands : MonoBehaviour
 
     // complete dish occupation
     private bool Burger_active = false;
+    private bool Fish_Dish_active = false;
 
     private void Awake()
     {
@@ -195,6 +196,16 @@ public class Hands : MonoBehaviour
                     bread_active = false;
                     Burger_active = true;
                     burger_gfx.SetActive(true);
+                    plate.food_collect();
+                }
+
+                if (hit.transform.tag == "FishDish")
+                {
+                    disable_rest();
+                    occupied = true;
+                    bread_active = false;
+                    Fish_Dish_active = true;
+                    fishdish_gfx.SetActive(true);
                     plate.food_collect();
                 }
 

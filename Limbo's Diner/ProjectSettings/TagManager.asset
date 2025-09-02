@@ -22,6 +22,7 @@ TagManager:
   - Pot
   - Potatoe
   - Cooked_potatoe
+  - FishDish
   layers:
   - Default
   - TransparentFX
