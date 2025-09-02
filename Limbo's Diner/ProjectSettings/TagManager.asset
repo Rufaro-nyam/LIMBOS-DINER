@@ -20,6 +20,8 @@ TagManager:
   - Spinach
   - Chopped_spinach
   - Pot
+  - Potatoe
+  - Cooked_potatoe
   layers:
   - Default
   - TransparentFX
