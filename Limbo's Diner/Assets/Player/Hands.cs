@@ -6,6 +6,7 @@ public class Hands : MonoBehaviour
     [Header("Scripts To Interact With")]
     public Pan pan;
     public Plate plate;
+    public Pot pot;
     public Chopping_board chopping_board;
     public TestNpc npc;
 
@@ -25,6 +26,7 @@ public class Hands : MonoBehaviour
     public GameObject lettuce_gfx;
     public GameObject raw_fish_gfx;
     public GameObject spinach_gfx;
+    public GameObject potatoes_gfx;
 
 
     //FOOD PROCESSED GFX
@@ -36,6 +38,7 @@ public class Hands : MonoBehaviour
     public GameObject cut_lettuce_gfx;
     public GameObject cooked_fish_gfx;
     public GameObject chopped_spinach_gfx;
+    public GameObject cooked_potatoes_gfx;
 
     //COMPLETE DISH GFX
     [Header("List of complete dishes")]
@@ -52,6 +55,7 @@ public class Hands : MonoBehaviour
     private bool lettuce_active = false;
     private bool raw_fish_active = false;
     private bool spinach_active = false;
+    private bool potatoes_active = false;
 
     //PROCESSED FOOD ACTIVE
     private bool cooked_meat_active = false;
@@ -59,6 +63,7 @@ public class Hands : MonoBehaviour
     private bool cut_lettuce_active = false;
     private bool cooked_fish_active = false;
     private bool chopped_spinach_active = false;
+    private bool cooked_potatoes_active = false;
 
     // complete dish occupation
     private bool Burger_active = false;
@@ -119,6 +124,22 @@ public class Hands : MonoBehaviour
                     cut_bread_active = true;
                     cut_bread_gfx.SetActive(true);
                     chopping_board.food_collect();
+                }
+                if (hit.transform.tag == "Potatoe")
+                {
+                    disable_rest();
+                    potatoes_gfx.SetActive(true);
+                    occupied = true;
+                    potatoes_active = true;
+                }
+                if (hit.transform.tag == "Cooked_potatoe")
+                {
+                    disable_rest();
+                    bread_gfx.SetActive(false);
+                    occupied = true;
+                    cooked_potatoes_active = true;
+                    cooked_potatoes_gfx.SetActive(true);
+                    pot.food_collect();
                 }
                 if (hit.transform.tag == "Lettuce")
                 {
@@ -242,8 +263,22 @@ public class Hands : MonoBehaviour
                     }
 
                 }
-                //PUTTING DOWN - PLATE
-                if (hit.transform.tag == "Plate")
+                //PUTTING DOWN - POT
+                if (hit.transform.tag == "Pot" && pot.occupied == false) 
+                {
+                    if (potatoes_active)
+                    {
+                        disable_rest();
+                        //bread_gfx.SetActive(false);
+                        occupied = false;
+                        pot.cook_potatoes();
+                        pot.activate_progress();
+                        potatoes_active = false;
+                    }
+                }
+
+                    //PUTTING DOWN - PLATE
+                    if (hit.transform.tag == "Plate")
                 {
                     if (cooked_meat_active) 
                     {
@@ -284,6 +319,15 @@ public class Hands : MonoBehaviour
                         chopped_spinach_active = false;
                         occupied = false;
                         plate.add_chopped_spinach();
+                        //cut_bread_gfx.SetActive(false);
+                        //plate.add_chopped_bread();
+                    }
+                    if (cooked_potatoes_active)
+                    {
+                        disable_rest();
+                        cooked_potatoes_active = false;
+                        occupied = false;
+                        plate.add_cooked_potatoe();
                         //cut_bread_gfx.SetActive(false);
                         //plate.add_chopped_bread();
                     }
@@ -334,6 +378,8 @@ public class Hands : MonoBehaviour
         raw_fish_active = false;
         spinach_active = false;
         chopped_spinach_active = false;
+        potatoes_active = false;
+        cooked_potatoes_active = false;
     }
 
 

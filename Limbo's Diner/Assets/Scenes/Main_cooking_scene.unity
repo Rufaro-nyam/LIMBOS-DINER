@@ -1486,7 +1486,7 @@ GameObject:
   - component: {fileID: 81153667}
   m_Layer: 0
   m_Name: Cooked_potatoe (3)
-  m_TagString: Potatoe
+  m_TagString: Cooked_potatoe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13280,7 +13280,7 @@ GameObject:
   - component: {fileID: 587615855}
   m_Layer: 0
   m_Name: Cooked_potatoe
-  m_TagString: Potatoe
+  m_TagString: Cooked_potatoe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15736,7 +15736,7 @@ GameObject:
   - component: {fileID: 680577906}
   m_Layer: 0
   m_Name: Cooked_potatoe (5)
-  m_TagString: Potatoe
+  m_TagString: Cooked_potatoe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17634,7 +17634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &733742938
 Transform:
   m_ObjectHideFlags: 0
@@ -26189,12 +26189,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a2092f3557fbb429f72e6e7ccd2031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressbar: {fileID: 0}
+  progressbar: {fileID: 519312102}
   max_prog: 10
-  progress_sprites: []
+  progress_sprites:
+  - {fileID: 312858304}
+  - {fileID: 519312100}
   boiling_potatoes: 0
-  potatoes_gfx: {fileID: 0}
-  boiled_potatoes_gfx: {fileID: 0}
+  potatoes_gfx: {fileID: 361934538}
+  boiled_potatoes_gfx: {fileID: 587615853}
   occupied: 0
 --- !u!1 &1158685215
 GameObject:
@@ -30547,7 +30549,7 @@ GameObject:
   - component: {fileID: 1408630598}
   m_Layer: 0
   m_Name: Cooked_potatoe (1)
-  m_TagString: Potatoe
+  m_TagString: Cooked_potatoe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30924,11 +30926,13 @@ MonoBehaviour:
   - {fileID: 885213852}
   - {fileID: 598837575}
   - {fileID: 63289642}
+  - {fileID: 733742937}
   cooked_meat: {fileID: 526333011}
   cut_bread: {fileID: 671898617}
   cut_lettuce: {fileID: 885213852}
   cooked_fish: {fileID: 63289642}
   chopped_spinach: {fileID: 598837575}
+  cooked_potatoes: {fileID: 733742937}
   Burger: {fileID: 56117890}
   Fish_dish: {fileID: 0}
   Hotdog: {fileID: 0}
@@ -32955,6 +32959,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pan: {fileID: 718006076}
   plate: {fileID: 1439878689}
+  pot: {fileID: 1154816672}
   chopping_board: {fileID: 1895174334}
   npc: {fileID: 2022993952}
   range: 3.5
@@ -32965,22 +32970,26 @@ MonoBehaviour:
   - {fileID: 2001522967}
   - {fileID: 2096629021}
   - {fileID: 1725773008}
+  - {fileID: 1613926062}
   meat_gfx: {fileID: 173471778}
   bread_gfx: {fileID: 1461524393}
   lettuce_gfx: {fileID: 2001522967}
   raw_fish_gfx: {fileID: 2096629021}
   spinach_gfx: {fileID: 1725773008}
+  potatoes_gfx: {fileID: 1613926062}
   processed_foods:
   - {fileID: 852002173}
   - {fileID: 265099607}
   - {fileID: 33031411}
   - {fileID: 703337049}
   - {fileID: 951196802}
+  - {fileID: 1693930073}
   cooked_meat_gfx: {fileID: 852002173}
   cut_bread_gfx: {fileID: 265099607}
   cut_lettuce_gfx: {fileID: 33031411}
   cooked_fish_gfx: {fileID: 703337049}
   chopped_spinach_gfx: {fileID: 951196802}
+  cooked_potatoes_gfx: {fileID: 1693930073}
   complete_dishes:
   - {fileID: 835604551}
   burger_gfx: {fileID: 835604551}
@@ -35949,8 +35958,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693930073}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.044055287, z: 0, w: 0.9990291}
-  m_LocalPosition: {x: -0.02, y: -0.38, z: -0.15}
+  m_LocalRotation: {x: -0, y: -0.044055287, z: -0, w: 0.9990291}
+  m_LocalPosition: {x: -0.020000055, y: -0.37999994, z: -0.15000015}
   m_LocalScale: {x: 0.3, y: 0.22515911, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -41091,7 +41100,7 @@ GameObject:
   - component: {fileID: 1921007729}
   m_Layer: 0
   m_Name: Cooked_potatoe (4)
-  m_TagString: Potatoe
+  m_TagString: Cooked_potatoe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46448,7 +46457,7 @@ GameObject:
   - component: {fileID: 2098229471}
   m_Layer: 0
   m_Name: Cooked_potatoe (2)
-  m_TagString: Potatoe
+  m_TagString: Cooked_potatoe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

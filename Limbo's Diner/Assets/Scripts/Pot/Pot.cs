@@ -57,7 +57,7 @@ public class Pot : MonoBehaviour
 
 
 
-    public void cut_bread()
+    public void cook_potatoes()
     {
         potatoes_gfx.SetActive(true);
         boiling_potatoes = true;
