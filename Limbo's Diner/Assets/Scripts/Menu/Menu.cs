@@ -22,4 +22,25 @@ public class Menu : MonoBehaviour
     {
         
     }
+
+    public void burger_active() 
+    {
+        Burger_menu.SetActive(true);
+        HotDog_menu.SetActive(false);
+        FriedFish_menu.SetActive(false);
+    }
+
+    public void hotdog_active()
+    {
+        Burger_menu.SetActive(false);
+        HotDog_menu.SetActive(true);
+        FriedFish_menu.SetActive(false);
+    }
+
+    public void friedfish_active()
+    {
+        Burger_menu.SetActive(false);
+        HotDog_menu.SetActive(false);
+        FriedFish_menu.SetActive(true);
+    }
 }

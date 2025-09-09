@@ -316,11 +316,12 @@ public class Plate : MonoBehaviour
             ing_put = 0;
             FriedFish_active = true;
             Burger_active = false;
-            menu.Burger_menu.SetActive(false);
-            menu.FriedFish_menu.SetActive(true);
+            //menu.Burger_menu.SetActive(false);
+            //menu.FriedFish_menu.SetActive(true);
             meat_put = false;
             bread_put = false;
             lettuce_put = false;
+            menu.hotdog_active();
             foreach(GameObject s in slotpos) 
             {
                 s.SetActive(true);
