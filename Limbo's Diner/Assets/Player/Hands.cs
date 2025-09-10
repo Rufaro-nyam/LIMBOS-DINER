@@ -28,6 +28,7 @@ public class Hands : MonoBehaviour
     public GameObject raw_fish_gfx;
     public GameObject spinach_gfx;
     public GameObject potatoes_gfx;
+    public GameObject onion_gfx;
 
 
     //FOOD PROCESSED GFX
@@ -57,6 +58,7 @@ public class Hands : MonoBehaviour
     private bool raw_fish_active = false;
     private bool spinach_active = false;
     private bool potatoes_active = false;
+    private bool onion_active = false; 
 
     //PROCESSED FOOD ACTIVE
     private bool cooked_meat_active = false;
@@ -156,6 +158,13 @@ public class Hands : MonoBehaviour
                     spinach_gfx.SetActive(true);
                     occupied = true;
                     spinach_active = true;
+                }
+                if (hit.transform.tag == "Onion")
+                {
+                    disable_rest();
+                    onion_gfx.SetActive(true);
+                    occupied = true;
+                    onion_active = true;
                 }
                 if (hit.transform.tag == "Cut_letuce")
                 {
