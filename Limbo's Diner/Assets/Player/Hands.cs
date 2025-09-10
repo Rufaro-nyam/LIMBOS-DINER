@@ -9,6 +9,7 @@ public class Hands : MonoBehaviour
     public Pot pot;
     public Chopping_board chopping_board;
     public TestNpc npc;
+    public TestNpc npc2;
 
     Transform cam;
     [Header("Interaction Range")]
@@ -352,6 +353,15 @@ public class Hands : MonoBehaviour
                     if (Burger_active) 
                     {
                         npc.win();
+                        disable_rest();
+                        occupied = false;
+                    }
+                }
+                if (hit.transform.tag == "Fish_npc")
+                {
+                    if (Fish_Dish_active)
+                    {
+                        npc2.win();
                         disable_rest();
                         occupied = false;
                     }

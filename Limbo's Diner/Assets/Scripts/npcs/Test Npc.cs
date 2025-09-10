@@ -7,6 +7,7 @@ public class TestNpc : MonoBehaviour
     public GameObject text1;
     public GameObject text2;
     private bool satisfied = false;
+    public GameObject next_npc;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,5 +30,6 @@ public class TestNpc : MonoBehaviour
         text1.SetActive(false);
         text2.SetActive(true);
         satisfied = true;
+        next_npc.SetActive(true);
     }
 }

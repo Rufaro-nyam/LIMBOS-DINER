@@ -23,6 +23,7 @@ TagManager:
   - Potatoe
   - Cooked_potatoe
   - FishDish
+  - Fish_npc
   layers:
   - Default
   - TransparentFX
