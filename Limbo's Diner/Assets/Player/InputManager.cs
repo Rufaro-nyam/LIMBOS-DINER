@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    //Title: FPS Controller with Unity's New Input System
+    //Author: Practical Programming
+    //Date:29 July 2025
+    //Availability: https://www.youtube.com/watch?v=tXDgSGOEatk&t=618s
 
     PlayerInput controls;
     PlayerInput.MovementActions groundmovement;
@@ -28,6 +32,11 @@ public class InputManager : MonoBehaviour
 
         //hands
         groundmovement.Interact.performed += _ => hands.shoot();
+        groundmovement.Drop.performed += _ => hands.drop();
+
+        //QUIT
+        groundmovement.QUIT.performed += _ => movement.Quit();
+
     }
 
 

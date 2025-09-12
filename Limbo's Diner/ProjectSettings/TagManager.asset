@@ -8,6 +8,24 @@ TagManager:
   - Plate
   - Cooked_meat
   - Pan
+  - Chopping_board
+  - Bread
+  - Cut_bread
+  - Lettuce
+  - Cut_letuce
+  - Burger
+  - NPC
+  - Fish
+  - Cooked_fish
+  - Spinach
+  - Chopped_spinach
+  - Pot
+  - Potatoe
+  - Cooked_potatoe
+  - FishDish
+  - Fish_npc
+  - Sausage
+  - Onion
   layers:
   - Default
   - TransparentFX
@@ -15,7 +33,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
