@@ -41,6 +41,7 @@ public class Hands : MonoBehaviour
     public GameObject cooked_fish_gfx;
     public GameObject chopped_spinach_gfx;
     public GameObject cooked_potatoes_gfx;
+    public GameObject chopped_onions_gfx;
 
     //COMPLETE DISH GFX
     [Header("List of complete dishes")]
@@ -67,6 +68,7 @@ public class Hands : MonoBehaviour
     private bool cooked_fish_active = false;
     private bool chopped_spinach_active = false;
     private bool cooked_potatoes_active = false;
+    private bool chopped_onions_active = false;
 
     // complete dish occupation
     private bool Burger_active = false;
@@ -165,6 +167,14 @@ public class Hands : MonoBehaviour
                     onion_gfx.SetActive(true);
                     occupied = true;
                     onion_active = true;
+                }
+                if (hit.transform.tag == "Chopped_onion")
+                {
+                    disable_rest();
+                    chopped_onions_gfx.SetActive(true);
+                    occupied = true;
+                    chopped_onions_active = true;
+                    chopping_board.food_collect();
                 }
                 if (hit.transform.tag == "Cut_letuce")
                 {
@@ -281,6 +291,15 @@ public class Hands : MonoBehaviour
                         chopping_board.cut_spinach();
                         chopping_board.activate_progress();
                         spinach_active = false;
+                    }
+                    if (onion_active)
+                    {
+                        disable_rest();
+                        //bread_gfx.SetActive(false);
+                        occupied = false;
+                        chopping_board.cut_onion();
+                        chopping_board.activate_progress();
+                        onion_active = false;
                     }
 
                 }

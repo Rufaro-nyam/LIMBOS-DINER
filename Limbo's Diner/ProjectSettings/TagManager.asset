@@ -26,6 +26,9 @@ TagManager:
   - Fish_npc
   - Sausage
   - Onion
+  - Chopped_onion
+  - Hotdog_bun
+  - Cut_hotdog_bun
   layers:
   - Default
   - TransparentFX
