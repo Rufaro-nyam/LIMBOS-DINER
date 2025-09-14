@@ -17606,7 +17606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &604903742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29194,7 +29194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text1: {fileID: 1187102976}
   text2: {fileID: 151193735}
-  next_npc: {fileID: 0}
+  next_npc: {fileID: 604903741}
 --- !u!136 &998621717
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -35338,8 +35338,8 @@ MonoBehaviour:
   HotDog: 0
   FriedFish: 0
   Burger_menu: {fileID: 1461155688}
-  HotDog_menu: {fileID: 827055544}
-  FriedFish_menu: {fileID: 196285473}
+  HotDog_menu: {fileID: 196285473}
+  FriedFish_menu: {fileID: 827055544}
 --- !u!1 &1261309943
 GameObject:
   m_ObjectHideFlags: 0
@@ -39415,6 +39415,7 @@ MonoBehaviour:
   Combos:
   - {fileID: 56117890}
   - {fileID: 1408541980}
+  - {fileID: 693759011}
   singles:
   - {fileID: 526333011}
   - {fileID: 671898617}
@@ -39437,8 +39438,8 @@ MonoBehaviour:
   Burger: {fileID: 56117890}
   Fish_dish: {fileID: 1408541980}
   Hotdog: {fileID: 693759011}
-  Burger_active: 0
-  HotDog_active: 1
+  Burger_active: 1
+  HotDog_active: 0
   FriedFish_active: 0
   present_warning: {fileID: 415885862}
   not_component_warning: {fileID: 2040438341}
@@ -55085,7 +55086,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &2022993948
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -55171,7 +55172,7 @@ Transform:
   m_GameObject: {fileID: 2022993947}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.81, y: 1.45, z: 5.46}
+  m_LocalPosition: {x: 3.81, y: 1.45, z: 5.444}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
