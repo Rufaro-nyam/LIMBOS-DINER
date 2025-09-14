@@ -29,6 +29,9 @@ TagManager:
   - Chopped_onion
   - Hotdog_bun
   - Cut_hotdog_bun
+  - Cooked_sausage
+  - Hotdog
+  - Hotdog_npc
   layers:
   - Default
   - TransparentFX

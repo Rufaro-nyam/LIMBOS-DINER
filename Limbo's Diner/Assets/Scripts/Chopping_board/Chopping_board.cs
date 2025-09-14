@@ -17,6 +17,7 @@ public class Chopping_board : MonoBehaviour
     public bool cutting_lettuce;
     public bool cutting_spinach;
     public bool cutting_onion;
+    public bool cutting_bun;
 
     //GFX FOOD
     [Header("Food Graphics Unprocessed")]
@@ -24,6 +25,7 @@ public class Chopping_board : MonoBehaviour
     public GameObject lettuce_gfx;
     public GameObject spinach_gfx;
     public GameObject onion_gfx;
+    public GameObject bun_gfx;
 
     //GFX PROCESSED FOOD
     [Header("Food Graphics Processed")]
@@ -31,6 +33,7 @@ public class Chopping_board : MonoBehaviour
     public GameObject cut_lettuce_gfx;
     public GameObject chopped_spinach_gfx;
     public GameObject chopped_onion_gfx;
+    public GameObject cut_bun_gfx;
 
     //OCCUPATION
     public bool occupied = false;
@@ -55,6 +58,19 @@ public class Chopping_board : MonoBehaviour
                 current_prog = 0f;
                 bread_gfx.SetActive(false);
                 cut_bread_gfx.SetActive(true);
+            }
+        }
+
+        if (cutting_bun)
+        {
+            current_prog += 0.5f * Time.deltaTime;
+            progressbar.fillAmount = current_prog / max_prog;
+            if (current_prog >= max_prog)
+            {
+                cutting_bun = false;
+                current_prog = 0f;
+                bun_gfx.SetActive(false);
+                cut_bun_gfx.SetActive(true);
             }
         }
 
@@ -107,7 +123,12 @@ public class Chopping_board : MonoBehaviour
         cutting_bread = true;
         occupied = true;
     }
-
+    public void cut_bun()
+    {
+        bun_gfx.SetActive(true);
+        cutting_bun = true;
+        occupied = true;
+    }
     public void cut_lettuce()
     {
         lettuce_gfx.SetActive(true);
@@ -153,6 +174,11 @@ public class Chopping_board : MonoBehaviour
         chopped_onion_gfx.SetActive(false);
         current_prog = 0.0f;
         cutting_onion = false;
+
+        //bun
+        cut_bun_gfx.SetActive(false);
+        current_prog = 0.0f;
+        cutting_bun = false;
         
         deactivate_progress();
     }
