@@ -25,6 +25,9 @@ public class Pot : MonoBehaviour
     [Header("Food Graphics Processed")]
     public GameObject boiled_potatoes_gfx;
 
+    //ANIMATION
+    public ParticleSystem stemgfx1;
+    public ParticleSystem stemgfx2;
 
     //OCCUPATION
     public bool occupied = false;
@@ -45,6 +48,8 @@ public class Pot : MonoBehaviour
             progressbar.fillAmount = current_prog / max_prog;
             if (current_prog >= max_prog)
             {
+                stemgfx1.Stop();
+                stemgfx2.Stop();
                 boiling_potatoes = false;
                 current_prog = 0f;
                 potatoes_gfx.SetActive(false);
@@ -59,6 +64,8 @@ public class Pot : MonoBehaviour
 
     public void cook_potatoes()
     {
+        stemgfx1.Play();
+        stemgfx2.Play();
         potatoes_gfx.SetActive(true);
         boiling_potatoes = true;
         occupied = true;
