@@ -260,6 +260,7 @@ public class Hands : MonoBehaviour
                     Burger_active = true;
                     burger_gfx.SetActive(true);
                     plate.food_collect();
+                    plate.FriedFish_active = true;
                 }
 
                 if (hit.transform.tag == "FishDish")
@@ -533,6 +534,12 @@ public class Hands : MonoBehaviour
         chopped_spinach_active = false;
         potatoes_active = false;
         cooked_potatoes_active = false;
+        onion_active = false;
+        chopped_onions_active = false;
+        bun_active = false;
+        cut_bun_active = false;
+        sausage_active = false;
+        cooked_sausage_active = false;
     }
 
 

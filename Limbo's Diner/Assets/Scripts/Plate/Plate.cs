@@ -60,12 +60,13 @@ public class Plate : MonoBehaviour
 
     void Start()
     {
-        //Burger_active = true;
+        Burger_active = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if(present_warning.activeSelf == true|| not_component_warning.activeSelf == true) 
         {
             present_time += Time.deltaTime;
@@ -427,6 +428,7 @@ public class Plate : MonoBehaviour
         }
         if (Burger_active) 
         {
+            
             ing_put = 0;
             FriedFish_active = true;
             Burger_active = false;
@@ -435,7 +437,7 @@ public class Plate : MonoBehaviour
             meat_put = false;
             bread_put = false;
             lettuce_put = false;
-            menu.friedfish_active();
+            menu.hotdog_active();
             foreach(GameObject s in slotpos) 
             {
                 s.SetActive(true);
@@ -451,7 +453,7 @@ public class Plate : MonoBehaviour
             fish_put = false;
             potatoes_put = false;
             spinach_put = false;
-            menu.hotdog_active();
+            menu.friedfish_active();
             foreach (GameObject s in slotpos)
             {
                 s.SetActive(true);
