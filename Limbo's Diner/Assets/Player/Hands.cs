@@ -96,6 +96,37 @@ public class Hands : MonoBehaviour
 
      void Update()
     {
+        //TI INTERACT WITH HIGHLIGHT SHADER
+        RaycastHit hit2;
+        if (Physics.Raycast(cam.position, cam.forward, out hit2, range)) 
+        {
+            if(hit2.transform.tag == "Pan") 
+            {
+                pan.highlight.SetActive(true);
+            }
+            else 
+            {
+                pan.highlight.SetActive(false);
+            }
+
+            if (hit2.transform.tag == "Chopping_board")
+            {
+                chopping_board.highlight.SetActive(true);
+            }
+            else
+            {
+                chopping_board.highlight.SetActive(false);
+            }
+
+            if (hit2.transform.tag == "Pot")
+            {
+                pot.highlight.SetActive(true);
+            }
+            else
+            {
+                pot.highlight.SetActive(false);
+            }
+        }
 
     }
 

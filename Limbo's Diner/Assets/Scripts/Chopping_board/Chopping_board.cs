@@ -44,6 +44,9 @@ public class Chopping_board : MonoBehaviour
     public ParticleSystem greens_particles;
     public ParticleSystem onion_particles;
 
+    //HIGHLIGHT GFX
+    public GameObject highlight;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

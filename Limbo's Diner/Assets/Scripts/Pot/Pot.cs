@@ -32,6 +32,9 @@ public class Pot : MonoBehaviour
     //OCCUPATION
     public bool occupied = false;
 
+    //HIGHLIGHT GFX
+    public GameObject highlight;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
