@@ -38,6 +38,12 @@ public class Chopping_board : MonoBehaviour
     //OCCUPATION
     public bool occupied = false;
 
+    //ANIMATION
+    public Knife_animator knife_anim;
+    public ParticleSystem bread_particles;
+    public ParticleSystem greens_particles;
+    public ParticleSystem onion_particles;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -54,6 +60,8 @@ public class Chopping_board : MonoBehaviour
             progressbar.fillAmount = current_prog / max_prog;
             if (current_prog >= max_prog)
             {
+                knife_anim.idle();
+                bread_particles.Stop();
                 cutting_bread = false;
                 current_prog = 0f;
                 bread_gfx.SetActive(false);
@@ -67,6 +75,8 @@ public class Chopping_board : MonoBehaviour
             progressbar.fillAmount = current_prog / max_prog;
             if (current_prog >= max_prog)
             {
+                knife_anim.idle();
+                bread_particles.Stop();
                 cutting_bun = false;
                 current_prog = 0f;
                 bun_gfx.SetActive(false);
@@ -81,6 +91,8 @@ public class Chopping_board : MonoBehaviour
             progressbar.fillAmount = current_prog / max_prog;
             if (current_prog >= max_prog)
             {
+                knife_anim.idle();
+                greens_particles.Stop();
                 cutting_lettuce = false;
                 current_prog = 0f;
                 lettuce_gfx.SetActive(false);
@@ -90,10 +102,13 @@ public class Chopping_board : MonoBehaviour
 
         if (cutting_spinach)
         {
+
             current_prog += 0.5f * Time.deltaTime;
             progressbar.fillAmount = current_prog / max_prog;
             if (current_prog >= max_prog)
             {
+                knife_anim.idle();
+                greens_particles.Stop();
                 cutting_spinach = false;
                 current_prog = 0f;
                 spinach_gfx.SetActive(false);
@@ -103,10 +118,13 @@ public class Chopping_board : MonoBehaviour
 
         if (cutting_onion)
         {
+
             current_prog += 0.5f * Time.deltaTime;
             progressbar.fillAmount = current_prog / max_prog;
             if (current_prog >= max_prog)
             {
+                knife_anim.idle();
+                onion_particles.Stop();
                 cutting_onion = false;
                 current_prog = 0f;
                 onion_gfx.SetActive(false);
@@ -122,18 +140,24 @@ public class Chopping_board : MonoBehaviour
         bread_gfx.SetActive(true);
         cutting_bread = true;
         occupied = true;
+        knife_anim.chop();
+        bread_particles.Play();
     }
     public void cut_bun()
     {
         bun_gfx.SetActive(true);
         cutting_bun = true;
         occupied = true;
+        knife_anim.chop();
+        bread_particles.Play();
     }
     public void cut_lettuce()
     {
         lettuce_gfx.SetActive(true);
         cutting_lettuce = true;
         occupied = true;
+        knife_anim.chop();
+        greens_particles.Play();
     }
 
     public void cut_spinach()
@@ -141,6 +165,8 @@ public class Chopping_board : MonoBehaviour
         spinach_gfx.SetActive(true);
         cutting_spinach = true;
         occupied = true;
+        knife_anim.chop();
+        greens_particles.Play();
     }
 
     public void cut_onion()
@@ -148,10 +174,13 @@ public class Chopping_board : MonoBehaviour
         onion_gfx.SetActive(true);
         cutting_onion = true;
         occupied = true;
+        knife_anim.chop();
+        onion_particles.Play();
     }
 
     public void food_collect()
     {
+
         //bread
         cut_bread_gfx.SetActive(false);
         current_prog = 0.0f;
