@@ -8,6 +8,7 @@ public class TestNpc : MonoBehaviour
     public GameObject text2;
     private bool satisfied = false;
     public GameObject next_npc;
+    public ParticleSystem win_particles;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +28,7 @@ public class TestNpc : MonoBehaviour
 
     public void win() 
     {
+        win_particles.Play();
         text1.SetActive(false);
         text2.SetActive(true);
         satisfied = true;

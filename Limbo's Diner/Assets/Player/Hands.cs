@@ -10,6 +10,7 @@ public class Hands : MonoBehaviour
     public Chopping_board chopping_board;
     public TestNpc npc;
     public TestNpc npc2;
+    public TestNpc npc3;
 
     Transform cam;
     [Header("Interaction Range")]
@@ -23,12 +24,14 @@ public class Hands : MonoBehaviour
     public GameObject[] foods;
 
     public GameObject meat_gfx;
+    public GameObject sausage_gfx;
     public GameObject bread_gfx;
     public GameObject lettuce_gfx;
     public GameObject raw_fish_gfx;
     public GameObject spinach_gfx;
     public GameObject potatoes_gfx;
     public GameObject onion_gfx;
+    public GameObject bun_gfx;
 
 
     //FOOD PROCESSED GFX
@@ -36,11 +39,14 @@ public class Hands : MonoBehaviour
     public GameObject[] processed_foods;
 
     public GameObject cooked_meat_gfx;
+    public GameObject cooked_sausage_gfx;
     public GameObject cut_bread_gfx;
     public GameObject cut_lettuce_gfx;
     public GameObject cooked_fish_gfx;
     public GameObject chopped_spinach_gfx;
     public GameObject cooked_potatoes_gfx;
+    public GameObject chopped_onions_gfx;
+    public GameObject cut_bun_gfx;
 
     //COMPLETE DISH GFX
     [Header("List of complete dishes")]
@@ -48,29 +54,36 @@ public class Hands : MonoBehaviour
 
     public GameObject burger_gfx;
     public GameObject fishdish_gfx;
+    public GameObject Hotdog_gfx;
     //Hand occupation
     private bool occupied = false;
 
     //RAW FOOD ACTIVE
     private bool meat_active = false;
+    private bool sausage_active = false;
     private bool bread_active = false;
     private bool lettuce_active = false;
     private bool raw_fish_active = false;
     private bool spinach_active = false;
     private bool potatoes_active = false;
-    private bool onion_active = false; 
+    private bool onion_active = false;
+    private bool bun_active = false;
 
     //PROCESSED FOOD ACTIVE
     private bool cooked_meat_active = false;
+    private bool cooked_sausage_active = false;
     private bool cut_bread_active = false;
     private bool cut_lettuce_active = false;
     private bool cooked_fish_active = false;
     private bool chopped_spinach_active = false;
     private bool cooked_potatoes_active = false;
+    private bool chopped_onions_active = false;
+    private bool cut_bun_active = false;
 
     // complete dish occupation
     private bool Burger_active = false;
     private bool Fish_Dish_active = false;
+    private bool Hotdog_active = false;
 
     private void Awake()
     {
@@ -83,6 +96,45 @@ public class Hands : MonoBehaviour
 
      void Update()
     {
+        //TI INTERACT WITH HIGHLIGHT SHADER
+        RaycastHit hit2;
+        if (Physics.Raycast(cam.position, cam.forward, out hit2, range)) 
+        {
+            if(hit2.transform.tag == "Pan") 
+            {
+                pan.highlight.SetActive(true);
+            }
+            else 
+            {
+                pan.highlight.SetActive(false);
+            }
+
+            if (hit2.transform.tag == "Chopping_board")
+            {
+                chopping_board.highlight.SetActive(true);
+            }
+            else
+            {
+                chopping_board.highlight.SetActive(false);
+            }
+
+            if (hit2.transform.tag == "Pot")
+            {
+                pot.highlight.SetActive(true);
+            }
+            else
+            {
+                pot.highlight.SetActive(false);
+            }
+            if (hit2.transform.tag == "Plate")
+            {
+                plate.highlight.SetActive(true);
+            }
+            else
+            {
+                plate.highlight.SetActive(false);
+            }
+        }
 
     }
 
@@ -112,12 +164,44 @@ public class Hands : MonoBehaviour
                     pan.food_collect();
                     cooked_meat_active = true;
                 }
+                if (hit.transform.tag == "Sausage")
+                {
+                    disable_rest();
+                    sausage_gfx.SetActive(true);
+                    occupied = true;
+                    sausage_active = true;
+                }
+                if (hit.transform.tag == "Cooked_sausage")
+                {
+                    disable_rest();
+                    cooked_sausage_gfx.SetActive(true);
+                    occupied = true;
+                    pan.food_collect();
+                    cooked_sausage_active = true;
+                }
                 if (hit.transform.tag == "Bread")
                 {
                     disable_rest();
                     bread_gfx.SetActive(true);
                     occupied = true;
                     bread_active = true;  
+                }
+                if (hit.transform.tag == "Hotdog_bun")
+                {
+                    disable_rest();
+                    bun_gfx.SetActive(true);
+                    occupied = true;
+                    bun_active = true;
+                }
+                if (hit.transform.tag == "Cut_hotdog_bun")
+                {
+                    disable_rest();
+                    bread_gfx.SetActive(false);
+                    occupied = true;
+                    bread_active = false;
+                    cut_bun_active = true;
+                    cut_bun_gfx.SetActive(true);
+                    chopping_board.food_collect();
                 }
                 if (hit.transform.tag == "Cut_bread")
                 {
@@ -166,6 +250,14 @@ public class Hands : MonoBehaviour
                     occupied = true;
                     onion_active = true;
                 }
+                if (hit.transform.tag == "Chopped_onion")
+                {
+                    disable_rest();
+                    chopped_onions_gfx.SetActive(true);
+                    occupied = true;
+                    chopped_onions_active = true;
+                    chopping_board.food_collect();
+                }
                 if (hit.transform.tag == "Cut_letuce")
                 {
                     disable_rest();
@@ -207,6 +299,7 @@ public class Hands : MonoBehaviour
                     Burger_active = true;
                     burger_gfx.SetActive(true);
                     plate.food_collect();
+                    plate.FriedFish_active = true;
                 }
 
                 if (hit.transform.tag == "FishDish")
@@ -216,6 +309,15 @@ public class Hands : MonoBehaviour
                     bread_active = false;
                     Fish_Dish_active = true;
                     fishdish_gfx.SetActive(true);
+                    plate.food_collect();
+                }
+                if (hit.transform.tag == "Hotdog")
+                {
+                    disable_rest();
+                    occupied = true;
+                    bread_active = false;
+                    Hotdog_active = true;
+                    Hotdog_gfx.SetActive(true);
                     plate.food_collect();
                 }
 
@@ -249,6 +351,15 @@ public class Hands : MonoBehaviour
                         raw_fish_active = false;
                         
                     }
+                    if (sausage_active)
+                    {
+                        disable_rest();
+                        sausage_gfx.SetActive(false);
+                        occupied = false;
+                        pan.cook_sausage();
+                        sausage_active = false;
+
+                    }
 
 
                 }
@@ -263,6 +374,15 @@ public class Hands : MonoBehaviour
                         chopping_board.cut_bread();
                         chopping_board.activate_progress();
                         bread_active = false;
+                    }
+                    if (bun_active)
+                    {
+                        disable_rest();
+                        //bread_gfx.SetActive(false);
+                        occupied = false;
+                        chopping_board.cut_bun();
+                        chopping_board.activate_progress();
+                        bun_active = false;
                     }
                     if (lettuce_active)
                     {
@@ -281,6 +401,15 @@ public class Hands : MonoBehaviour
                         chopping_board.cut_spinach();
                         chopping_board.activate_progress();
                         spinach_active = false;
+                    }
+                    if (onion_active)
+                    {
+                        disable_rest();
+                        //bread_gfx.SetActive(false);
+                        occupied = false;
+                        chopping_board.cut_onion();
+                        chopping_board.activate_progress();
+                        onion_active = false;
                     }
 
                 }
@@ -309,6 +438,14 @@ public class Hands : MonoBehaviour
                         //cooked_meat_gfx.SetActive(false);
                         plate.add_cooked_meat();
                     }
+                    if (cooked_sausage_active)
+                    {
+                        disable_rest();
+                        cooked_sausage_active = false;
+                        occupied = false;
+                        //cooked_meat_gfx.SetActive(false);
+                        plate.add_cooked_sausage();
+                    }
                     if (cooked_fish_active)
                     {
                         disable_rest();
@@ -325,12 +462,29 @@ public class Hands : MonoBehaviour
                         //cut_bread_gfx.SetActive(false);
                         plate.add_chopped_bread();
                     }
+                    if (cut_bun_active)
+                    {
+                        disable_rest();
+                        cut_bun_active = false;
+                        occupied = false;
+                        //cut_bread_gfx.SetActive(false);
+                        plate.add_cut_bun();
+                    }
                     if (cut_lettuce_active)
                     {
                         disable_rest();
                         cut_lettuce_active = false;
                         occupied = false;
                         plate.add_cut_lettuce();
+                        //cut_bread_gfx.SetActive(false);
+                        //plate.add_chopped_bread();
+                    }
+                    if (chopped_onions_active)
+                    {
+                        disable_rest();
+                        chopped_onions_active = false;
+                        occupied = false;
+                        plate.add_chopped_onion();
                         //cut_bread_gfx.SetActive(false);
                         //plate.add_chopped_bread();
                     }
@@ -375,6 +529,15 @@ public class Hands : MonoBehaviour
                         occupied = false;
                     }
                 }
+                if (hit.transform.tag == "Hotdog_npc")
+                {
+                    if (Hotdog_active)
+                    {
+                        npc3.win();
+                        disable_rest();
+                        occupied = false;
+                    }
+                }
             }
         }
 
@@ -410,6 +573,12 @@ public class Hands : MonoBehaviour
         chopped_spinach_active = false;
         potatoes_active = false;
         cooked_potatoes_active = false;
+        onion_active = false;
+        chopped_onions_active = false;
+        bun_active = false;
+        cut_bun_active = false;
+        sausage_active = false;
+        cooked_sausage_active = false;
     }
 
 

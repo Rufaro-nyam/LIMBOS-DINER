@@ -21,6 +21,9 @@ public class Plate : MonoBehaviour
     public GameObject cooked_fish;
     public GameObject chopped_spinach;
     public GameObject cooked_potatoes;
+    public GameObject chopped_onion;
+    public GameObject cooked_sausage;
+    public GameObject cut_bun;
 
     //COMBOS
     [Header("Complete Dishes")]
@@ -42,6 +45,10 @@ public class Plate : MonoBehaviour
     private bool fish_put = false;
     private bool spinach_put = false;
     private bool potatoes_put = false;
+    private bool onion_put = false;
+    private bool bun_put = false;
+    private bool sausage_put = false;
+
 
     //INGREDIENT PRESENT WARNING
     public GameObject present_warning;
@@ -51,6 +58,9 @@ public class Plate : MonoBehaviour
     //MENU LISTS
     public Menu menu;
 
+    //HIGHLIGHT GFX
+    public GameObject highlight;
+
     void Start()
     {
         Burger_active = true;
@@ -59,6 +69,7 @@ public class Plate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(present_warning.activeSelf == true|| not_component_warning.activeSelf == true) 
         {
             present_time += Time.deltaTime;
@@ -94,12 +105,47 @@ public class Plate : MonoBehaviour
             }
             else 
             {
-                
+                not_component_warning.SetActive(true);
             }
 
 
         }
         else 
+        {
+            present_warning.SetActive(true);
+        }
+
+
+
+    }
+    public void add_cooked_sausage()
+    {
+        if (!sausage_put)
+        {
+            if (HotDog_active)
+            {
+                cooked_sausage.SetActive(true);
+                for (int i = 0; i < slotpos.Length; i++)
+                {
+                    if (slotpos[i].activeSelf == true)
+                    {
+                        cooked_sausage.transform.position = slotpos[i].transform.position;
+                        slotpos[i].SetActive(false);
+                        print(slotpos[i]);
+                        check_food();
+                        sausage_put = true;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                not_component_warning.SetActive(true);
+            }
+
+
+        }
+        else
         {
             present_warning.SetActive(true);
         }
@@ -163,7 +209,41 @@ public class Plate : MonoBehaviour
             }
             else 
             {
-               
+                not_component_warning.SetActive(true);
+            }
+
+        }
+        else
+        {
+            present_warning.SetActive(true);
+        }
+
+
+    }
+
+    public void add_cut_bun()
+    {
+        if (!bun_put)
+        {
+            if (HotDog_active)
+            {
+                cut_bun.SetActive(true);
+                for (int i = 0; i < slotpos.Length; i++)
+                {
+                    if (slotpos[i].activeSelf == true)
+                    {
+                        cut_bun.transform.position = slotpos[i].transform.position;
+                        slotpos[i].SetActive(false);
+                        print(slotpos[i]);
+                        check_food();
+                        bun_put = true;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                not_component_warning.SetActive(true);
             }
 
         }
@@ -196,6 +276,39 @@ public class Plate : MonoBehaviour
                 }
             }
             else 
+            {
+                not_component_warning.SetActive(true);
+            }
+        }
+        else
+        {
+            present_warning.SetActive(true);
+        }
+
+
+    }
+
+    public void add_chopped_onion()
+    {
+        if (!onion_put)
+        {
+            if (HotDog_active)
+            {
+                chopped_onion.SetActive(true);
+                for (int i = 0; i < slotpos.Length; i++)
+                {
+                    if (slotpos[i].activeSelf == true)
+                    {
+                        chopped_onion.transform.position = slotpos[i].transform.position;
+                        slotpos[i].SetActive(false);
+                        print(slotpos[i]);
+                        check_food();
+                        onion_put = true;
+                        break;
+                    }
+                }
+            }
+            else
             {
                 not_component_warning.SetActive(true);
             }
@@ -299,6 +412,11 @@ public class Plate : MonoBehaviour
             deactivate();
             Fish_dish.SetActive(true);
         }
+        if (ing_put == 3 && HotDog_active)
+        {
+            deactivate();
+            Hotdog.SetActive(true);
+        }
     }
 
     public void food_collect() 
@@ -313,6 +431,7 @@ public class Plate : MonoBehaviour
         }
         if (Burger_active) 
         {
+            
             ing_put = 0;
             FriedFish_active = true;
             Burger_active = false;
@@ -327,6 +446,38 @@ public class Plate : MonoBehaviour
                 s.SetActive(true);
             }
         }
-        
+        if (FriedFish_active)
+        {
+            ing_put = 0;
+            HotDog_active = true;
+            FriedFish_active = false;
+            //menu.Burger_menu.SetActive(false);
+            //menu.FriedFish_menu.SetActive(true);
+            fish_put = false;
+            potatoes_put = false;
+            spinach_put = false;
+            menu.friedfish_active();
+            foreach (GameObject s in slotpos)
+            {
+                s.SetActive(true);
+            }
+        }
+        if (HotDog_active)
+        {
+            ing_put = 0;
+            HotDog_active = true;
+            FriedFish_active = false;
+            //menu.Burger_menu.SetActive(false);
+            //menu.FriedFish_menu.SetActive(true);
+            fish_put = false;
+            potatoes_put = false;
+            spinach_put = false;
+            //menu.hotdog_active();
+            foreach (GameObject s in slotpos)
+            {
+                s.SetActive(true);
+            }
+        }
+
     }
 }

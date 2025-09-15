@@ -29,19 +29,31 @@ public class Pan : MonoBehaviour
     [Header("Food Cooking Conditions")]
     public bool cooking_meat;
     public bool cooking_fish;
+    public bool cooking_sausage;
 
     //GFX
     [Header("Unprocessed food graphics")]
     public GameObject meat_gfx;
     public GameObject raw_fish_gfx;
+    public GameObject sausage_gfx;
 
     [Header("Processed food graphics")]
     public GameObject cooked_meat_gfx;
     public GameObject cooked_fish_gfx;
+    public GameObject cooked_sausage_gfx;
+
+    //ANIMATION
+    [Header("Animation Particles")]
+    public ParticleSystem oil;
+    public ParticleSystem smoke;
+    private bool can_smoke = true;
 
     //OCCUPATION
     [Header("Slot Positions")]
     public bool occupied = false;
+
+    //HIGHLIGHT GFX
+    public GameObject highlight;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -90,12 +102,17 @@ public class Pan : MonoBehaviour
             if (overcooking) 
             {
                 //overcooking]
+                activate_smoke();
+                
                 activate_overcook_progress_sprites();
                 current_overcook_prog += 0.5f * Time.deltaTime;
                 OVERCOOK_progressbar.fillAmount = current_overcook_prog / max_prog;
                 //print("overcook prog is " + current_overcook_prog);
                 if (current_overcook_prog >= max_overcook_prog)
                 {
+                    oil.Stop();
+                    smoke.Stop();
+                    can_smoke = true;
                     print("overcooked");
                     cooking_meat = false;
                     occupied = false;
@@ -128,12 +145,16 @@ public class Pan : MonoBehaviour
             if (overcooking)
             {
                 //overcooking]
+                activate_smoke();
                 activate_overcook_progress_sprites();
                 current_overcook_prog += 0.5f * Time.deltaTime;
                 OVERCOOK_progressbar.fillAmount = current_overcook_prog / max_prog;
                 //print("overcook prog is " + current_overcook_prog);
                 if (current_overcook_prog >= max_overcook_prog)
                 {
+                    oil.Stop();
+                    smoke.Stop();
+                    can_smoke = true;
                     print("overcooked");
                     cooking_fish = false;
                     occupied = false;
@@ -147,20 +168,81 @@ public class Pan : MonoBehaviour
                 }
             }
         }
+
+        if (cooking_sausage)
+        {
+            current_prog += 0.5f * Time.deltaTime;
+            progressbar.fillAmount = current_prog / max_prog;
+            if (current_prog >= max_prog)
+            {
+
+                cooking_sausage = true;
+                current_prog = 0f;
+                sausage_gfx.SetActive(false);
+                cooked_sausage_gfx.SetActive(true);
+                deactivate_progress();
+                overcooking = true;
+
+
+            }
+            if (overcooking)
+            {
+                //overcooking]
+                activate_smoke();
+                activate_overcook_progress_sprites();
+                current_overcook_prog += 0.5f * Time.deltaTime;
+                OVERCOOK_progressbar.fillAmount = current_overcook_prog / max_prog;
+                //print("overcook prog is " + current_overcook_prog);
+                if (current_overcook_prog >= max_overcook_prog)
+                {
+                    oil.Stop();
+                    smoke.Stop();
+                    can_smoke = true;
+                    print("overcooked");
+                    cooking_sausage = false;
+                    occupied = false;
+                    cooked_sausage_gfx.SetActive(false);
+                    can_show = true;
+                    overcooking = false;
+                    current_prog = 0.0f;
+                    current_overcook_prog = 0.0f;
+
+                    deactivate_overcook_progress_sprites();
+                }
+            }
+        }
     }
 
 
-
+    private void activate_smoke() 
+    {
+        if (can_smoke) 
+        {
+            smoke.Play();
+            can_smoke = false;
+        }
+    }
     public void cook_meat() 
     {
+        oil.Play();
         activate_progress();
         meat_gfx.SetActive(true);
         cooking_meat = true;
         occupied = true;
     }
 
+    public void cook_sausage()
+    {
+        oil.Play();
+        activate_progress();
+        sausage_gfx.SetActive(true);
+        cooking_sausage = true;
+        occupied = true;
+    }
+
     public void cook_fish()
     {
+        oil.Play();
         activate_progress();
         raw_fish_gfx.SetActive(true);
         cooking_fish = true;
@@ -169,11 +251,16 @@ public class Pan : MonoBehaviour
 
     public void food_collect() 
     {
+        oil.Stop();
+        smoke.Stop();
+        can_smoke = true;
         cooked_meat_gfx.SetActive(false);
         cooked_fish_gfx.SetActive(false);
+        cooked_sausage_gfx.SetActive(false);
         current_prog = 0.0f;
         cooking_meat = false;
         cooking_fish = false;
+        cooking_sausage = false;
         current_prog = 0.0f;
         current_overcook_prog = 0.0f;
         overcooking = false;
