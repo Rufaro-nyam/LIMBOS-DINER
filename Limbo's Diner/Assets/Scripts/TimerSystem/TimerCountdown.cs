@@ -13,7 +13,18 @@ public class TimerCountdown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeRemaining -= Time.deltaTime;
+        if (timeRemaining > 0)
+        {
+            timeRemaining -= Time.deltaTime;
+        }
+        else if (timeRemaining < 0)
+        {
+            timeRemaining = 0;
+            timerText.color = Color.red;
+            // add sound effect??
+        }
+
+
         int minutes = Mathf.FloorToInt (timeRemaining/60);
         int seconds = Mathf.FloorToInt (timeRemaining % 60);
 
