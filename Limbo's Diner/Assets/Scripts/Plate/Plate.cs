@@ -58,6 +58,9 @@ public class Plate : MonoBehaviour
     //MENU LISTS
     public Menu menu;
 
+    //HIGHLIGHT GFX
+    public GameObject highlight;
+
     void Start()
     {
         Burger_active = true;

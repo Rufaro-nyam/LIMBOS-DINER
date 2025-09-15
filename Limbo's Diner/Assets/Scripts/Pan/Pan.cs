@@ -103,6 +103,7 @@ public class Pan : MonoBehaviour
             {
                 //overcooking]
                 activate_smoke();
+                
                 activate_overcook_progress_sprites();
                 current_overcook_prog += 0.5f * Time.deltaTime;
                 OVERCOOK_progressbar.fillAmount = current_overcook_prog / max_prog;
@@ -252,6 +253,7 @@ public class Pan : MonoBehaviour
     {
         oil.Stop();
         smoke.Stop();
+        can_smoke = true;
         cooked_meat_gfx.SetActive(false);
         cooked_fish_gfx.SetActive(false);
         cooked_sausage_gfx.SetActive(false);

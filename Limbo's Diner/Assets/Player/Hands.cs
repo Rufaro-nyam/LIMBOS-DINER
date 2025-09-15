@@ -126,6 +126,14 @@ public class Hands : MonoBehaviour
             {
                 pot.highlight.SetActive(false);
             }
+            if (hit2.transform.tag == "Plate")
+            {
+                plate.highlight.SetActive(true);
+            }
+            else
+            {
+                plate.highlight.SetActive(false);
+            }
         }
 
     }
