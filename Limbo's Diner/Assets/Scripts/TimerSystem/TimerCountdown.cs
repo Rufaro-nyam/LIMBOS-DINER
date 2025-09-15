@@ -31,4 +31,24 @@ public class TimerCountdown : MonoBehaviour
         timerText.text = string.Format ("{0:00}:{1:00}", minutes, seconds);
 
     }
+
+    //public void Pause()
+    //{
+        //pauseMenu.SetActive (true);
+        //Time.timeScale = 0;
+
+        //fix this
+    //}
+
+    //public void Resume()
+    //{
+        //pauseMenu.SetActive (fasle);
+        //Time.timeScale = 1;
+
+        // fix this
+    //}
+    
+
 }
+
+// reference everything here
