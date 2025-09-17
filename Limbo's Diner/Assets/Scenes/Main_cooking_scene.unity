@@ -19451,11 +19451,17 @@ MonoBehaviour:
   overcooked_label: {fileID: 1316203831}
   cooking_meat: 0
   cooking_fish: 0
+  cooking_sausage: 0
   meat_gfx: {fileID: 731361573}
   raw_fish_gfx: {fileID: 692939062}
+  sausage_gfx: {fileID: 0}
   cooked_meat_gfx: {fileID: 139315719}
   cooked_fish_gfx: {fileID: 1401804900}
+  cooked_sausage_gfx: {fileID: 0}
+  oil: {fileID: 0}
+  smoke: {fileID: 0}
   occupied: 0
+  highlight: {fileID: 0}
 --- !u!65 &718006077
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27061,6 +27067,7 @@ MonoBehaviour:
   text1: {fileID: 1187102976}
   text2: {fileID: 151193735}
   next_npc: {fileID: 0}
+  win_particles: {fileID: 0}
 --- !u!136 &998621717
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -30368,7 +30375,10 @@ MonoBehaviour:
   boiling_potatoes: 0
   potatoes_gfx: {fileID: 361934538}
   boiled_potatoes_gfx: {fileID: 587615853}
+  stemgfx1: {fileID: 0}
+  stemgfx2: {fileID: 0}
   occupied: 0
+  highlight: {fileID: 0}
 --- !u!1 &1158685215
 GameObject:
   m_ObjectHideFlags: 0
@@ -36053,6 +36063,9 @@ MonoBehaviour:
   cooked_fish: {fileID: 63289642}
   chopped_spinach: {fileID: 598837575}
   cooked_potatoes: {fileID: 733742937}
+  chopped_onion: {fileID: 0}
+  cooked_sausage: {fileID: 0}
+  cut_bun: {fileID: 0}
   Burger: {fileID: 56117890}
   Fish_dish: {fileID: 1408541980}
   Hotdog: {fileID: 0}
@@ -36062,6 +36075,7 @@ MonoBehaviour:
   present_warning: {fileID: 415885862}
   not_component_warning: {fileID: 2040438341}
   menu: {fileID: 1256197572}
+  highlight: {fileID: 0}
 --- !u!65 &1439878690
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38305,6 +38319,7 @@ MonoBehaviour:
   chopping_board: {fileID: 1895174334}
   npc: {fileID: 2022993952}
   npc2: {fileID: 998621716}
+  npc3: {fileID: 0}
   range: 3.5
   food_pos: {fileID: 357045090}
   foods:
@@ -38315,12 +38330,14 @@ MonoBehaviour:
   - {fileID: 1725773008}
   - {fileID: 1613926062}
   meat_gfx: {fileID: 173471778}
+  sausage_gfx: {fileID: 0}
   bread_gfx: {fileID: 1461524393}
   lettuce_gfx: {fileID: 2001522967}
   raw_fish_gfx: {fileID: 2096629021}
   spinach_gfx: {fileID: 1725773008}
   potatoes_gfx: {fileID: 1613926062}
   onion_gfx: {fileID: 119536554}
+  bun_gfx: {fileID: 0}
   processed_foods:
   - {fileID: 852002173}
   - {fileID: 265099607}
@@ -38329,16 +38346,20 @@ MonoBehaviour:
   - {fileID: 951196802}
   - {fileID: 1693930073}
   cooked_meat_gfx: {fileID: 852002173}
+  cooked_sausage_gfx: {fileID: 0}
   cut_bread_gfx: {fileID: 265099607}
   cut_lettuce_gfx: {fileID: 33031411}
   cooked_fish_gfx: {fileID: 703337049}
   chopped_spinach_gfx: {fileID: 951196802}
   cooked_potatoes_gfx: {fileID: 1693930073}
+  chopped_onions_gfx: {fileID: 0}
+  cut_bun_gfx: {fileID: 0}
   complete_dishes:
   - {fileID: 835604551}
   - {fileID: 1389402544}
   burger_gfx: {fileID: 835604551}
   fishdish_gfx: {fileID: 1389402544}
+  Hotdog_gfx: {fileID: 0}
 --- !u!1 &1563173405
 GameObject:
   m_ObjectHideFlags: 0
@@ -46534,13 +46555,24 @@ MonoBehaviour:
   cutting_bread: 0
   cutting_lettuce: 0
   cutting_spinach: 0
+  cutting_onion: 0
+  cutting_bun: 0
   bread_gfx: {fileID: 300126168}
   lettuce_gfx: {fileID: 1734310781}
   spinach_gfx: {fileID: 396651307}
+  onion_gfx: {fileID: 0}
+  bun_gfx: {fileID: 0}
   cut_bread_gfx: {fileID: 25360177}
   cut_lettuce_gfx: {fileID: 1397221165}
   chopped_spinach_gfx: {fileID: 658974752}
+  chopped_onion_gfx: {fileID: 0}
+  cut_bun_gfx: {fileID: 0}
   occupied: 0
+  knife_anim: {fileID: 0}
+  bread_particles: {fileID: 0}
+  greens_particles: {fileID: 0}
+  onion_particles: {fileID: 0}
+  highlight: {fileID: 0}
 --- !u!1 &1902011060
 GameObject:
   m_ObjectHideFlags: 0
@@ -50404,6 +50436,7 @@ MonoBehaviour:
   text1: {fileID: 1731666390}
   text2: {fileID: 1790922327}
   next_npc: {fileID: 998621715}
+  win_particles: {fileID: 0}
 --- !u!1 &2031734873
 GameObject:
   m_ObjectHideFlags: 0
@@ -53929,6 +53962,172 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122490058}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &2123584584
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -9110543619002551364, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.56
+      objectReference: {fileID: 0}
+    - target: {fileID: -9110543619002551364, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.302332
+      objectReference: {fileID: 0}
+    - target: {fileID: -9110543619002551364, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -23.841217
+      objectReference: {fileID: 0}
+    - target: {fileID: -8869163995280079699, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.29859
+      objectReference: {fileID: 0}
+    - target: {fileID: -8869163995280079699, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6034358
+      objectReference: {fileID: 0}
+    - target: {fileID: -8869163995280079699, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.969559
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.3628964
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 77.79305
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6422022019513079497, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.56
+      objectReference: {fileID: 0}
+    - target: {fileID: -6422022019513079497, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.31
+      objectReference: {fileID: 0}
+    - target: {fileID: -6422022019513079497, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -24.18
+      objectReference: {fileID: 0}
+    - target: {fileID: -5014885439005265498, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.31
+      objectReference: {fileID: 0}
+    - target: {fileID: -5014885439005265498, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.89
+      objectReference: {fileID: 0}
+    - target: {fileID: -5014885439005265498, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.95
+      objectReference: {fileID: 0}
+    - target: {fileID: -4169563548871290263, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.56
+      objectReference: {fileID: 0}
+    - target: {fileID: -4169563548871290263, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.3054442
+      objectReference: {fileID: 0}
+    - target: {fileID: -4169563548871290263, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -24.506762
+      objectReference: {fileID: 0}
+    - target: {fileID: -1899356481227187561, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.56
+      objectReference: {fileID: 0}
+    - target: {fileID: -1899356481227187561, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.31
+      objectReference: {fileID: 0}
+    - target: {fileID: -1899356481227187561, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -24.003368
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_Name
+      value: Sem 4 Cooking equipment
+      objectReference: {fileID: 0}
+    - target: {fileID: 2460131120875594389, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 2460131120875594389, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.302332
+      objectReference: {fileID: 0}
+    - target: {fileID: 2460131120875594389, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -23.668177
+      objectReference: {fileID: 0}
+    - target: {fileID: 3377251266886060386, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 3377251266886060386, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.3054442
+      objectReference: {fileID: 0}
+    - target: {fileID: 3377251266886060386, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -24.33441
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071187431738444642, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ae9bcb0ea64d1e548b3460198663c24d, type: 2}
+    - target: {fileID: 6779116624332357756, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779116624332357756, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.75
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: -1636162688935426448, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ab15f6f0bb486274b8e795c6ad13443c, type: 3}
 --- !u!1 &2132774901
 GameObject:
   m_ObjectHideFlags: 0
@@ -54100,3 +54299,4 @@ SceneRoots:
   - {fileID: 780817557}
   - {fileID: 451232633}
   - {fileID: 1120658793}
+  - {fileID: 2123584584}
