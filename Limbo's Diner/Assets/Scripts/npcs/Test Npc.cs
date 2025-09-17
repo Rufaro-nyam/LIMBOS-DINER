@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using System.Collections;
+using System.Collections.Generic;
 
 public class TestNpc : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class TestNpc : MonoBehaviour
     void Start()
     {
         text1.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -34,4 +37,5 @@ public class TestNpc : MonoBehaviour
         satisfied = true;
         next_npc.SetActive(true);
     }
+
 }
