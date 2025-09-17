@@ -22,14 +22,12 @@ public class TimerCountdown : MonoBehaviour
     //{
         //UpdateTime
     //}
+
     
     
     // Update is called once per frame
     void Update()
     {
-
-
-
 
         if (timeRemaining > 0)
         {
