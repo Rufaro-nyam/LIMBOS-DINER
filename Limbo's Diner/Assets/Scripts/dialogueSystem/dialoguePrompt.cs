@@ -12,6 +12,7 @@ public class dialoguePrompt : MonoBehaviour
     public float textSpeed;
     private int index;
 
+
     
     void Start ()
     {
@@ -37,7 +38,7 @@ public class dialoguePrompt : MonoBehaviour
         }
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
         index = 0;
         StartCoroutine(TypeLine());

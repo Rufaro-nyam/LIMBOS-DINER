@@ -24322,7 +24322,7 @@ GameObject:
   - component: {fileID: 1845033359}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27777,6 +27777,7 @@ GameObject:
   - component: {fileID: 2022993949}
   - component: {fileID: 2022993948}
   - component: {fileID: 2022993952}
+  - component: {fileID: 2022993953}
   m_Layer: 0
   m_Name: NPC
   m_TagString: NPC
@@ -27799,7 +27800,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -27897,6 +27898,19 @@ MonoBehaviour:
   text2: {fileID: 1790922327}
   next_npc: {fileID: 0}
   win_particles: {fileID: 0}
+--- !u!114 &2022993953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022993947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a6d655f107c994693dd2b9b371782d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoguePrompt: {fileID: 1977448788}
 --- !u!1 &2031734873
 GameObject:
   m_ObjectHideFlags: 0

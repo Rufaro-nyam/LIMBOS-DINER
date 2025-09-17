@@ -5,21 +5,28 @@ using System.Collections.Generic;
 
 public class interactionNPC : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Interact()
     {
-        //TESTING CODE, REMOVE LATER
-        Debug.Log ("Interaction");
+        Debug.Log ("Interact");
+        dialoguePrompt.StartDialogue();
+        dialoguePrompt.gameObject.SetActive(true);
     }
+    
+    public dialoguePrompt dialoguePrompt;
+
+    //void OnTriggerEnter(Collider NPC)
+   // {
+        //if (NPC.CompareTag("Player"))
+       // {
+            //if (dialoguePrompt != null && Input.GetKeyDown(KeyCode.E))
+           // {
+                //dialoguePrompt.StartDialogue();
+               // Debug.Log ("Interact");
+          //  }
+       // }
+   // }
+
 }
+
+
