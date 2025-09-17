@@ -1,13 +1,10 @@
 using UnityEngine;
+using TMPro;
+using System.Collections;
+using System.Collections.Generic;
+
 
 public class interactionNPC : MonoBehaviour
 {
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            float interactRange = 1f;
-            Physics.overlapSphere(transform.position, interactRange);
-        }
-    }
+
 }

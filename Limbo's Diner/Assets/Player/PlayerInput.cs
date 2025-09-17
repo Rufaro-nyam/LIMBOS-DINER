@@ -153,6 +153,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InteractNPC"",
+                    ""type"": ""Button"",
+                    ""id"": ""39dd7814-4945-4d59-8613-0aa01f63b5db"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -353,6 +362,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""QUIT"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2adcb164-afdc-4b1b-ac35-7b2cab4205de"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyBoard"",
+                    ""action"": ""InteractNPC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d369ab55-5e12-4d24-b3c1-38362119f55b"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""InteractNPC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -379,6 +410,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Movement_Interact = m_Movement.FindAction("Interact", throwIfNotFound: true);
         m_Movement_Drop = m_Movement.FindAction("Drop", throwIfNotFound: true);
         m_Movement_QUIT = m_Movement.FindAction("QUIT", throwIfNotFound: true);
+        m_Movement_InteractNPC = m_Movement.FindAction("InteractNPC", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
@@ -466,6 +498,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Interact;
     private readonly InputAction m_Movement_Drop;
     private readonly InputAction m_Movement_QUIT;
+    private readonly InputAction m_Movement_InteractNPC;
     /// <summary>
     /// Provides access to input actions defined in input action map "Movement".
     /// </summary>
@@ -505,6 +538,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Movement/QUIT".
         /// </summary>
         public InputAction @QUIT => m_Wrapper.m_Movement_QUIT;
+        /// <summary>
+        /// Provides access to the underlying input action "Movement/InteractNPC".
+        /// </summary>
+        public InputAction @InteractNPC => m_Wrapper.m_Movement_InteractNPC;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -552,6 +589,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @QUIT.started += instance.OnQUIT;
             @QUIT.performed += instance.OnQUIT;
             @QUIT.canceled += instance.OnQUIT;
+            @InteractNPC.started += instance.OnInteractNPC;
+            @InteractNPC.performed += instance.OnInteractNPC;
+            @InteractNPC.canceled += instance.OnInteractNPC;
         }
 
         /// <summary>
@@ -584,6 +624,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @QUIT.started -= instance.OnQUIT;
             @QUIT.performed -= instance.OnQUIT;
             @QUIT.canceled -= instance.OnQUIT;
+            @InteractNPC.started -= instance.OnInteractNPC;
+            @InteractNPC.performed -= instance.OnInteractNPC;
+            @InteractNPC.canceled -= instance.OnInteractNPC;
         }
 
         /// <summary>
@@ -699,5 +742,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnQUIT(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "InteractNPC" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteractNPC(InputAction.CallbackContext context);
     }
 }
