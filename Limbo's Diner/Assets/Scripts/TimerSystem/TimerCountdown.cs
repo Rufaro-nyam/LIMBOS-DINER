@@ -17,11 +17,16 @@ public class TimerCountdown : MonoBehaviour
     [SerializeField] TextMeshProUGUI hotdogTimer;
     [SerializeField] float hotdogTime;
 
+    public dialoguePrompt dialoguePrompt;
     
-    //void Start
-    //{
-        //UpdateTime
-    //}
+   // public void burgerCountdown()
+   // {
+       // if (dialoguePrompt.gameObject.SetActive(true))
+       // {
+        //    burgerTimer.SetActive(true);
+
+       // }
+   // }
 
     
     

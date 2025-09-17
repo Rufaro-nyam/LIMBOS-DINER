@@ -15,18 +15,6 @@ public class interactionNPC : MonoBehaviour
     
     public dialoguePrompt dialoguePrompt;
 
-    //void OnTriggerEnter(Collider NPC)
-   // {
-        //if (NPC.CompareTag("Player"))
-       // {
-            //if (dialoguePrompt != null && Input.GetKeyDown(KeyCode.E))
-           // {
-                //dialoguePrompt.StartDialogue();
-               // Debug.Log ("Interact");
-          //  }
-       // }
-   // }
-
 }
 
 

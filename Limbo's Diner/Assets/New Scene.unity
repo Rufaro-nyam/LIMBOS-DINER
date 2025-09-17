@@ -22766,7 +22766,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1731666391
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27028,7 +27028,7 @@ MonoBehaviour:
   textComponent: {fileID: 1783693075}
   dialogueLines:
   - I want burger >:(
-  textSpeed: 0.1
+  textSpeed: 0.05
 --- !u!1 &1991127581
 GameObject:
   m_ObjectHideFlags: 0
