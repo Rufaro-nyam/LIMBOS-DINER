@@ -6,13 +6,31 @@ using System.Collections.Generic;
 
 public class TimerCountdown : MonoBehaviour
 {
+
+    // FOR COUNTDOWN DISPLAY
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float timeRemaining;
-    
+    [SerializeField] TextMeshProUGUI burgerTimer;
+    [SerializeField] float burgerTime;
+    [SerializeField] TextMeshProUGUI fishTimer;
+    [SerializeField] float fishTime;
+    [SerializeField] TextMeshProUGUI hotdogTimer;
+    [SerializeField] float hotdogTime;
 
+    
+    //void Start
+    //{
+        //UpdateTime
+    //}
+    
+    
     // Update is called once per frame
     void Update()
     {
+
+
+
+
         if (timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;

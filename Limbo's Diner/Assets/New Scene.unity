@@ -19632,6 +19632,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1463633766}
   timeRemaining: 2
+  burgerTimer: {fileID: 1463633766}
+  burgerTime: 90
+  fishTimer: {fileID: 1463633766}
+  fishTime: 90
+  hotdogTimer: {fileID: 1463633766}
+  hotdogTime: 90
 --- !u!1 &1476275290
 GameObject:
   m_ObjectHideFlags: 0
