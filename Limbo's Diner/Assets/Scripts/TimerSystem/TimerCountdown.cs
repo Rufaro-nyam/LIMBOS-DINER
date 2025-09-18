@@ -11,22 +11,14 @@ public class TimerCountdown : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float timeRemaining;
     [SerializeField] TextMeshProUGUI burgerTimer;
-    [SerializeField] float burgerTime;
+
     [SerializeField] TextMeshProUGUI fishTimer;
     [SerializeField] float fishTime;
     [SerializeField] TextMeshProUGUI hotdogTimer;
     [SerializeField] float hotdogTime;
 
-    public dialoguePrompt dialoguePrompt;
-    public interactionNPC Interact;
-    
-    
-    void Start()
-    {
-        Invoke("burgerTime", 3f);
-    }
-    
-    
+
+
     // Update is called once per frame
     void Update()
     {
@@ -47,6 +39,7 @@ public class TimerCountdown : MonoBehaviour
         int seconds = Mathf.FloorToInt (timeRemaining % 60);
 
         timerText.text = string.Format ("{0:00}:{1:00}", minutes, seconds);
+
 
     }
 

@@ -14,8 +14,7 @@ public class interactionNPC : MonoBehaviour
 
     }
     
-    public dialoguePrompt dialoguePrompt;
-
+        public dialoguePrompt dialoguePrompt;
 
 }
 
