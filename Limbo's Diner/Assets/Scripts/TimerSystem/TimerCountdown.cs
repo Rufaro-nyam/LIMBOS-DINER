@@ -18,16 +18,13 @@ public class TimerCountdown : MonoBehaviour
     [SerializeField] float hotdogTime;
 
     public dialoguePrompt dialoguePrompt;
+    public interactionNPC Interact;
     
-   // public void burgerCountdown()
-   // {
-       // if (dialoguePrompt.gameObject.SetActive(true))
-       // {
-        //    burgerTimer.SetActive(true);
-
-       // }
-   // }
-
+    
+    void Start()
+    {
+        Invoke("burgerTime", 3f);
+    }
     
     
     // Update is called once per frame

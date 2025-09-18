@@ -11,9 +11,11 @@ public class interactionNPC : MonoBehaviour
         Debug.Log ("Interact");
         dialoguePrompt.StartDialogue();
         dialoguePrompt.gameObject.SetActive(true);
+
     }
     
     public dialoguePrompt dialoguePrompt;
+
 
 }
 

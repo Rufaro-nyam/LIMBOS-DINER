@@ -19496,7 +19496,7 @@ GameObject:
   - component: {fileID: 1463633768}
   m_Layer: 5
   m_Name: Countdown
-  m_TagString: Untagged
+  m_TagString: Countdown_Timer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19639,6 +19639,8 @@ MonoBehaviour:
   fishTime: 90
   hotdogTimer: {fileID: 1463633766}
   hotdogTime: 90
+  dialoguePrompt: {fileID: 1977448788}
+  Interact: {fileID: 0}
 --- !u!1 &1476275290
 GameObject:
   m_ObjectHideFlags: 0
@@ -27028,7 +27030,7 @@ MonoBehaviour:
   textComponent: {fileID: 1783693075}
   dialogueLines:
   - I want burger >:(
-  textSpeed: 0.05
+  textSpeed: 0.1
 --- !u!1 &1991127581
 GameObject:
   m_ObjectHideFlags: 0
