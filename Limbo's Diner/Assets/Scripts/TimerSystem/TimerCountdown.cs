@@ -4,12 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 
 
+// Title: Make a TIMER & COUNTDOWN in 5 minutes | Unity Tutorial for beginners
+// Author: Rehope Games
+// Date Accessed: 15/09/2025
+// Availability: https://www.youtube.com/watch?v=POq1i8FyRyQ
+
 public class TimerCountdown : MonoBehaviour
 {
 
     // FOR COUNTDOWN DISPLAY
-    [SerializeField] TextMeshProUGUI timerText;
-    [SerializeField] float timeRemaining;
     [SerializeField] TextMeshProUGUI burgerTimer;
     [SerializeField] public float burgerTime;
     [SerializeField] TextMeshProUGUI fishTimer;
@@ -75,4 +78,3 @@ public class TimerCountdown : MonoBehaviour
 
 }
 
-// reference everything here

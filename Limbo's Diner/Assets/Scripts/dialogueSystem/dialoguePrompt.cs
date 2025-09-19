@@ -3,6 +3,10 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 
+// Title: 5 Minute DIALOG SYSTEM in UNITY Tutorial
+// Author: BMo
+// Date Accessed: 17/09/2025
+// Availability: https://www.youtube.com/watch?v=8oTYabhj248
 
 public class dialoguePrompt : MonoBehaviour
 {
@@ -70,4 +74,3 @@ public class dialoguePrompt : MonoBehaviour
 
 }
 
-//REFERENCE THIS CODE
