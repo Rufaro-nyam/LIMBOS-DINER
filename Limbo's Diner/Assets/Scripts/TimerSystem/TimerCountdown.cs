@@ -11,34 +11,47 @@ public class TimerCountdown : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float timeRemaining;
     [SerializeField] TextMeshProUGUI burgerTimer;
-
+    [SerializeField] public float burgerTime;
     [SerializeField] TextMeshProUGUI fishTimer;
     [SerializeField] float fishTime;
     [SerializeField] TextMeshProUGUI hotdogTimer;
     [SerializeField] float hotdogTime;
 
+    void Start()
+    {
+        //ONLY SHOWS WITH DIALOGUE
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+
+    }
 
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
 
-        if (timeRemaining > 0)
+        if (burgerTime > 0)
         {
-            timeRemaining -= Time.deltaTime;
+            burgerTime -= Time.deltaTime;
         }
-        else if (timeRemaining < 0)
+        else if (burgerTime < 0)
         {
-            timeRemaining = 0;
-            timerText.color = Color.red;
-            // add sound effect??
+            burgerTime = 0;
+            burgerTimer.color = Color.red;
+            // add sound effect later
         }
 
 
-        int minutes = Mathf.FloorToInt (timeRemaining/60);
-        int seconds = Mathf.FloorToInt (timeRemaining % 60);
+        int minutes = Mathf.FloorToInt (burgerTime/60);
+        int seconds = Mathf.FloorToInt (burgerTime % 60);
 
-        timerText.text = string.Format ("{0:00}:{1:00}", minutes, seconds);
+        burgerTimer.text = string.Format ("{0:00}:{1:00}", minutes, seconds);
 
 
     }

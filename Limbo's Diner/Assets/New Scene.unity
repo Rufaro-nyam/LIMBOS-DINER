@@ -19631,16 +19631,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416780f3b03cbc44e9746505a6edb237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 1463633766}
-  timeRemaining: 2
+  timerText: {fileID: 0}
+  timeRemaining: 0
   burgerTimer: {fileID: 1463633766}
-  burgerTime: 90
-  fishTimer: {fileID: 1463633766}
-  fishTime: 90
-  hotdogTimer: {fileID: 1463633766}
-  hotdogTime: 90
-  dialoguePrompt: {fileID: 1977448788}
-  Interact: {fileID: 0}
+  burgerTime: 5
+  fishTimer: {fileID: 0}
+  fishTime: 0
+  hotdogTimer: {fileID: 0}
+  hotdogTime: 0
 --- !u!1 &1476275290
 GameObject:
   m_ObjectHideFlags: 0
@@ -27913,6 +27911,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialoguePrompt: {fileID: 1977448788}
+  TimerCountdown: {fileID: 1463633768}
+  burgerTimer: {fileID: 1463633766}
 --- !u!1 &2031734873
 GameObject:
   m_ObjectHideFlags: 0

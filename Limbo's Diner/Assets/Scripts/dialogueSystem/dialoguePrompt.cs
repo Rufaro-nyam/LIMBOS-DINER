@@ -12,7 +12,6 @@ public class dialoguePrompt : MonoBehaviour
     public float textSpeed;
     private int index;
 
-
     
     void Start ()
     {
@@ -45,7 +44,7 @@ public class dialoguePrompt : MonoBehaviour
     }
 
     //TURN EACH CHARACTER TO ARRAY, ALLOWS FOR ONE BY ONE TEXT APPEARING
-    IEnumerator TypeLine()
+    public IEnumerator TypeLine()
     {
         foreach (char c in dialogueLines[index].ToCharArray())
         {   
@@ -55,7 +54,7 @@ public class dialoguePrompt : MonoBehaviour
     }
 
     // ALLOWS MULTIPLE LINES OF TEXT
-    void nextLine()
+    public void nextLine()
     {
         if (index < dialogueLines.Length - 1)
         {
