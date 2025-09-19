@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/New Scene.unity
     guid: 2a642bcbfb6df1c47be0ff514b8451e5
   - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 67ef47f9d4cea86458edb00fbfdb0a6e
+  - enabled: 1
     path: Assets/Scenes/Main_cooking_scene.unity
     guid: 7a7b7c5d3bc930442b31ce51239d58d8
   m_configObjects:

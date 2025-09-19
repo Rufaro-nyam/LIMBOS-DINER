@@ -1,16 +1,13 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class startScreen : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void playGame()
     {
-        
-    }
+        SceneManager.LoadSceneAsync("Main_cooking_scene");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
