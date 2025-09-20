@@ -14496,6 +14496,7 @@ GameObject:
   - component: {fileID: 299419455}
   - component: {fileID: 299419454}
   - component: {fileID: 299419456}
+  - component: {fileID: 299419457}
   m_Layer: 5
   m_Name: dialogueBox
   m_TagString: Untagged
@@ -14576,6 +14577,24 @@ MonoBehaviour:
   textComponent: {fileID: 254723748}
   dialogueLines:
   - I want burger pls >:(
+  textSpeed: 0.1
+  dialogueBox: {fileID: 299419452}
+--- !u!114 &299419457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299419452}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07006178f15f0b1468fdfe63d3ddd6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 254723748}
+  dialogueLines:
+  - Welcome To Limbos Diner! Here you will serve customers whatever food they want.
+  - Press 'E' on your keyboard to take an order from the new customer.
   textSpeed: 0.1
   dialogueBox: {fileID: 299419452}
 --- !u!1 &300126168
