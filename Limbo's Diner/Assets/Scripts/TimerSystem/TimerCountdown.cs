@@ -20,6 +20,10 @@ public class TimerCountdown : MonoBehaviour
     [SerializeField] TextMeshProUGUI hotdogTimer;
     [SerializeField] float hotdogTime;
 
+    //REFERENCES
+    public TestNpc TestNpc;
+    public failure failure;
+
     void Start()
     {
         //ONLY SHOWS WITH DIALOGUE
@@ -47,7 +51,9 @@ public class TimerCountdown : MonoBehaviour
         {
             burgerTime = 0;
             burgerTimer.color = Color.red;
+            failure.gameObject.SetActive(true);
             // add sound effect later
+
         }
 
 

@@ -17900,6 +17900,8 @@ MonoBehaviour:
   fishTime: 0
   hotdogTimer: {fileID: 414216227}
   hotdogTime: 0
+  TestNpc: {fileID: 2022993952}
+  failure: {fileID: 740791338}
 --- !u!1 &414478486
 GameObject:
   m_ObjectHideFlags: 0
@@ -27823,6 +27825,7 @@ MonoBehaviour:
   next_npc: {fileID: 673577313}
   win_particles: {fileID: 1129985882}
   TimerCountdown: {fileID: 0}
+  success: {fileID: 0}
 --- !u!136 &604903743
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -37100,8 +37103,9 @@ GameObject:
   - component: {fileID: 740791335}
   - component: {fileID: 740791337}
   - component: {fileID: 740791336}
+  - component: {fileID: 740791338}
   m_Layer: 5
-  m_Name: failText
+  m_Name: failureText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37225,6 +37229,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740791334}
   m_CullTransparentMesh: 1
+--- !u!114 &740791338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740791334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c28bf6f7fb10b440a404d35889c83c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  failureText: {fileID: 740791336}
 --- !u!1 &741327295
 GameObject:
   m_ObjectHideFlags: 0
@@ -38803,8 +38820,9 @@ GameObject:
   - component: {fileID: 816660084}
   - component: {fileID: 816660086}
   - component: {fileID: 816660085}
+  - component: {fileID: 816660087}
   m_Layer: 5
-  m_Name: winText
+  m_Name: successText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38928,6 +38946,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816660083}
   m_CullTransparentMesh: 1
+--- !u!114 &816660087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816660083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb70594ad08f5df459c1ae618753eb26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  successText: {fileID: 816660085}
 --- !u!1 &819016209
 GameObject:
   m_ObjectHideFlags: 0
@@ -59333,6 +59364,7 @@ MonoBehaviour:
   next_npc: {fileID: 604903741}
   win_particles: {fileID: 1129985882}
   TimerCountdown: {fileID: 0}
+  success: {fileID: 0}
 --- !u!136 &998621717
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -96334,6 +96366,7 @@ MonoBehaviour:
   next_npc: {fileID: 998621715}
   win_particles: {fileID: 1129985882}
   TimerCountdown: {fileID: 414216229}
+  success: {fileID: 816660087}
 --- !u!114 &2022993953
 MonoBehaviour:
   m_ObjectHideFlags: 0

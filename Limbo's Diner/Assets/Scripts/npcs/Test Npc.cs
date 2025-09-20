@@ -12,8 +12,9 @@ public class TestNpc : MonoBehaviour
     public GameObject next_npc;
     public ParticleSystem win_particles;
 
-    //REFERENCE TIMER
+    //REFERENCES
     public TimerCountdown TimerCountdown;
+    public success success;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,6 +44,11 @@ public class TestNpc : MonoBehaviour
         //STOP COUNTDOWN
         TimerCountdown.gameObject.SetActive(false);
         Debug.Log ("Burger Countdown Stopped");
+
+        //DISPLAY TEXT = LATER CHANGE TO REPORT
+        success.gameObject.SetActive(true);
+
     }
+
 
 }
