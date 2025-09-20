@@ -20,9 +20,11 @@ public class interactionNPC : MonoBehaviour
         dialoguePrompt.nextLine();
         dialoguePrompt.gameObject.SetActive(true);
 
+        
+
         // STARTS TIMER
         TimerCountdown.gameObject.SetActive(true);
-
+    
 
     }
 
