@@ -8,6 +8,10 @@ public class startScreen : MonoBehaviour
     public void playGame()
     {
         SceneManager.LoadSceneAsync("Main_cooking_scene");
+    }
 
+    public void quitGame()
+    {
+        Application.Quit();
     }
 }

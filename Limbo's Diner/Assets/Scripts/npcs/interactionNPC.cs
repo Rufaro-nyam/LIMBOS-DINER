@@ -12,6 +12,8 @@ public class interactionNPC : MonoBehaviour
     public TimerCountdown TimerCountdown;
     [SerializeField] TextMeshProUGUI burgerTimer;
 
+    public TestNpc TestNpc;
+
 
     public void Interact()
     {
@@ -23,7 +25,6 @@ public class interactionNPC : MonoBehaviour
         
         // STARTS TIMER
         TimerCountdown.gameObject.SetActive(true);
-    
     }
 
 
