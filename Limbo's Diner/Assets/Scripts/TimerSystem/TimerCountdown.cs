@@ -64,7 +64,7 @@ public class TimerCountdown : MonoBehaviour
         //pauseMenu.SetActive (true);
         //Time.timeScale = 0;
 
-        //fix this
+        //add later
     //}
 
     //public void Resume()
@@ -72,7 +72,7 @@ public class TimerCountdown : MonoBehaviour
         //pauseMenu.SetActive (fasle);
         //Time.timeScale = 1;
 
-        // fix this
+        // add later
     //}
     
 

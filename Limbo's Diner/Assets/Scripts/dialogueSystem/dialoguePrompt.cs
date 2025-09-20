@@ -46,7 +46,7 @@ public class dialoguePrompt : MonoBehaviour
     {
         index = 0;
         StartCoroutine(TypeLine());
-        Time.timeScale = 0;
+        
     }
 
     //TURN EACH CHARACTER TO ARRAY, ALLOWS FOR ONE BY ONE TEXT APPEARING
