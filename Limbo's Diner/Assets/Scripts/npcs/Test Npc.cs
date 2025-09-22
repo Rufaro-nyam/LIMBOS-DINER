@@ -9,11 +9,16 @@ public class TestNpc : MonoBehaviour
     private bool satisfied = false;
     public GameObject next_npc;
     public ParticleSystem win_particles;
-    
+
+    //REFERENCES
+    public TimerCountdown TimerCountdown;
+    public success success;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        text1.SetActive(false);
     }
 
     // Update is called once per frame
@@ -33,5 +38,12 @@ public class TestNpc : MonoBehaviour
         text2.SetActive(true);
         satisfied = true;
         next_npc.SetActive(true);
+
+        //STOP COUNTDOWN
+        TimerCountdown.gameObject.SetActive(false);
+        Debug.Log("Burger Countdown Stopped");
+
+        //DISPLAY TEXT = LATER CHANGE TO REPORT
+        success.gameObject.SetActive(true);
     }
 }

@@ -473,7 +473,7 @@ public class Plate : MonoBehaviour
             meat_put = false;
             bread_put = false;
             lettuce_put = false;
-            menu.friedfish_active();
+            //menu.friedfish_active();
             foreach(GameObject s in slotpos) 
             {
                 s.SetActive(true);

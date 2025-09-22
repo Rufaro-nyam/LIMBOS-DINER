@@ -16,19 +16,20 @@ public class dialoguePrompt : MonoBehaviour
     public float textSpeed;
     private int index;
     public GameObject dialogueBox;
+    public bool can_interact = false;
 
     
     void Start ()
     {
         textComponent.text = string.Empty;
-        dialogueBox.SetActive(false);
+        //dialogueBox.SetActive(false);
 
     }
 
     //AUTO COMPLETE TEXT WHEN LEFT CLICKING
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && can_interact)
         {
             if (textComponent.text == dialogueLines[index])
             {
@@ -52,6 +53,7 @@ public class dialoguePrompt : MonoBehaviour
     //TURN EACH CHARACTER TO ARRAY, ALLOWS FOR ONE BY ONE TEXT APPEARING
     public IEnumerator TypeLine()
     {
+        dialogueBox.SetActive(true);
         foreach (char c in dialogueLines[index].ToCharArray())
         {   
             index++;
