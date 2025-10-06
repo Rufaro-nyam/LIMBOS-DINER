@@ -35,7 +35,7 @@ public class InputManager : MonoBehaviour
         groundmovement.Drop.performed += _ => hands.drop();
 
         //QUIT
-        groundmovement.QUIT.performed += _ => movement.Quit();
+        //groundmovement.QUIT.performed += _ => movement.Quit();
 
     }
 
@@ -52,8 +52,12 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        movement.recieveInput(horizontal_input);
-        movement.recieveMouseInput(mouseInput);
+        if(PauseMenu.is_paused == false) 
+        {
+            movement.recieveInput(horizontal_input);
+            movement.recieveMouseInput(mouseInput);
+        }
+       
     }
 
 }
