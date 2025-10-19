@@ -13,10 +13,11 @@ public class dialoguePrompt : MonoBehaviour
     //DIALOGUE SYSTEM
     [SerializeField] public TextMeshProUGUI textComponent;
     public string[] dialogueLines;
+    public string[] dialogueLines2;
     public float textSpeed;
     private int index;
     public GameObject dialogueBox;
-    public bool can_interact = false;
+    public bool can_interact = true;
 
     
     void Start ()

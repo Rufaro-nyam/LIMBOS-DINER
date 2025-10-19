@@ -55,6 +55,8 @@ public class Pan : MonoBehaviour
     //HIGHLIGHT GFX
     public GameObject highlight;
 
+    //COOKING SPEED
+    public float process_speed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -85,7 +87,7 @@ public class Pan : MonoBehaviour
         }
         if (cooking_meat) 
         {
-            current_prog += 0.5f * Time.deltaTime;
+            current_prog += process_speed * Time.deltaTime;
             progressbar.fillAmount = current_prog / max_prog;
             if(current_prog >= max_prog) 
             {
@@ -105,7 +107,7 @@ public class Pan : MonoBehaviour
                 activate_smoke();
                 
                 activate_overcook_progress_sprites();
-                current_overcook_prog += 0.5f * Time.deltaTime;
+                current_overcook_prog += process_speed * Time.deltaTime;
                 OVERCOOK_progressbar.fillAmount = current_overcook_prog / max_prog;
                 //print("overcook prog is " + current_overcook_prog);
                 if (current_overcook_prog >= max_overcook_prog)
@@ -128,7 +130,7 @@ public class Pan : MonoBehaviour
         }
         if (cooking_fish)
         {
-            current_prog += 0.5f * Time.deltaTime;
+            current_prog += process_speed * Time.deltaTime;
             progressbar.fillAmount = current_prog / max_prog;
             if (current_prog >= max_prog)
             {
@@ -147,7 +149,7 @@ public class Pan : MonoBehaviour
                 //overcooking]
                 activate_smoke();
                 activate_overcook_progress_sprites();
-                current_overcook_prog += 0.5f * Time.deltaTime;
+                current_overcook_prog += process_speed * Time.deltaTime;
                 OVERCOOK_progressbar.fillAmount = current_overcook_prog / max_prog;
                 //print("overcook prog is " + current_overcook_prog);
                 if (current_overcook_prog >= max_overcook_prog)
@@ -171,7 +173,7 @@ public class Pan : MonoBehaviour
 
         if (cooking_sausage)
         {
-            current_prog += 0.5f * Time.deltaTime;
+            current_prog += process_speed * Time.deltaTime;
             progressbar.fillAmount = current_prog / max_prog;
             if (current_prog >= max_prog)
             {
@@ -190,7 +192,7 @@ public class Pan : MonoBehaviour
                 //overcooking]
                 activate_smoke();
                 activate_overcook_progress_sprites();
-                current_overcook_prog += 0.5f * Time.deltaTime;
+                current_overcook_prog += process_speed * Time.deltaTime;
                 OVERCOOK_progressbar.fillAmount = current_overcook_prog / max_prog;
                 //print("overcook prog is " + current_overcook_prog);
                 if (current_overcook_prog >= max_overcook_prog)

@@ -44,6 +44,6 @@ public class TestNpc : MonoBehaviour
         Debug.Log("Burger Countdown Stopped");
 
         //DISPLAY TEXT = LATER CHANGE TO REPORT
-        success.gameObject.SetActive(true);
+        //success.gameObject.SetActive(true);
     }
 }

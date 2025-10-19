@@ -45,6 +45,7 @@ public class PauseMenu : MonoBehaviour
 
     public void restart() 
     {
+        Time.timeScale = 1;
         SceneManager.LoadSceneAsync("Main_cooking_scene");
     }
 

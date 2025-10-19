@@ -11,6 +11,8 @@ public class Hands : MonoBehaviour
     public TestNpc npc;
     public TestNpc npc2;
     public TestNpc npc3;
+    public TestNpc npc4;
+    public TestNpc npc5;
 
     Transform cam;
     [Header("Interaction Range")]
@@ -80,10 +82,24 @@ public class Hands : MonoBehaviour
     private bool chopped_onions_active = false;
     private bool cut_bun_active = false;
 
+    //DOUBLE DISHES
+    private int h_a_b = 0;
+    private int b_a_f = 0;
+
     // complete dish occupation
     private bool Burger_active = false;
+    public bool Burger2_active;
+    public bool Burger3_active;
     private bool Fish_Dish_active = false;
+    private bool Fish_Dish2_active = false;
     private bool Hotdog_active = false;
+    private bool Hotdog2_active = false;
+    private int burger_number = 1;
+    private int hotdog_number = 1;
+    private int fishdish_number = 1;
+
+    //Menu
+    public Menu menu;
 
     private void Awake()
     {
@@ -96,6 +112,7 @@ public class Hands : MonoBehaviour
 
      void Update()
     {
+        if (Hotdog2_active) { print("its active on hands too"); }
         //TI INTERACT WITH HIGHLIGHT SHADER
         RaycastHit hit2;
         if (Physics.Raycast(cam.position, cam.forward, out hit2, range)) 
@@ -313,6 +330,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Hotdog")
                 {
+                    
                     disable_rest();
                     occupied = true;
                     bread_active = false;
@@ -513,11 +531,15 @@ public class Hands : MonoBehaviour
                 //NPC
                 if(hit.transform.tag == "NPC") 
                 {
+                    print("tested");
                     if (Burger_active) 
                     {
                         npc.win();
                         disable_rest();
                         occupied = false;
+                        menu.friedfish_active();
+                        
+                        
                     }
                 }
                 if (hit.transform.tag == "Fish_npc")
@@ -527,6 +549,10 @@ public class Hands : MonoBehaviour
                         npc2.win();
                         disable_rest();
                         occupied = false;
+                        menu.hotdog_active();
+                        Fish_Dish_active = false;
+                        Fish_Dish2_active = false;
+                        
                     }
                 }
                 if (hit.transform.tag == "Hotdog_npc")
@@ -536,7 +562,56 @@ public class Hands : MonoBehaviour
                         npc3.win();
                         disable_rest();
                         occupied = false;
+                        hotdog_number = 2;
+                        
                     }
+                }
+                if (hit.transform.tag == "Hotdog_and_burger_npc")
+                {
+                    if (burger_number == 2)
+                    {
+                        print("warning : burger number is 2");
+                        //npc4.win();
+                        disable_rest();
+                        occupied = false;
+                        burger_number = 3;
+                        h_a_b += 1;
+                        if (h_a_b > 1) { npc4.win(); menu.burger_active(); hotdog_number = 0; Hotdog_active = false; Hotdog2_active = false; }
+                    }
+
+                    if (hotdog_number == 2)
+                    {
+                        print("hes here");
+                        //npc3.win();
+                        disable_rest();
+                        occupied = false;
+                        hotdog_number = 3;
+                        
+                        h_a_b += 1;
+                        burger_number = 2;
+                        menu.burger_active();
+                    }
+
+                }
+                if (hit.transform.tag == "Burger_and_fishdish_npc")
+                {
+
+                    if (Fish_Dish2_active)
+                    {
+                        npc5.win();
+                        disable_rest();
+                        occupied = false;
+                    }
+                    if (burger_number == 3)
+                    {
+
+                        disable_rest();
+                        occupied = false;
+                        fishdish_number = 2;
+                        menu.friedfish_active();
+                        Fish_Dish2_active = true;
+                    }
+
                 }
             }
         }
