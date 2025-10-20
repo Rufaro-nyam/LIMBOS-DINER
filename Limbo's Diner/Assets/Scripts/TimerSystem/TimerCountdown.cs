@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 
 // Title: Make a TIMER & COUNTDOWN in 5 minutes | Unity Tutorial for beginners
@@ -19,13 +20,18 @@ public class TimerCountdown : MonoBehaviour
     [SerializeField] float fishTime;
     [SerializeField] TextMeshProUGUI hotdogTimer;
     [SerializeField] float hotdogTime;
+    public TestNpc[] npcs;
 
     //REFERENCES
     public TestNpc TestNpc;
     public failure failure;
 
+    //END LEVEL
+    private Animator anim;
+
     void Start()
     {
+        anim = GetComponent<Animator>();
         //ONLY SHOWS WITH DIALOGUE
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -52,6 +58,11 @@ public class TimerCountdown : MonoBehaviour
             burgerTime = 0;
             burgerTimer.color = Color.red;
             failure.gameObject.SetActive(true);
+            foreach(TestNpc n in npcs) 
+            {
+                n.lose();
+                anim.SetTrigger("End");
+            }
             // add sound effect later
 
         }
@@ -63,6 +74,11 @@ public class TimerCountdown : MonoBehaviour
         burgerTimer.text = string.Format ("{0:00}:{1:00}", minutes, seconds);
 
 
+    }
+
+    public void quit_to_menu() 
+    {
+        SceneManager.LoadSceneAsync("Main Menu");
     }
 
     //public void Pause()

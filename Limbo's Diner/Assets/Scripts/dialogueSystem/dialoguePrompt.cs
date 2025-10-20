@@ -47,7 +47,7 @@ public class dialoguePrompt : MonoBehaviour
     public void StartDialogue()
     {
         index = 0;
-        StartCoroutine(TypeLine());
+        //StartCoroutine(TypeLine());
         
     }
 

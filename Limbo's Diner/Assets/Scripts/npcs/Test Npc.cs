@@ -7,6 +7,7 @@ public class TestNpc : MonoBehaviour
     public GameObject text1;
     public GameObject text2;
     private bool satisfied = false;
+    private bool dissatisfied = false;
     public GameObject next_npc;
     public ParticleSystem win_particles;
 
@@ -28,6 +29,10 @@ public class TestNpc : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y + 1f * Time.deltaTime, transform.position.z);
         }
+        if (dissatisfied)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y - 1f * Time.deltaTime, transform.position.z);
+        }
         
     }
 
@@ -45,5 +50,10 @@ public class TestNpc : MonoBehaviour
 
         //DISPLAY TEXT = LATER CHANGE TO REPORT
         //success.gameObject.SetActive(true);
+    }
+
+    public void lose() 
+    {
+        dissatisfied = true;
     }
 }
