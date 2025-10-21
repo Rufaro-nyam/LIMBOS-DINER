@@ -25,6 +25,7 @@ public class TimerCountdown : MonoBehaviour
     //REFERENCES
     public TestNpc TestNpc;
     public failure failure;
+    public GameObject win_text;
 
     //END LEVEL
     private Animator anim;
@@ -74,6 +75,17 @@ public class TimerCountdown : MonoBehaviour
         burgerTimer.text = string.Format ("{0:00}:{1:00}", minutes, seconds);
 
 
+    }
+
+    public void win() 
+    {
+        win_text.SetActive(true);
+        foreach (TestNpc n in npcs)
+        {
+            anim.SetTrigger("End");
+            print("ended");
+        }
+        anim.SetTrigger("End");
     }
 
     public void quit_to_menu() 

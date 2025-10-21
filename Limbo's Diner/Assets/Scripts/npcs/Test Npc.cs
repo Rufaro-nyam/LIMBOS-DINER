@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,6 +16,10 @@ public class TestNpc : MonoBehaviour
     public TimerCountdown TimerCountdown;
     public success success;
 
+    public bool last_npc;
+    public TimerCountdown timer;
+    private bool can_win = true;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,12 +33,18 @@ public class TestNpc : MonoBehaviour
         if (satisfied)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y + 1f * Time.deltaTime, transform.position.z);
+            if(last_npc && can_win) { win_game(); can_win = false; }
         }
         if (dissatisfied)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y - 1f * Time.deltaTime, transform.position.z);
         }
         
+    }
+
+    public void win_game() 
+    {
+        timer.win();
     }
 
     public void win() 

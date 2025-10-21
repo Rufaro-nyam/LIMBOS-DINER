@@ -24,6 +24,8 @@ public class interactionNPC : MonoBehaviour
     public bool htd_n_brg;
     public bool brg_n_fshdsh;
 
+    public bool single_dish;
+
     public TestNpc TestNpc;
 
 
@@ -37,32 +39,34 @@ public class interactionNPC : MonoBehaviour
         
         // STARTS TIMER
         TimerCountdown.gameObject.SetActive(true);
-        TimerCountdown.burgerTime = 90;
+        if (single_dish) { TimerCountdown.burgerTime = 90; }
+        else { TimerCountdown.burgerTime = 150; }
 
-        if (burger) 
-        { 
+
+        if (burger)
+        {
             StartCoroutine(disable());
-            burger_dia.SetActive(true); 
-        } 
-        else if (fish) 
-        { 
-            StartCoroutine(disable()); 
-            fish_dia.SetActive(true);
-            print("fishdish i want"); 
-        }         
-        else if (hotdog) 
-        { 
-            StartCoroutine(disable()); 
-            hotdog_dia.SetActive(true); 
-            print("hotdog i want"); 
+            burger_dia.SetActive(true);
         }
-        else if (htd_n_brg) 
+        else if (fish)
+        {
+            StartCoroutine(disable());
+            fish_dia.SetActive(true);
+            print("fishdish i want");
+        }
+        else if (hotdog)
+        {
+            StartCoroutine(disable());
+            hotdog_dia.SetActive(true);
+            print("hotdog i want");
+        }
+        else if (htd_n_brg)
         {
             StartCoroutine(disable());
             hotdog_n_burger_dia.SetActive(true);
             print("hotdog and burger i want");
         }
-        else if (brg_n_fshdsh) 
+        else if (brg_n_fshdsh)
         {
             StartCoroutine(disable());
             burger_n_fishdish_dia.SetActive(true);
