@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,8 +21,9 @@ public class PlayerMovement : MonoBehaviour
     bool can_jump;
 
     //FOR MOUSE
-    [SerializeField] float sensetivityx = 8f;
-    [SerializeField] float sensetivityy = 0.25f;
+    public Slider sense_slider;
+    float sensetivityx = 8f;
+    float sensetivityy = 0.15f;
     float mousex, mousey;
 
     [SerializeField] Transform playerCamera;
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        PauseMenu.is_paused = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         
@@ -40,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        sensetivityx = sense_slider.value;
+        sensetivityy = sense_slider.value / 370.6f;
         //is_grounded = Physics.CheckSphere(transform.position, -2.0f, groundlayer);
         can_jump = Physics.CheckSphere(transform.position, 1.5f, groundlayer);
 
@@ -99,9 +104,9 @@ public class PlayerMovement : MonoBehaviour
         mousey = mouseInput.y * sensetivityy;
     }
 
-    public void Quit() 
+    /*public void Quit() 
     {
         print("quiting");
         Application.Quit();
-    }
+    }*/
 }

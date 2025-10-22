@@ -14,26 +14,27 @@ public class dialogueIntro : MonoBehaviour
   
     void Start ()
     {
+
         textComponent.text = string.Empty;
-        dialogueBox.SetActive(false);
+        //dialogueBox.SetActive(false);
+
+
 
     }
 
     //AUTO COMPLETE TEXT WHEN LEFT CLICKING
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (textComponent.text == dialogueLines[index])
         {
-            if (textComponent.text == dialogueLines[index])
-            {
-                nextLine();
-            }
-            else
-            {
-                StopAllCoroutines();
-                textComponent.text = dialogueLines[index];
-            }
+            nextLine();
         }
+        else
+        {
+            StopAllCoroutines();
+            textComponent.text = dialogueLines[index];
+        }
+
     }
 
     public void StartDialogue()

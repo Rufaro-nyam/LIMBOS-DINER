@@ -35,6 +35,9 @@ public class Pot : MonoBehaviour
     //HIGHLIGHT GFX
     public GameObject highlight;
 
+    //COOKING SPEED
+    public float process_speed;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,7 +50,7 @@ public class Pot : MonoBehaviour
 
         if (boiling_potatoes)
         {
-            current_prog += 0.5f * Time.deltaTime;
+            current_prog += process_speed * Time.deltaTime;
             progressbar.fillAmount = current_prog / max_prog;
             if (current_prog >= max_prog)
             {

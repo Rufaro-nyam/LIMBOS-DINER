@@ -34,8 +34,12 @@ public class Plate : MonoBehaviour
     //CURRENT DISHED
     [Header("Active Dishes")]
     public bool Burger_active;
+    public bool Burger2_active;
+    public bool Burger3_active;
     public bool HotDog_active;
+    public bool HotDog2_active;
     public bool FriedFish_active;
+    public bool FriedFish2_active;
 
     //CHECKING FOOD 
     private int ing_put = 0;
@@ -69,8 +73,9 @@ public class Plate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if(present_warning.activeSelf == true|| not_component_warning.activeSelf == true) 
+        if (FriedFish2_active) { print("ff2 active!"); }
+        if (Burger3_active) { FriedFish_active = false; }      
+        if (present_warning.activeSelf == true|| not_component_warning.activeSelf == true) 
         {
             present_time += Time.deltaTime;
             if(present_time > 3) 
@@ -87,7 +92,7 @@ public class Plate : MonoBehaviour
     {
         if (!meat_put  )
         {
-            if (Burger_active) 
+            if (Burger_active || Burger2_active || Burger3_active) 
             {
                 cooked_meat.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
@@ -122,7 +127,7 @@ public class Plate : MonoBehaviour
     {
         if (!sausage_put)
         {
-            if (HotDog_active)
+            if (HotDog_active || HotDog2_active)
             {
                 cooked_sausage.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
@@ -158,7 +163,7 @@ public class Plate : MonoBehaviour
     {
         if (!fish_put)
         {
-            if (FriedFish_active) 
+            if (FriedFish_active || FriedFish2_active) 
             {
                 cooked_fish.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
@@ -191,7 +196,7 @@ public class Plate : MonoBehaviour
     {
         if (!bread_put)
         {
-            if (Burger_active) 
+            if (Burger_active || Burger2_active || Burger3_active) 
             {
                 cut_bread.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
@@ -225,7 +230,7 @@ public class Plate : MonoBehaviour
     {
         if (!bun_put)
         {
-            if (HotDog_active)
+            if (HotDog_active || HotDog2_active)
             {
                 cut_bun.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
@@ -259,7 +264,7 @@ public class Plate : MonoBehaviour
     {
         if (!lettuce_put)
         {
-            if (Burger_active) 
+            if (Burger_active || Burger2_active || Burger3_active) 
             {
                 cut_lettuce.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
@@ -292,7 +297,7 @@ public class Plate : MonoBehaviour
     {
         if (!onion_put)
         {
-            if (HotDog_active)
+            if (HotDog_active || HotDog2_active)
             {
                 chopped_onion.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
@@ -325,7 +330,7 @@ public class Plate : MonoBehaviour
     {
         if (!spinach_put)
         {
-            if (FriedFish_active) 
+            if (FriedFish_active || FriedFish2_active) 
             {
                 chopped_spinach.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
@@ -358,7 +363,7 @@ public class Plate : MonoBehaviour
     {
         if (!potatoes_put)
         {
-            if (FriedFish_active) 
+            if (FriedFish_active || FriedFish2_active) 
             {
                 cooked_potatoes.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
@@ -402,17 +407,17 @@ public class Plate : MonoBehaviour
         
         print(ing_put);
         ing_put += 1;
-        if(ing_put == 3 && Burger_active) 
+        if(ing_put == 3 && Burger_active || ing_put == 3 && Burger2_active || ing_put == 3 && Burger3_active) 
         {
             deactivate();
             Burger.SetActive(true);
         }
-        if (ing_put == 3 && FriedFish_active)
+        if (ing_put == 3 && FriedFish_active || ing_put == 3 && FriedFish2_active )
         {
             deactivate();
             Fish_dish.SetActive(true);
         }
-        if (ing_put == 3 && HotDog_active)
+        if (ing_put == 3 && HotDog_active || ing_put == 3 && HotDog2_active)
         {
             deactivate();
             Hotdog.SetActive(true);
@@ -429,40 +434,98 @@ public class Plate : MonoBehaviour
         {
             c.gameObject.SetActive(false);
         }
-        if (Burger_active) 
-        {
-            
-            ing_put = 0;
-            FriedFish_active = true;
-            Burger_active = false;
-            //menu.Burger_menu.SetActive(false);
-            //menu.FriedFish_menu.SetActive(true);
-            meat_put = false;
-            bread_put = false;
-            lettuce_put = false;
-            menu.hotdog_active();
-            foreach(GameObject s in slotpos) 
-            {
-                s.SetActive(true);
-            }
-        }
-        if (FriedFish_active)
+        if (FriedFish2_active)
         {
             ing_put = 0;
-            HotDog_active = true;
+            //HotDog_active = true;
             FriedFish_active = false;
+            FriedFish2_active = false;
             //menu.Burger_menu.SetActive(false);
             //menu.FriedFish_menu.SetActive(true);
             fish_put = false;
             potatoes_put = false;
             spinach_put = false;
-            menu.friedfish_active();
+            //menu.hotdog_active();
+            foreach (GameObject s in slotpos)
+            {
+                s.SetActive(true);
+            }
+        }
+        if (Burger3_active)
+        {
+
+            ing_put = 0;
+            Burger3_active = false;
+            FriedFish2_active = true;
+            //menu.Burger_menu.SetActive(false);
+            //menu.FriedFish_menu.SetActive(true);
+            meat_put = false;
+            bread_put = false;
+            lettuce_put = false;
+            //menu.friedfish_active();
+            foreach (GameObject s in slotpos)
+            {
+                s.SetActive(true);
+            }
+            HotDog_active = false;
+        }
+        if (Burger2_active)
+        {
+
+            ing_put = 0;
+            Burger3_active = true;
+            Burger2_active = false;
+            //menu.Burger_menu.SetActive(false);
+            //menu.FriedFish_menu.SetActive(true);
+            meat_put = false;
+            bread_put = false;
+            lettuce_put = false;
+            FriedFish2_active = false;
+            FriedFish_active = false;
+            //menu.friedfish_active();
+            foreach (GameObject s in slotpos)
+            {
+                s.SetActive(true);
+            }
+            HotDog_active = false;
+        }
+        if (HotDog2_active)
+        {
+            ing_put = 0;
+            Burger2_active = true;
+            HotDog2_active = false;
+            //menu.Burger_menu.SetActive(false);
+            //menu.FriedFish_menu.SetActive(true);
+            onion_put = false;
+            sausage_put = false;
+            bun_put = false;
+            FriedFish2_active = false;
+            FriedFish_active = false;
+            //menu.hotdog_active();
             foreach (GameObject s in slotpos)
             {
                 s.SetActive(true);
             }
         }
         if (HotDog_active)
+        {
+            ing_put = 0;
+            HotDog2_active = true;
+            HotDog_active = false;
+            
+            //menu.Burger_menu.SetActive(false);
+            //menu.FriedFish_menu.SetActive(true);
+            onion_put = false;
+            sausage_put = false;
+            bun_put = false;
+            //menu.hotdog_active();
+            foreach (GameObject s in slotpos)
+            {
+                s.SetActive(true);
+            }
+            
+        }
+        if (FriedFish_active)
         {
             ing_put = 0;
             HotDog_active = true;
@@ -478,6 +541,29 @@ public class Plate : MonoBehaviour
                 s.SetActive(true);
             }
         }
+        if (Burger_active) 
+        {
+            
+            ing_put = 0;
+            if(Burger3_active == false) { FriedFish_active = true; }
+            if (Burger2_active == false) { FriedFish_active = true; }
+
+
+            Burger_active = false;
+            //menu.Burger_menu.SetActive(false);
+            //menu.FriedFish_menu.SetActive(true);
+            meat_put = false;
+            bread_put = false;
+            lettuce_put = false;
+            //menu.friedfish_active();
+            foreach(GameObject s in slotpos) 
+            {
+                s.SetActive(true);
+            }
+            HotDog_active = false;
+        }
+
+
 
     }
 }

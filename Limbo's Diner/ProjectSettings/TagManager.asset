@@ -32,7 +32,8 @@ TagManager:
   - Cooked_sausage
   - Hotdog
   - Hotdog_npc
-  - Countdown_Timer
+  - Hotdog_and_burger_npc
+  - Burger_and_fishdish_npc
   layers:
   - Default
   - TransparentFX

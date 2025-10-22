@@ -13,22 +13,24 @@ public class dialoguePrompt : MonoBehaviour
     //DIALOGUE SYSTEM
     [SerializeField] public TextMeshProUGUI textComponent;
     public string[] dialogueLines;
+    public string[] dialogueLines2;
     public float textSpeed;
     private int index;
     public GameObject dialogueBox;
+    public bool can_interact = true;
 
     
     void Start ()
     {
         textComponent.text = string.Empty;
-        dialogueBox.SetActive(false);
+        //dialogueBox.SetActive(false);
 
     }
 
     //AUTO COMPLETE TEXT WHEN LEFT CLICKING
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && can_interact)
         {
             if (textComponent.text == dialogueLines[index])
             {
@@ -45,13 +47,14 @@ public class dialoguePrompt : MonoBehaviour
     public void StartDialogue()
     {
         index = 0;
-        StartCoroutine(TypeLine());
+        //StartCoroutine(TypeLine());
         
     }
 
     //TURN EACH CHARACTER TO ARRAY, ALLOWS FOR ONE BY ONE TEXT APPEARING
     public IEnumerator TypeLine()
     {
+        dialogueBox.SetActive(true);
         foreach (char c in dialogueLines[index].ToCharArray())
         {   
             index++;
@@ -64,7 +67,7 @@ public class dialoguePrompt : MonoBehaviour
     // ALLOWS MULTIPLE LINES OF TEXT
     public void nextLine()
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
     }
 
 }
