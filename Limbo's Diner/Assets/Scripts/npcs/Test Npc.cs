@@ -44,7 +44,7 @@ public class TestNpc : MonoBehaviour
 
     public void win_game() 
     {
-        timer.win();
+        win();
     }
 
     public void win() 

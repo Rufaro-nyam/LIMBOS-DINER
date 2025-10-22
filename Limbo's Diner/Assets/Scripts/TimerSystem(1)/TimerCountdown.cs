@@ -23,6 +23,8 @@ public class TimerCountdown : MonoBehaviour
     //REFERENCES
     public TestNpc TestNpc;
     public failure failure;
+    public TestNpc win;
+    
 
     void Start()
     {
@@ -37,6 +39,8 @@ public class TimerCountdown : MonoBehaviour
         }
 
     }
+
+
 
 
     // Update is called once per frame
@@ -55,6 +59,9 @@ public class TimerCountdown : MonoBehaviour
             // add sound effect later
 
         }
+
+    
+
 
 
         int minutes = Mathf.FloorToInt (burgerTime/60);
