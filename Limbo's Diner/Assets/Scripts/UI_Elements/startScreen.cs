@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class startScreen : MonoBehaviour
 {
+    public GameObject sensetivity_ui;
+   
+   
     private void Start()
     {
         Time.timeScale = 1;
@@ -20,5 +23,10 @@ public class startScreen : MonoBehaviour
     public void quitGame()
     {
         Application.Quit();
+    }
+
+    public void optionsMenu()
+    {
+        sensetivity_ui.SetActive (true);
     }
 }
