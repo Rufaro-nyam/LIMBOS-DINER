@@ -29,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform playerCamera;
     [SerializeField] float xClamp = 85f;
     float xRotation = 0f;
+
+    //ANIMATION
+    public Player_mesh_anim mesh_anim;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -60,14 +63,22 @@ public class PlayerMovement : MonoBehaviour
         VerticalVelocity.y += gravity * Time.deltaTime;
         controller.Move(VerticalVelocity * Time.deltaTime);
 
-        if (jump && can_jump) 
+        if(horizontalinput.x != 0 || horizontalinput.y != 0) 
         {
-            
+            mesh_anim.walking = true;
+        }
+        else
+        {
+            mesh_anim.walking = false;
+        }
+        if (jump && can_jump)
+        {
+
 
             VerticalVelocity.y = Mathf.Sqrt(-2f * jumpheight * gravity);
-            
-            
-            
+
+
+
         }
         jump = false;
 
