@@ -27,6 +27,10 @@ public class TimerCountdown : MonoBehaviour
     public failure failure;
     public GameObject win_text;
 
+    //SCORING SYSTEM
+    public bool single_dish = true;
+    public Score_display score;
+
     //END LEVEL
     private Animator anim;
 
@@ -83,11 +87,54 @@ public class TimerCountdown : MonoBehaviour
         foreach (TestNpc n in npcs)
         {
             anim.SetTrigger("End");
-            print("ended");
+            //print("ended");
         }
         anim.SetTrigger("End");
+        print(burgerTime);
     }
 
+    public void deduce_score()
+    {
+        print(burgerTime);
+        if (single_dish)
+        {
+            if(burgerTime >= 40)
+            {
+                print("great!");
+                score.show_great();
+
+            }
+            else if(burgerTime >= 20 && burgerTime <= 39)
+            {
+                print("Meh");
+                score.show_satisfied();
+            }
+            else
+            {
+                print("Close Cut");
+                score.show_tardy();
+            }
+        }
+        if(single_dish == false)
+        {
+            if (burgerTime >= 90)
+            {
+                print("great!");
+                score.show_great();
+
+            }
+            else if (burgerTime >= 60 && burgerTime <= 39)
+            {
+                print("Meh");
+                score.show_satisfied();
+            }
+            else
+            {
+                print("Close Cut");
+                score.show_tardy();
+            }
+        }
+    }
     public void quit_to_menu() 
     {
         SceneManager.LoadSceneAsync("Main Menu");

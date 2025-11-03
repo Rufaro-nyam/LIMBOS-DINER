@@ -19,6 +19,7 @@ public class TestNpc : MonoBehaviour
     public bool last_npc;
     public TimerCountdown timer;
     private bool can_win = true;
+    private bool can_deduce_score = true;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,11 +35,17 @@ public class TestNpc : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y + 1f * Time.deltaTime, transform.position.z);
             if(last_npc && can_win) { win_game(); can_win = false; }
+            if (can_deduce_score)
+            {
+                timer.deduce_score();
+                can_deduce_score = false;
+            }
         }
         if (dissatisfied)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y - 1f * Time.deltaTime, transform.position.z);
         }
+
         
     }
 
