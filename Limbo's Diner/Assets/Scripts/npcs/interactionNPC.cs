@@ -27,55 +27,61 @@ public class interactionNPC : MonoBehaviour
     public bool single_dish;
 
     public TestNpc TestNpc;
+    private bool can_start = true;
 
 
     public void Interact()
     {
-        Debug.Log ("Interact");
-        dialoguePrompt.StartDialogue();
-        dialoguePrompt.nextLine();
-        dialoguePrompt.gameObject.SetActive(true);
-
-        
-        // STARTS TIMER
-        TimerCountdown.gameObject.SetActive(true);
-        if (single_dish) { TimerCountdown.burgerTime = 90; }
-        else { TimerCountdown.burgerTime = 150; }
+        if (can_start)
+        {
+            Debug.Log("Interact");
+            dialoguePrompt.StartDialogue();
+            dialoguePrompt.nextLine();
+            dialoguePrompt.gameObject.SetActive(true);
 
 
-        if (burger)
-        {
-            StartCoroutine(disable());
-            burger_dia.SetActive(true);
+            // STARTS TIMER
+            TimerCountdown.gameObject.SetActive(true);
+            if (single_dish) { TimerCountdown.burgerTime = 90; }
+            else { TimerCountdown.burgerTime = 150; }
+
+
+            if (burger)
+            {
+                StartCoroutine(disable());
+                burger_dia.SetActive(true);
+            }
+            else if (fish)
+            {
+                StartCoroutine(disable());
+                fish_dia.SetActive(true);
+                print("fishdish i want");
+            }
+            else if (hotdog)
+            {
+                StartCoroutine(disable());
+                hotdog_dia.SetActive(true);
+                print("hotdog i want");
+            }
+            else if (htd_n_brg)
+            {
+                StartCoroutine(disable());
+                hotdog_n_burger_dia.SetActive(true);
+                print("hotdog and burger i want");
+            }
+            else if (brg_n_fshdsh)
+            {
+                StartCoroutine(disable());
+                burger_n_fishdish_dia.SetActive(true);
+                print("burger and fishdish i want");
+            }
+            else
+            {
+                return;
+            }
+            can_start = false;
         }
-        else if (fish)
-        {
-            StartCoroutine(disable());
-            fish_dia.SetActive(true);
-            print("fishdish i want");
-        }
-        else if (hotdog)
-        {
-            StartCoroutine(disable());
-            hotdog_dia.SetActive(true);
-            print("hotdog i want");
-        }
-        else if (htd_n_brg)
-        {
-            StartCoroutine(disable());
-            hotdog_n_burger_dia.SetActive(true);
-            print("hotdog and burger i want");
-        }
-        else if (brg_n_fshdsh)
-        {
-            StartCoroutine(disable());
-            burger_n_fishdish_dia.SetActive(true);
-            print("burger and fishdish i want");
-        }
-        else
-        {
-            return;
-        }
+
 
 
         
