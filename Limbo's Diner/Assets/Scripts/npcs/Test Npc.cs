@@ -9,7 +9,6 @@ public class TestNpc : MonoBehaviour
     public GameObject text2;
     private bool satisfied = false;
     private bool dissatisfied = false;
-    public GameObject next_npc;
     public ParticleSystem win_particles;
 
     //REFERENCES
@@ -20,6 +19,11 @@ public class TestNpc : MonoBehaviour
     public TimerCountdown timer;
     private bool can_win = true;
     private bool can_deduce_score = true;
+
+    public bool last_interaction = false;
+    public interactionNPC next_npc;
+    public Queue Queue;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -60,7 +64,13 @@ public class TestNpc : MonoBehaviour
         text1.SetActive(false);
         text2.SetActive(true);
         satisfied = true;
-        next_npc.SetActive(true);
+        Queue.move_forward();
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1.5f);
+        if(last_interaction == false)
+        {
+            next_npc.can_interact = true;
+        }
+        
 
         //STOP COUNTDOWN
         TimerCountdown.gameObject.SetActive(false);

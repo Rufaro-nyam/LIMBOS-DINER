@@ -28,11 +28,14 @@ public class interactionNPC : MonoBehaviour
 
     public TestNpc TestNpc;
     private bool can_start = true;
+    public bool can_interact;
+
+
 
 
     public void Interact()
     {
-        if (can_start)
+        if (can_start && can_interact)
         {
             Debug.Log("Interact");
             dialoguePrompt.StartDialogue();
