@@ -171,7 +171,7 @@ public class Hands : MonoBehaviour
                 //print(hit.collider.name);
                 if (hit.transform.tag == "Meat")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     meat_gfx.SetActive(true);
                     occupied = true;
@@ -179,7 +179,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Cooked_meat")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     cooked_meat_gfx.SetActive(true);
                     occupied = true;
@@ -188,7 +188,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Sausage")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     sausage_gfx.SetActive(true);
                     occupied = true;
@@ -196,7 +196,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Cooked_sausage")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     cooked_sausage_gfx.SetActive(true);
                     occupied = true;
@@ -205,7 +205,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Bread")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     bread_gfx.SetActive(true);
                     occupied = true;
@@ -213,7 +213,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Hotdog_bun")
                 {
-                    pick_sound.Play();
+                   
                     disable_rest();
                     bun_gfx.SetActive(true);
                     occupied = true;
@@ -221,7 +221,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Cut_hotdog_bun")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     bread_gfx.SetActive(false);
                     occupied = true;
@@ -232,7 +232,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Cut_bread")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     bread_gfx.SetActive(false);
                     occupied = true;
@@ -243,7 +243,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Potatoe")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     potatoes_gfx.SetActive(true);
                     occupied = true;
@@ -251,7 +251,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Cooked_potatoe")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     bread_gfx.SetActive(false);
                     occupied = true;
@@ -261,7 +261,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Lettuce")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     lettuce_gfx.SetActive(true);
                     occupied = true;
@@ -269,7 +269,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Spinach")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     spinach_gfx.SetActive(true);
                     occupied = true;
@@ -277,7 +277,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Onion")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     onion_gfx.SetActive(true);
                     occupied = true;
@@ -285,7 +285,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Chopped_onion")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     chopped_onions_gfx.SetActive(true);
                     occupied = true;
@@ -294,7 +294,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Cut_letuce")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     occupied = true;
                     bread_active = false;
@@ -304,7 +304,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Chopped_spinach")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     occupied = true;
                     chopped_spinach_active = true;
@@ -313,7 +313,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Fish")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     occupied = true;
                     raw_fish_gfx.SetActive(true);
@@ -321,7 +321,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Cooked_fish")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     cooked_fish_gfx.SetActive(true);
                     occupied = true;
@@ -331,7 +331,7 @@ public class Hands : MonoBehaviour
                 //COMPLETE DISHES
                 if (hit.transform.tag == "Burger")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     occupied = true;
                     bread_active = false;
@@ -343,7 +343,7 @@ public class Hands : MonoBehaviour
 
                 if (hit.transform.tag == "FishDish")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     occupied = true;
                     bread_active = false;
@@ -353,7 +353,7 @@ public class Hands : MonoBehaviour
                 }
                 if (hit.transform.tag == "Hotdog")
                 {
-                    pick_sound.Play();
+                    
                     disable_rest();
                     occupied = true;
                     bread_active = false;
@@ -656,6 +656,7 @@ public class Hands : MonoBehaviour
     }
     public void disable_rest() 
     {
+        pick_sound.Play();
         foreach (GameObject f in foods) { f.SetActive(false); }
         foreach (GameObject p in processed_foods) { p.SetActive(false); }
         foreach (GameObject c in complete_dishes) { c.SetActive(false); }

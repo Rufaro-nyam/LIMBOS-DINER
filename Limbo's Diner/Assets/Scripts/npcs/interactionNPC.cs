@@ -45,6 +45,7 @@ public class interactionNPC : MonoBehaviour
 
             // STARTS TIMER
             TimerCountdown.gameObject.SetActive(true);
+            TimerCountdown.started = true;
             if (single_dish) { TimerCountdown.burgerTime = 90; TimerCountdown.single_dish = true; }
             else { TimerCountdown.burgerTime = 150; TimerCountdown.single_dish = false; }
 

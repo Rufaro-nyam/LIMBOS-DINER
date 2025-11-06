@@ -60,7 +60,9 @@ public class Pan : MonoBehaviour
 
     //SOUND
     private AudioSource pan_sound;
+    public AudioSource beeping;
     private bool can_play_sound = true;
+    private bool can_play_beep = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -110,6 +112,7 @@ public class Pan : MonoBehaviour
             }
             if (overcooking) 
             {
+                play_beep_sound();
                 //overcooking]
                 activate_smoke();
                 
@@ -155,6 +158,7 @@ public class Pan : MonoBehaviour
             }
             if (overcooking)
             {
+                play_beep_sound();
                 //overcooking]
                 activate_smoke();
                 activate_overcook_progress_sprites();
@@ -200,6 +204,7 @@ public class Pan : MonoBehaviour
             }
             if (overcooking)
             {
+                play_beep_sound();
                 //overcooking]
                 activate_smoke();
                 activate_overcook_progress_sprites();
@@ -269,6 +274,8 @@ public class Pan : MonoBehaviour
 
     public void food_collect() 
     {
+        beeping.Stop();
+        can_play_beep = true;
         oil.Stop();
         smoke.Stop();
         can_smoke = true;
@@ -295,6 +302,15 @@ public class Pan : MonoBehaviour
         }
     }
 
+    public void play_beep_sound()
+    {
+        if (can_play_beep)
+        {
+            beeping.Play();
+            can_play_beep = false;
+        }
+    }
+
     public void activate_progress() 
     {
         foreach(GameObject p in progress_sprites) { p.SetActive(true); }
@@ -307,6 +323,8 @@ public class Pan : MonoBehaviour
 
     public void deactivate_overcook_progress_sprites() 
     {
+        beeping.Stop();
+        can_play_beep = true;
         foreach (GameObject o in overcook_progress_sprites) { o.SetActive(false); }
     }
 

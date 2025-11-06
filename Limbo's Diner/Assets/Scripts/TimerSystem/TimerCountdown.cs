@@ -36,10 +36,15 @@ public class TimerCountdown : MonoBehaviour
 
     //SOUND
     private AudioSource clock_sound;
+  
+    
     private bool can_play_sound = true;
+    public bool started = false;
+    public Queue queue;
 
     void Start()
     {
+        
         clock_sound = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         //ONLY SHOWS WITH DIALOGUE
@@ -61,6 +66,7 @@ public class TimerCountdown : MonoBehaviour
 
         if (burgerTime > 0)
         {
+            queue.started = true;
             burgerTime -= Time.deltaTime;
         }
         else if (burgerTime < 0)
@@ -69,10 +75,11 @@ public class TimerCountdown : MonoBehaviour
             burgerTimer.color = Color.red;
             failure.gameObject.SetActive(true);
             clock_sound.Stop();
-            foreach(TestNpc n in npcs) 
+            foreach (TestNpc n in npcs)
             {
                 n.lose();
                 anim.SetTrigger("End");
+                queue.lose();
             }
             // add sound effect later
 

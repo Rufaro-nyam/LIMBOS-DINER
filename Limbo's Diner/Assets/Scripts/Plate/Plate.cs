@@ -67,6 +67,8 @@ public class Plate : MonoBehaviour
 
     //SOUNDS
     public AudioSource wrong_ing_sfx;
+    public AudioSource correct_placement_sfx;
+
 
     void Start()
     {
@@ -93,10 +95,12 @@ public class Plate : MonoBehaviour
 
     public void add_cooked_meat() 
     {
+
         if (!meat_put  )
         {
             if (Burger_active || Burger2_active || Burger3_active) 
             {
+                correct_placement_sfx.Play();
                 cooked_meat.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
                 {
@@ -134,6 +138,7 @@ public class Plate : MonoBehaviour
         {
             if (HotDog_active || HotDog2_active)
             {
+                correct_placement_sfx.Play();
                 cooked_sausage.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
                 {
@@ -172,6 +177,7 @@ public class Plate : MonoBehaviour
         {
             if (FriedFish_active || FriedFish2_active) 
             {
+                correct_placement_sfx.Play();
                 cooked_fish.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
                 {
@@ -207,6 +213,7 @@ public class Plate : MonoBehaviour
         {
             if (Burger_active || Burger2_active || Burger3_active) 
             {
+                correct_placement_sfx.Play();
                 cut_bread.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
                 {
@@ -243,6 +250,7 @@ public class Plate : MonoBehaviour
         {
             if (HotDog_active || HotDog2_active)
             {
+                correct_placement_sfx.Play();
                 cut_bun.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
                 {
@@ -279,6 +287,7 @@ public class Plate : MonoBehaviour
         {
             if (Burger_active || Burger2_active || Burger3_active) 
             {
+                correct_placement_sfx.Play();
                 cut_lettuce.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
                 {
@@ -314,6 +323,7 @@ public class Plate : MonoBehaviour
         {
             if (HotDog_active || HotDog2_active)
             {
+                correct_placement_sfx.Play();
                 chopped_onion.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
                 {
@@ -349,6 +359,7 @@ public class Plate : MonoBehaviour
         {
             if (FriedFish_active || FriedFish2_active) 
             {
+                correct_placement_sfx.Play();
                 chopped_spinach.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
                 {
@@ -384,6 +395,7 @@ public class Plate : MonoBehaviour
         {
             if (FriedFish_active || FriedFish2_active) 
             {
+                correct_placement_sfx.Play();
                 cooked_potatoes.SetActive(true);
                 for (int i = 0; i < slotpos.Length; i++)
                 {

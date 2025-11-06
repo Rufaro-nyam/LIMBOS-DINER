@@ -41,8 +41,10 @@ public class TestNpc : MonoBehaviour
             if(last_npc && can_win) { win_game(); can_win = false; }
             if (can_deduce_score)
             {
+                Queue.started = false;
                 timer.deduce_score();
                 can_deduce_score = false;
+                
             }
         }
         if (dissatisfied)
@@ -70,9 +72,10 @@ public class TestNpc : MonoBehaviour
         {
             next_npc.can_interact = true;
         }
-        
+
 
         //STOP COUNTDOWN
+        TimerCountdown.started = false;
         TimerCountdown.gameObject.SetActive(false);
         Debug.Log("Burger Countdown Stopped");
 
