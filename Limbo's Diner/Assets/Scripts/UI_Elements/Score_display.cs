@@ -7,6 +7,10 @@ public class Score_display : MonoBehaviour
     public GameObject great;
     public GameObject satisfied;
     public GameObject bad;
+    public GameObject score_30;
+    public GameObject score_20;
+    public GameObject score_10;
+
     private int score = 0;
     public TextMeshProUGUI score_display;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,6 +31,7 @@ public class Score_display : MonoBehaviour
         great.SetActive(true);
         score += 30;
         score_display.text = score.ToString();
+        score_30.SetActive(true);
 
     }
 
@@ -36,6 +41,7 @@ public class Score_display : MonoBehaviour
         satisfied.SetActive(true);
         score += 20;
         score_display.text = score.ToString();
+        score_20.SetActive(true);
     }
 
     public void show_tardy()
@@ -44,6 +50,7 @@ public class Score_display : MonoBehaviour
         bad.SetActive(true);
         score += 10;
         score_display.text = score.ToString();
+        score_10.SetActive(true);
     }
 
     public void Reset_reciept()
