@@ -65,7 +65,7 @@ public class TestNpc : MonoBehaviour
         text2.SetActive(true);
         satisfied = true;
         Queue.move_forward();
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1.5f);
+        transform.position = new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z + 1.5f);
         if(last_interaction == false)
         {
             next_npc.can_interact = true;

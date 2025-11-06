@@ -34,8 +34,13 @@ public class TimerCountdown : MonoBehaviour
     //END LEVEL
     private Animator anim;
 
+    //SOUND
+    private AudioSource clock_sound;
+    private bool can_play_sound = true;
+
     void Start()
     {
+        clock_sound = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         //ONLY SHOWS WITH DIALOGUE
         if (Input.GetKeyDown(KeyCode.E))
@@ -63,6 +68,7 @@ public class TimerCountdown : MonoBehaviour
             burgerTime = 0;
             burgerTimer.color = Color.red;
             failure.gameObject.SetActive(true);
+            clock_sound.Stop();
             foreach(TestNpc n in npcs) 
             {
                 n.lose();
@@ -70,6 +76,15 @@ public class TimerCountdown : MonoBehaviour
             }
             // add sound effect later
 
+        }
+
+        if(single_dish && burgerTime <= 20)
+        {
+            play_sound();
+        }
+        if(single_dish == false && burgerTime <= 30)
+        {
+            play_sound();
         }
 
 
@@ -95,6 +110,8 @@ public class TimerCountdown : MonoBehaviour
 
     public void deduce_score()
     {
+        clock_sound.Stop();
+        can_play_sound = true;
         print(burgerTime);
         if (single_dish)
         {
@@ -138,6 +155,15 @@ public class TimerCountdown : MonoBehaviour
     public void quit_to_menu() 
     {
         SceneManager.LoadSceneAsync("Main Menu");
+    }
+
+    public void play_sound()
+    {
+        if (can_play_sound)
+        {
+            clock_sound.Play();
+            can_play_sound = false;
+        }
     }
 
     //public void Pause()

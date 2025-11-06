@@ -38,10 +38,15 @@ public class Pot : MonoBehaviour
     //COOKING SPEED
     public float process_speed;
 
+    //SOUND
+    private AudioSource pot_sound;
+    private bool can_play_sound = true;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         current_prog = 0f;
+        pot_sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -50,6 +55,8 @@ public class Pot : MonoBehaviour
 
         if (boiling_potatoes)
         {
+            play_pot_sound();
+            pot_sound.volume = Mathf.Lerp(pot_sound.volume, 1, 0.01f);
             current_prog += process_speed * Time.deltaTime;
             progressbar.fillAmount = current_prog / max_prog;
             if (current_prog >= max_prog)
@@ -63,7 +70,12 @@ public class Pot : MonoBehaviour
             }
         }
 
-        
+        if (boiling_potatoes == false)
+        {
+            pot_sound.volume = Mathf.Lerp(pot_sound.volume, 0, 0.03f);
+            can_play_sound = true;
+        }
+
     }
 
 
@@ -102,5 +114,14 @@ public class Pot : MonoBehaviour
     public void deactivate_progress()
     {
         foreach (GameObject p in progress_sprites) { p.SetActive(false); }
+    }
+
+    public void play_pot_sound()
+    {
+        if (can_play_sound)
+        {
+            pot_sound.Play();
+            can_play_sound = false;
+        }
     }
 }

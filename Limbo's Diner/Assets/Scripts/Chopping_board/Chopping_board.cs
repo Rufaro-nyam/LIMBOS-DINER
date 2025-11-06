@@ -50,6 +50,8 @@ public class Chopping_board : MonoBehaviour
     //COOKING SPEED
     public float process_speed;
 
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -227,4 +229,6 @@ public class Chopping_board : MonoBehaviour
     {
         foreach (GameObject p in progress_sprites) { p.SetActive(false); }
     }
+
+
 }

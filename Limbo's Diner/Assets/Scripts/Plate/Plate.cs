@@ -65,6 +65,9 @@ public class Plate : MonoBehaviour
     //HIGHLIGHT GFX
     public GameObject highlight;
 
+    //SOUNDS
+    public AudioSource wrong_ing_sfx;
+
     void Start()
     {
         Burger_active = true;
@@ -111,6 +114,7 @@ public class Plate : MonoBehaviour
             else 
             {
                 not_component_warning.SetActive(true);
+                wrong_ing_sfx.Play();
             }
 
 
@@ -118,6 +122,7 @@ public class Plate : MonoBehaviour
         else 
         {
             present_warning.SetActive(true);
+            wrong_ing_sfx.Play();
         }
 
 
@@ -146,6 +151,7 @@ public class Plate : MonoBehaviour
             else
             {
                 not_component_warning.SetActive(true);
+                wrong_ing_sfx.Play();
             }
 
 
@@ -153,6 +159,7 @@ public class Plate : MonoBehaviour
         else
         {
             present_warning.SetActive(true);
+            wrong_ing_sfx.Play();
         }
 
 
@@ -182,6 +189,7 @@ public class Plate : MonoBehaviour
             else 
             {
                 not_component_warning.SetActive(true);
+                wrong_ing_sfx.Play();
             }
 
 
@@ -189,6 +197,7 @@ public class Plate : MonoBehaviour
         else
         {
             present_warning.SetActive(true);
+            wrong_ing_sfx.Play();
         }
     }
 
@@ -215,12 +224,14 @@ public class Plate : MonoBehaviour
             else 
             {
                 not_component_warning.SetActive(true);
+                wrong_ing_sfx.Play();
             }
 
         }
         else
         {
             present_warning.SetActive(true);
+            wrong_ing_sfx.Play();
         }
 
 
@@ -249,12 +260,14 @@ public class Plate : MonoBehaviour
             else
             {
                 not_component_warning.SetActive(true);
+                wrong_ing_sfx.Play();
             }
 
         }
         else
         {
             present_warning.SetActive(true);
+            wrong_ing_sfx.Play();
         }
 
 
@@ -283,11 +296,13 @@ public class Plate : MonoBehaviour
             else 
             {
                 not_component_warning.SetActive(true);
+                wrong_ing_sfx.Play();
             }
         }
         else
         {
             present_warning.SetActive(true);
+            wrong_ing_sfx.Play();
         }
 
 
@@ -316,11 +331,13 @@ public class Plate : MonoBehaviour
             else
             {
                 not_component_warning.SetActive(true);
+                wrong_ing_sfx.Play();
             }
         }
         else
         {
             present_warning.SetActive(true);
+            wrong_ing_sfx.Play();
         }
 
 
@@ -349,12 +366,14 @@ public class Plate : MonoBehaviour
             else 
             {
                 not_component_warning.SetActive(true);
+                wrong_ing_sfx.Play();
             }
 
         }
         else
         {
             present_warning.SetActive(true);
+            wrong_ing_sfx.Play();
         }
 
 
@@ -382,12 +401,14 @@ public class Plate : MonoBehaviour
             else 
             {
                 not_component_warning.SetActive(true);
+                wrong_ing_sfx.Play();
             }
 
         }
         else
         {
             present_warning.SetActive(true);
+            wrong_ing_sfx.Play();
         }
 
 

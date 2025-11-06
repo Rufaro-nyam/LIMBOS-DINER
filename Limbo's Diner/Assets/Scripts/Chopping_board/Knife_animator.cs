@@ -4,6 +4,9 @@ public class Knife_animator : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private Animator anim;
+
+    //SOUNDS
+    public AudioSource chop_sound;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -23,5 +26,11 @@ public class Knife_animator : MonoBehaviour
     public void idle() 
     {
         anim.SetTrigger("Idle");
+    }
+
+    public void play_chop()
+    {
+        chop_sound.pitch = UnityEngine.Random.Range(1f, 1.1f);
+        chop_sound.Play();
     }
 }

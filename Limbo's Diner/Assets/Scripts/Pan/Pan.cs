@@ -57,6 +57,10 @@ public class Pan : MonoBehaviour
 
     //COOKING SPEED
     public float process_speed;
+
+    //SOUND
+    private AudioSource pan_sound;
+    private bool can_play_sound = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -64,6 +68,7 @@ public class Pan : MonoBehaviour
         current_prog = 0f;
         deactivate_progress();
         deactivate_overcook_progress_sprites();
+        pan_sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -87,6 +92,8 @@ public class Pan : MonoBehaviour
         }
         if (cooking_meat) 
         {
+            pan_sound.volume = Mathf.Lerp(pan_sound.volume, 1, 0.01f);
+            play_pan_sound();
             current_prog += process_speed * Time.deltaTime;
             progressbar.fillAmount = current_prog / max_prog;
             if(current_prog >= max_prog) 
@@ -130,6 +137,8 @@ public class Pan : MonoBehaviour
         }
         if (cooking_fish)
         {
+            pan_sound.volume = Mathf.Lerp(pan_sound.volume, 1, 0.01f);
+            play_pan_sound();
             current_prog += process_speed * Time.deltaTime;
             progressbar.fillAmount = current_prog / max_prog;
             if (current_prog >= max_prog)
@@ -173,6 +182,8 @@ public class Pan : MonoBehaviour
 
         if (cooking_sausage)
         {
+            pan_sound.volume = Mathf.Lerp(pan_sound.volume, 1, 0.01f);
+            play_pan_sound();
             current_prog += process_speed * Time.deltaTime;
             progressbar.fillAmount = current_prog / max_prog;
             if (current_prog >= max_prog)
@@ -212,6 +223,11 @@ public class Pan : MonoBehaviour
                     deactivate_overcook_progress_sprites();
                 }
             }
+        }
+        if(cooking_fish == false && cooking_meat == false && cooking_sausage == false)
+        {
+            pan_sound.volume = Mathf.Lerp(pan_sound.volume, 0, 0.03f);
+            can_play_sound = true;
         }
     }
 
@@ -268,6 +284,15 @@ public class Pan : MonoBehaviour
         overcooking = false;
         deactivate_overcook_progress_sprites();
         occupied = false;
+    }
+
+    public void play_pan_sound()
+    {
+        if (can_play_sound)
+        {
+            pan_sound.Play();
+            can_play_sound = false;
+        }
     }
 
     public void activate_progress() 
