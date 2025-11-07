@@ -78,6 +78,10 @@ public class TestNpc : MonoBehaviour
         TimerCountdown.started = false;
         TimerCountdown.gameObject.SetActive(false);
         Debug.Log("Burger Countdown Stopped");
+        if (last_npc)
+        {
+            TimerCountdown.started = true;
+        }
 
         //DISPLAY TEXT = LATER CHANGE TO REPORT
         //success.gameObject.SetActive(true);
