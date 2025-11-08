@@ -106,12 +106,13 @@ public class TimerCountdown : MonoBehaviour
     public void win() 
     {
         win_text.SetActive(true);
+        anim.SetTrigger("End");
         foreach (TestNpc n in npcs)
         {
-            anim.SetTrigger("End");
+            
             //print("ended");
         }
-        anim.SetTrigger("End");
+        //anim.SetTrigger("End");
         print(burgerTime);
     }
 
