@@ -68,7 +68,7 @@ public class TimerCountdown : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        Color curent_color = end_pic.tintColor;
+        /*Color curent_color = end_pic.tintColor;
 
         if (ending && curent_color.a <= 1f)
         {
@@ -78,7 +78,7 @@ public class TimerCountdown : MonoBehaviour
         if(end_pic.tintColor.a >= 0.9f)
         {
             quit_to_menu();
-        }
+        }*/
 
         if (burgerTime > 0)
         {
