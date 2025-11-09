@@ -8,6 +8,7 @@ public class Queue : MonoBehaviour
     public AudioSource lose_sound;
     private float bell_time = 7f;
     public bool started = false;
+    public bool can_ring = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,10 +35,17 @@ public class Queue : MonoBehaviour
     private IEnumerator ring()
     {
         yield return new WaitForSeconds(7);
-        if(started == false)
+        if(started == false && can_ring)
         {
             bell.Play();
         }
         StartCoroutine(ring());
+    }
+
+    public void silence_bell()
+    {
+        bell.volume = 0;
+        bell.Stop();
+        can_ring = false;
     }
 }
