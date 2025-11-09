@@ -72,6 +72,13 @@ public class TestNpc : MonoBehaviour
         {
             next_npc.can_interact = true;
             TimerCountdown.started = false;
+            Queue.started = true;
+            
+        }
+        if(last_interaction == true)
+        {
+            Queue.silence_bell();
+            TimerCountdown.win_to_menu();
         }
 
 
