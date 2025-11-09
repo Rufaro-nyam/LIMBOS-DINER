@@ -53148,7 +53148,7 @@ MonoBehaviour:
   smoke: {fileID: 530100797}
   occupied: 0
   highlight: {fileID: 1557737979}
-  process_speed: 2
+  process_speed: 0.8
   beeping: {fileID: 1758668481}
 --- !u!65 &718006077
 BoxCollider:
@@ -96337,7 +96337,7 @@ MonoBehaviour:
   stemgfx2: {fileID: 978723728}
   occupied: 0
   highlight: {fileID: 314615230}
-  process_speed: 2
+  process_speed: 0.8
 --- !u!82 &1154816673
 AudioSource:
   m_ObjectHideFlags: 0
@@ -135010,7 +135010,7 @@ MonoBehaviour:
   greens_particles: {fileID: 1901675935}
   onion_particles: {fileID: 612096971}
   highlight: {fileID: 229887442}
-  process_speed: 2
+  process_speed: 0.8
 --- !u!95 &1895174335
 Animator:
   serializedVersion: 7
@@ -163237,8 +163237,8 @@ Transform:
   m_GameObject: {fileID: 3310185850021557927}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -3.8, y: 7.869311, z: -59.8}
-  m_LocalScale: {x: 2028.9631, y: 48.506485, z: 772.0747}
+  m_LocalPosition: {x: -5.253, y: 7.869311, z: -59.8}
+  m_LocalScale: {x: 1876.7909, y: 48.506485, z: 772.0747}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450651943519691}
