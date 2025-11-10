@@ -121,6 +121,8 @@ public class TimerCountdown : MonoBehaviour
 
     public void win() 
     {
+        clock_sound.volume = 0;
+        burgerTime = 90;
         win_text.SetActive(true);
         anim.SetTrigger("End");
         foreach (TestNpc n in npcs)
@@ -164,7 +166,7 @@ public class TimerCountdown : MonoBehaviour
                 score.show_great();
 
             }
-            else if (burgerTime <= 60 && burgerTime >= 39)
+            else if (burgerTime <= 60 && burgerTime >= 30)
             {
                 print("Meh");
                 score.show_satisfied();
@@ -192,6 +194,8 @@ public class TimerCountdown : MonoBehaviour
 
     public void win_to_menu()
     {
+        clock_sound.volume = 0;
+        burgerTime = 90;
         anim.SetTrigger("End");
     }
 
