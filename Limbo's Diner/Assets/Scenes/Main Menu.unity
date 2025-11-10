@@ -866,10 +866,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 304350030}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1079363240}
+        m_TargetAssemblyTypeName: startScreen, Assembly-CSharp
+        m_MethodName: back
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2457,7 +2457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c502dae8e64854dbc699921238e2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensetivity_ui: {fileID: 0}
+  sensetivity_ui: {fileID: 38408444}
 --- !u!114 &1079363241
 MonoBehaviour:
   m_ObjectHideFlags: 0
