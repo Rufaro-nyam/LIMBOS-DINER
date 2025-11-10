@@ -6424,30 +6424,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 889683464}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &889683467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15286,7 +15262,6 @@ GameObject:
   - component: {fileID: 2026913684}
   - component: {fileID: 2026913683}
   - component: {fileID: 2026913682}
-  - component: {fileID: 2026913686}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -15386,25 +15361,6 @@ Transform:
   - {fileID: 1765081728}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2026913686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2026913681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc934d4c50650214199d4501450797c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DialogueBox: {fileID: 0}
-  line1: {fileID: 0}
-  line2: {fileID: 0}
-  line3: {fileID: 0}
-  line4: {fileID: 0}
-  line5: {fileID: 0}
-  line6: {fileID: 0}
 --- !u!1 &2029560415
 GameObject:
   m_ObjectHideFlags: 0
