@@ -147094,10 +147094,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Welcome To Limbos Diner! Here you will serve customers whatever food they
-    want.
-
-    Go to Customers and press E to get their orders.'
+  m_text: Welcome To Limbos Diner! Here you will serve customers stuck in a state
+    of limbo whatever food they want. Go to Customers and press E to get their orders.
+    Good service means customers can come back to life.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -147131,8 +147130,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -147162,7 +147161,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -302.0701, y: -7.6341705, z: -404.0949, w: -11.434519}
+  m_margin: {x: -302.0701, y: -7.6341705, z: -295.83615, w: -11.434519}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
