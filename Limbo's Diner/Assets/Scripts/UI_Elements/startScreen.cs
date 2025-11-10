@@ -29,4 +29,9 @@ public class startScreen : MonoBehaviour
     {
         sensetivity_ui.SetActive (true);
     }
+
+    public void back()
+    {
+        sensetivity_ui.SetActive(false);
+    }
 }
