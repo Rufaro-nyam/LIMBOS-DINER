@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class INtroScene_Dialogue : MonoBehaviour
 {
@@ -14,16 +15,22 @@ public class INtroScene_Dialogue : MonoBehaviour
     [SerializeField] public TextMeshProUGUI line5;
     [SerializeField] public TextMeshProUGUI line6;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         DialogueBox.gameObject.SetActive(true);
         line1.gameObject.SetActive(true);
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         
+
     }
+
 }

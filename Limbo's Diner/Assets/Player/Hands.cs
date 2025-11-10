@@ -103,6 +103,7 @@ public class Hands : MonoBehaviour
 
     //SOUND
     private AudioSource pick_sound;
+    public AudioSource double_meal_notif;
 
     private void Awake()
     {
@@ -613,6 +614,7 @@ public class Hands : MonoBehaviour
                         h_a_b += 1;
                         burger_number = 2;
                         menu.burger_active();
+                        double_meal_notif.Play();
                     }
 
                 }
@@ -633,6 +635,7 @@ public class Hands : MonoBehaviour
                         fishdish_number = 2;
                         menu.friedfish_active();
                         Fish_Dish2_active = true;
+                        double_meal_notif.Play();
                     }
 
                 }
