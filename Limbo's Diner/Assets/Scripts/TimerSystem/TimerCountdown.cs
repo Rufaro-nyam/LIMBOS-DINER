@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 
 // Title: Make a TIMER & COUNTDOWN in 5 minutes | Unity Tutorial for beginners
@@ -36,11 +37,15 @@ public class TimerCountdown : MonoBehaviour
 
     //SOUND
     private AudioSource clock_sound;
+
+    //ENDING
   
+    private bool ending = false;
     
     private bool can_play_sound = true;
     public bool started = false;
     public Queue queue;
+    [SerializeField] Image end_pic;
 
     void Start()
     {
@@ -63,6 +68,17 @@ public class TimerCountdown : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        /*Color curent_color = end_pic.tintColor;
+
+        if (ending && curent_color.a <= 1f)
+        {
+            curent_color.a += Time.deltaTime;
+        }
+        end_pic.tintColor = curent_color;
+        if(end_pic.tintColor.a >= 0.9f)
+        {
+            quit_to_menu();
+        }*/
 
         if (burgerTime > 0)
         {
@@ -106,12 +122,13 @@ public class TimerCountdown : MonoBehaviour
     public void win() 
     {
         win_text.SetActive(true);
+        anim.SetTrigger("End");
         foreach (TestNpc n in npcs)
         {
-            anim.SetTrigger("End");
+            
             //print("ended");
         }
-        anim.SetTrigger("End");
+        //anim.SetTrigger("End");
         print(burgerTime);
     }
 
@@ -147,7 +164,7 @@ public class TimerCountdown : MonoBehaviour
                 score.show_great();
 
             }
-            else if (burgerTime >= 60 && burgerTime <= 39)
+            else if (burgerTime <= 60 && burgerTime >= 39)
             {
                 print("Meh");
                 score.show_satisfied();
@@ -171,6 +188,11 @@ public class TimerCountdown : MonoBehaviour
             clock_sound.Play();
             can_play_sound = false;
         }
+    }
+
+    public void win_to_menu()
+    {
+        anim.SetTrigger("End");
     }
 
     //public void Pause()
