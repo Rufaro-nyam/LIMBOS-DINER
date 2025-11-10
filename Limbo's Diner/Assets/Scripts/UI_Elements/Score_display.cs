@@ -32,6 +32,8 @@ public class Score_display : MonoBehaviour
         score += 30;
         score_display.text = score.ToString();
         score_30.SetActive(true);
+        score_20.SeActive(false);
+        score_10.SetActive(false);
 
     }
 
@@ -42,6 +44,8 @@ public class Score_display : MonoBehaviour
         score += 20;
         score_display.text = score.ToString();
         score_20.SetActive(true);
+        score_30.SetActive(false);
+        score_10.SetActive(false);
     }
 
     public void show_tardy()
@@ -51,6 +55,8 @@ public class Score_display : MonoBehaviour
         score += 10;
         score_display.text = score.ToString();
         score_10.SetActive(true);
+        score_20.SetActive(false);
+        score_30.SetActive(false);
     }
 
     public void Reset_reciept()
